@@ -1,0 +1,17 @@
+build/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+*.p8
+*.p12
+*.key
+*.cer
+*.csr
+*.mobileprovision
+.env
+__pycache__/
+
+.DS_Store
+Thumbs.db
+*.log
+.env.*
