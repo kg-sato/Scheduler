@@ -1,0 +1,30 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Preview Scheduler",
+      "type": "process",
+      "command": "python",
+      "args": ["-m", "http.server", "8002", "--bind", "127.0.0.1"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "dedicated" }
+    },
+    {
+      "label": "Sync iPhone UI",
+      "type": "process",
+      "command": "python",
+      "args": ["scripts/sync_app.py"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Sync design preview",
+      "type": "process",
+      "command": "python",
+      "args": ["scripts/sync_preview.py"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    }
+  ]
+}

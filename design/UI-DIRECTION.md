@@ -1,46 +1,44 @@
+# Latest direction: After Hours
+
+The current implementation uses a dark abstract observatory identity: plum, lilac chrome, mint, apricot, and acid yellow; asymmetric bento tiles; a sculpted focus dial; dimensional orbital forms; and dark glass controls. It retains the In your orbit / Now panel and all student workflows. The previous light direction below is historical. See RESEARCH-AND-DESIGN.md for this revision.
+
 # UI direction: energized yet focused
 
-## Agreed direction
+## Current local iteration
 
-The experience should feel energized yet focused. Liquid Glass alone felt too generic; the design needs an identity rooted in the scheduler's recurring template and independent weeks.
+The student-focused direction is now implemented in `Application.html` and mirrored in the iPhone bundle and interactive preview. It remains uncommitted for owner review.
 
-Working concept: **Your day, in motion.**
+See [Research and design decisions](RESEARCH-AND-DESIGN.md) for sources, visual identity, motion specifications, implemented features, compatibility, and release limitations.
 
-## Proposed next design iteration
+Open [the interactive preview](scheduler-ui-preview/index.html) for a fictional student workspace. Open the root `Application.html` for your actual local schedule. Their storage is separate.
 
-- Cool off-white canvas with ink-colored text, electric blue events, and a restrained lime accent for the current moment and primary action.
-- A prominent Now / Next section showing the current event, the following event, and the gap between them.
-- A daily timeline with event lengths reflecting duration and visible free-time gaps.
-- A floating glass week selector and add button; readable event surfaces with stronger body.
-- Large times, short labels, fewer borders, and deliberate spacing.
-- Quick, restrained transitions: selected days slide into place; events expand into their editor. Respect reduced motion and reduced transparency preferences.
-- Make the existing recurring-template model understandable through “My rhythm” and “This week.” Edits must preserve the existing distinction between template changes and saved weeks.
+## Agreed character
 
-These are brainstorming proposals to develop and review, not completed application features.
+**Energized yet focused.** A routine with room for real life. The core identity uses an orbital mark, editorial typography, a cool paper background, ink text, electric blue, and selective lime accents.
 
-## Earlier ideas retained for exploration
+Working concept: **Your day, in motion.** The interface should help a university student see their next action, make room for study, and recognize open time without pressure to fill every hour.
 
-- “Your rhythm”: show the shape of a day, breaks, and breathing room.
-- “Weekly studio”: movable schedule blocks, a reusable routine drawer, and indicators for departures from the usual week.
-- “Quiet focus”: current and upcoming events take priority, with the full schedule readily accessible.
-- Optional curated palettes: Glacier, Dusk, Graphite.
-- Schedule-derived summaries such as “Your evening is open”; no AI service is required for simple summaries.
+## Delivered direction
 
-## Current preview
+- My day: current/upcoming event context, a duration-aware agenda, and free-time gaps.
+- A glass date selector and floating mobile navigation; strong readable event cards.
+- Assignments with course labels, due dates, completion, and a Plan action that drafts a study block.
+- My rhythm: direct recurring-template editing with independent saved weeks.
+- Focus room: 25/50/90-minute sessions, pause/resume, assignment intentions, and a weekly goal.
+- Personalized name and goal, calmer-motion and solid-material preferences.
+- Bounded microanimations, dialog transitions, local backdrop blur, and clear keyboard focus.
 
-Open [scheduler-ui-preview/index.html](scheduler-ui-preview/index.html) directly in a browser. It is a standalone, static concept with representative sample events and no external dependencies.
+## Brainstorming retained for later
 
-The current preview contains the earlier Liquid Glass-inspired direction: desktop week grid, phone agenda, and edit-event sheet. It includes increased translucency, bright surface edges, background color, and rounded glass controls. It does **not yet implement** the proposed electric-blue/lime Now / Next redesign above. Buttons in this preview are illustrative.
+- Weekly studio: a reusable routine drawer and explicit indicators for changes from the usual week.
+- Curated alternate palettes such as Glacier, Dusk, and Graphite.
+- More schedule-derived summaries, such as a lighter afternoon after a full morning.
+- Native Apple Liquid Glass once the supported iOS version and native/web UI boundary are decided.
 
-The material is a CSS approximation, not Apple's native Liquid Glass. Native adoption and supported iOS versions require a separate implementation decision.
+These later ideas are not implemented. The current design is a reviewable first iteration rather than a release-ready claim.
 
-## Implementation sequence
+## Workflow
 
-1. Refine and review the energized-yet-focused mockup.
-2. Implement the approved design in the root Application.html while preserving scheduling behavior, offline storage, import/export, and accessibility.
-3. Sync the HTML into the iPhone wrapper using scripts/sync_app.py.
-4. Review native layout and behavior on Apple hardware, then complete signing and TestFlight preparation described in docs/TESTFLIGHT.md.
+Work in `C:\Users\kgsat\Documents\Scheduler` in VS Code. Keep edits local and uncommitted unless explicitly asked otherwise. The owner reviews and pushes.
 
-## Figma
-
-An empty design workspace was created at https://www.figma.com/design/NkpzViO6SG5SldON0aamgR . Local HTML preview work can continue independently of Figma tool quotas. The embedded workspace does not itself guarantee a higher account quota. No personal schedule data is included in this design preview.
+The previously created Figma workspace is at https://www.figma.com/design/NkpzViO6SG5SldON0aamgR . It has not been populated with this revision; local design work does not depend on its tool quota.

@@ -6,7 +6,7 @@ import UniformTypeIdentifiers
 @main
 struct SchedulerApp: App {
     var body: some Scene {
-        WindowGroup { ScheduleScreen().preferredColorScheme(.light) }
+        WindowGroup { ScheduleScreen().preferredColorScheme(.dark) }
     }
 }
 
@@ -31,7 +31,7 @@ struct ScheduleScreen: View {
 
     var body: some View {
         ScheduleWebView(bridge: bridge)
-            .background(Color(red: 0.91, green: 0.95, blue: 0.98))
+            .background(Color(red: 0.082, green: 0.078, blue: 0.114))
             .fileImporter(isPresented: $bridge.importing, allowedContentTypes: [.json]) { result in
                 switch result {
                 case .success(let url):
@@ -64,6 +64,7 @@ final class ScheduleBridge: NSObject, ObservableObject, WKScriptMessageHandler {
     weak var webView: WKWebView?
 
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        // Accept Files requests only from the bundled main document, not embedded or remote pages.
         guard message.frameInfo.isMainFrame, message.frameInfo.request.url?.isFileURL == true,
               let body = message.body as? [String: Any], let action = body["action"] as? String else { return }
         if action == "import" {
@@ -93,6 +94,7 @@ struct ScheduleWebView: UIViewRepresentable {
 
     func makeUIView(context: Context) -> WKWebView {
         let configuration = WKWebViewConfiguration()
+        // Persist web storage across launches. This remains device-local until account sync is implemented.
         configuration.websiteDataStore = .default()
         configuration.userContentController.add(bridge, name: "scheduleFiles")
         let view = WKWebView(frame: .zero, configuration: configuration)
@@ -112,6 +114,7 @@ struct ScheduleWebView: UIViewRepresentable {
     func updateUIView(_ uiView: WKWebView, context: Context) {}
 
     static func dismantleUIView(_ uiView: WKWebView, coordinator: Coordinator) {
+        // Release the bridge registration when SwiftUI removes this web view.
         uiView.configuration.userContentController.removeScriptMessageHandler(forName: "scheduleFiles")
         uiView.navigationDelegate = nil
     }
@@ -121,6 +124,7 @@ struct ScheduleWebView: UIViewRepresentable {
         func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction,
                      decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
             guard let url = navigationAction.request.url else { decisionHandler(.cancel); return }
+            // Restrict navigation to the bundled app. Future web authentication needs a deliberate separate flow.
             decisionHandler(url.isFileURL && url.standardizedFileURL == allowedURL?.standardizedFileURL ? .allow : .cancel)
         }
         func webViewWebContentProcessDidTerminate(_ webView: WKWebView) { webView.reload() }
