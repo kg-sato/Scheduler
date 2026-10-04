@@ -46,3 +46,8 @@ Events use 30-minute steps between 06:00 and 23:00. Four editable starter events
 The application passed 25 desktop Chromium/mobile-emulation checks, covering persistence, week isolation, template changes, overlaps, dragging, keyboard focus, validation, JSON restoration and 375px layout. No console errors were observed. JavaScript bridge checks also passed.
 
 The native project has not yet been compiled or run on an iPhone. No TestFlight build has been uploaded. Apple signing credentials and an App Store Connect app record must be configured before uploading. Use GitHub repository secrets for signing material; credential files are excluded by `.gitignore`.
+
+## UI design work
+
+See [design/UI-DIRECTION.md](design/UI-DIRECTION.md) for the agreed emotional direction, brainstorming proposals, and implementation sequence. Open [the static UI preview](design/scheduler-ui-preview/index.html) in a browser to review the current Liquid Glass concept. The next energized-yet-focused iteration is documented but not yet implemented.
+
