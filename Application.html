@@ -5171,6 +5171,398 @@
         }
       }
     </style>
+    <style id="orbital-pages">
+      /* Assignment desk: sculpted paper planes and a functional completion orbit. */
+      .assignment-overview {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 24px;
+        padding: 28px 34px;
+        margin-bottom: 32px;
+        border-radius: 28px 28px 60px 28px;
+        background:
+          radial-gradient(ellipse at 85% 20%, #9ed6c411, transparent 60%),
+          var(--surface);
+        box-shadow: var(--raised);
+        position: relative;
+        overflow: hidden;
+      }
+      .assignment-overview::before {
+        content: "";
+        position: absolute;
+        width: 340px;
+        height: 150px;
+        border: 1px solid #b2cfce1c;
+        border-radius: 50%;
+        transform: rotate(-32deg);
+        right: -105px;
+        top: 20px;
+        pointer-events: none;
+      }
+      .assignment-overview .eyebrow {
+        color: #c7cad5;
+        font-size: 10px;
+      }
+      .assignment-overview h2 {
+        font-size: clamp(26px, 3vw, 38px);
+        font-weight: 500;
+        letter-spacing: -0.035em;
+        margin: 10px 0;
+      }
+      .assignment-overview p {
+        color: #c7cad5;
+        margin: 0;
+        font-size: 13px;
+      }
+      .assignment-overview .overview-copy {
+        position: relative;
+        z-index: 1;
+      }
+      .completion-orbit {
+        width: 140px;
+        height: 140px;
+        display: grid;
+        place-content: center;
+        text-align: center;
+        border-radius: 50%;
+        background: var(--surface);
+        box-shadow: var(--inset);
+        position: relative;
+        flex: none;
+      }
+      .completion-orbit::before {
+        content: "";
+        position: absolute;
+        inset: 10px;
+        border-radius: 50%;
+        background: conic-gradient(#a9d5c8 var(--completion), #424751 0);
+        mask: radial-gradient(circle, transparent 65%, #000 66%);
+        -webkit-mask: radial-gradient(circle, transparent 65%, #000 66%);
+      }
+      .completion-orbit strong {
+        font-size: 30px;
+        font-weight: 500;
+        line-height: 1.2;
+        font-variant-numeric: tabular-nums;
+      }
+      .completion-orbit span {
+        color: #c7cad5;
+        font-size: 11px;
+      }
+      .tasks-main > .section-heading {
+        margin: 0 0 20px;
+      }
+      .tasks-main > .section-heading h2 {
+        font-size: 17px;
+        font-weight: 500;
+      }
+      .tasks-main .task-tabs {
+        margin-bottom: 28px;
+      }
+      #tasks-full {
+        display: grid;
+        gap: 30px;
+      }
+      .assignment-group {
+        min-width: 0;
+      }
+      .assignment-group > header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+      .assignment-group > header::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(90deg, #ffffff20, transparent);
+      }
+      .assignment-group h3 {
+        font-size: 13px;
+        font-weight: 500;
+        margin: 0;
+      }
+      .assignment-count {
+        font-size: 11px;
+        color: #c7cad5;
+        padding: 3px 9px;
+        border-radius: 12px;
+        box-shadow: var(--inset);
+      }
+      .assignment-cards {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+      }
+      #tasks-full .task-item {
+        position: relative;
+        display: grid;
+        grid-template-columns: 36px minmax(0, 1fr);
+        gap: 14px;
+        padding: 24px;
+        border: 1px solid #ffffff09;
+        border-radius: 22px;
+        background: var(--surface);
+        box-shadow:
+          5px 5px 12px #1b1c22,
+          -4px -4px 11px #363943;
+        overflow: hidden;
+        transition:
+          transform 180ms ease,
+          border-color 180ms ease;
+      }
+      #tasks-full .task-item::after {
+        content: "";
+        position: absolute;
+        right: -22px;
+        top: -30px;
+        width: 95px;
+        height: 95px;
+        border: 13px solid var(--surface);
+        border-radius: 50%;
+        box-shadow:
+          4px 4px 9px #191b22,
+          -4px -4px 10px #383b45,
+          inset 4px 4px 9px #191b22,
+          inset -4px -4px 10px #383b45;
+        opacity: 0.45;
+        pointer-events: none;
+      }
+      #tasks-full .task-item > * {
+        position: relative;
+        z-index: 1;
+      }
+      #tasks-full .task-item:hover {
+        transform: translateY(-3px);
+        border-color: #b5cbd533;
+      }
+      #tasks-full .task-item:focus-within {
+        border-color: #b5cbd580;
+      }
+      #tasks-full .task-check {
+        width: 36px;
+        height: 36px;
+        min-height: 36px;
+        border-radius: 50%;
+        margin: 0;
+        background: var(--surface);
+        box-shadow: var(--inset);
+        border: 1px solid #acb5c555;
+        color: #edf0f5;
+      }
+      #tasks-full .task-check[aria-pressed="true"] {
+        background: #a9d5c8;
+        color: #20242b;
+        box-shadow: none;
+      }
+      #tasks-full .task-title {
+        font-size: 18px;
+        line-height: 1.35;
+        min-height: 44px;
+        padding: 0 26px 0 0;
+        color: #edf0f5;
+        text-align: left;
+        font-weight: 500;
+      }
+      #tasks-full .task-meta {
+        margin: 12px 0 18px;
+        flex-wrap: wrap;
+        gap: 7px;
+        font-size: 12px;
+      }
+      #tasks-full .task-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 0;
+      }
+      #tasks-full .task-actions button {
+        min-height: 40px;
+        padding: 8px 12px;
+        color: #edf0f5;
+        font-size: 12px;
+        border: 1px solid #ffffff14;
+        background: #ffffff03;
+        border-radius: 12px;
+      }
+      #tasks-full .task-actions button:first-child {
+        background: #a9d5c812;
+        border-color: #a9d5c838;
+      }
+      #tasks-full .task-item.done {
+        opacity: 0.75;
+      }
+      #tasks-full .task-empty {
+        padding: 48px 24px;
+        border-radius: 24px;
+        box-shadow: var(--inset);
+        text-align: center;
+        color: #c7cad5;
+        margin: 0;
+      }
+      /* A time map echoes the calendar without adding another set of controls. */
+      .day-map {
+        padding: 18px 20px 14px;
+        border-radius: 18px;
+        box-shadow: var(--inset);
+        margin: 4px 0 24px;
+      }
+      .day-map-label {
+        display: flex;
+        justify-content: space-between;
+        font-size: 10px;
+        letter-spacing: 1px;
+        color: #c7cad5;
+        margin-bottom: 13px;
+      }
+      .day-map-track {
+        height: 17px;
+        position: relative;
+        border-radius: 5px;
+        background: repeating-linear-gradient(
+          90deg,
+          #b7bac81c 0 1px,
+          transparent 1px calc(100% / 17)
+        );
+      }
+      .day-map-track i {
+        position: absolute;
+        height: 7px;
+        top: 5px;
+        border-radius: 5px;
+        background: var(--event-color);
+        min-width: 2px;
+        box-shadow: 0 0 10px
+          color-mix(in srgb, var(--event-color), transparent 85%);
+      }
+      .day-map-scale {
+        display: flex;
+        justify-content: space-between;
+        color: #c7cad5;
+        font-size: 10px;
+        margin-top: 8px;
+        font-variant-numeric: tabular-nums;
+      }
+      .agenda-list {
+        padding-top: 4px;
+      }
+      .agenda-content {
+        padding-bottom: 18px;
+      }
+      .agenda-block:not(.is-live) {
+        background:
+          linear-gradient(120deg, #ffffff03, transparent 60%), var(--surface);
+        border-color: #ffffff0d;
+        border-radius: 18px 18px 30px 18px;
+        box-shadow:
+          4px 4px 10px #1c1e2580,
+          -3px -3px 9px #373a4455;
+      }
+      .agenda-block:not(.is-live)::after {
+        content: "";
+        position: absolute;
+        width: 74px;
+        height: 74px;
+        right: -36px;
+        top: -32px;
+        border-radius: 50%;
+        border: 9px solid #ffffff03;
+        box-shadow:
+          inset 3px 3px 7px #17191f66,
+          3px 3px 7px #17191f55;
+        pointer-events: none;
+      }
+      .agenda-block:not(.is-live):hover {
+        background: #30333c;
+        transform: translateY(-2px);
+      }
+      .free-gap {
+        border-radius: 12px;
+        background: linear-gradient(90deg, #a9d5c808, transparent);
+      }
+      .agenda-empty {
+        border: 1px solid #ffffff12;
+        border-radius: 24px 24px 60px 24px;
+        box-shadow: var(--inset);
+        background: radial-gradient(
+          circle at 100% 0,
+          #a9d5c810,
+          transparent 60%
+        );
+        padding: 30px;
+      }
+      @media (min-width: 1400px) {
+        .assignment-cards {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+      @media (max-width: 950px) {
+        .assignment-cards {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
+      @media (max-width: 720px) {
+        .assignment-overview {
+          padding: 24px 20px;
+          gap: 12px;
+          border-radius: 24px 24px 44px 24px;
+        }
+        .completion-orbit {
+          width: 90px;
+          height: 90px;
+        }
+        .completion-orbit strong {
+          font-size: 23px;
+        }
+        .completion-orbit span {
+          font-size: 10px;
+        }
+        .completion-orbit::before {
+          inset: 6px;
+        }
+        .assignment-overview h2 {
+          font-size: 26px;
+        }
+        .assignment-overview p {
+          font-size: 12px;
+        }
+        #tasks-full .task-item {
+          padding: 20px 16px;
+          gap: 12px;
+        }
+        #tasks-full .task-title {
+          font-size: 17px;
+          padding-right: 10px;
+        }
+        .day-map {
+          padding: 15px;
+          margin-bottom: 22px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        #tasks-full .task-item,
+        .agenda-block {
+          transition: none;
+        }
+        #tasks-full .task-item:hover,
+        .agenda-block:not(.is-live):hover {
+          transform: none;
+        }
+      }
+      .reduced-motion #tasks-full .task-item:hover,
+      .reduced-motion .agenda-block:not(.is-live):hover {
+        transform: none;
+      }
+      @media (prefers-contrast: more) {
+        #tasks-full .task-item,
+        .agenda-block:not(.is-live),
+        .day-map {
+          border: 1px solid #aeb2c0;
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="demo-banner" id="demo-banner" hidden>
@@ -5354,6 +5746,16 @@
                   <h3 id="agenda-date"></h3>
                   <span id="agenda-summary"></span>
                 </div>
+                <div class="day-map" id="day-map" aria-hidden="true">
+                  <div class="day-map-label">
+                    <span>DAY SIGNAL</span><span>06—23</span>
+                  </div>
+                  <div class="day-map-track" id="day-map-track"></div>
+                  <div class="day-map-scale">
+                    <span>06:00</span><span>12:00</span><span>18:00</span
+                    ><span>23:00</span>
+                  </div>
+                </div>
                 <div class="agenda-list" id="agenda"></div>
               </div>
               <div id="week-view" hidden>
@@ -5375,6 +5777,20 @@
               </div>
             </section>
             <section class="tasks-main" id="tasks-main" hidden>
+              <section
+                class="assignment-overview"
+                aria-label="Assignment overview"
+              >
+                <div class="overview-copy">
+                  <div class="eyebrow">IN YOUR ORBIT</div>
+                  <h2 id="assignment-headline"></h2>
+                  <p id="assignment-effort"></p>
+                </div>
+                <div class="completion-orbit" id="assignment-orbit" role="img">
+                  <strong id="assignment-completed"></strong
+                  ><span>completed</span>
+                </div>
+              </section>
               <div class="section-heading">
                 <h2>Assignments</h2>
                 <button class="primary" data-new-task>+ Assignment</button>
@@ -7207,6 +7623,17 @@
           const list = $("agenda");
           list.replaceChildren();
           const events = eventsForDay();
+          // The decorative signal maps actual event times onto the same 06:00–23:00 range as the calendar.
+          const signal = $("day-map-track");
+          signal.replaceChildren();
+          $("day-map").hidden = events.length === 0;
+          for (const event of events) {
+            const segment = el("i");
+            segment.style.left = `${((minutes(event.start) - FIRST) / (LAST - FIRST)) * 100}%`;
+            segment.style.width = `${((minutes(event.end) - minutes(event.start)) / (LAST - FIRST)) * 100}%`;
+            segment.style.setProperty("--event-color", event.color);
+            signal.append(segment);
+          }
           $("agenda-date").textContent =
             state.page === "rhythm"
               ? `Every ${DAYS[state.selectedDay]}`
@@ -7442,6 +7869,25 @@
             (a, b) =>
               a.due.localeCompare(b.due) || a.title.localeCompare(b.title),
           );
+          // Summaries derive from real assignments; the orbit never implies invented progress.
+          const open = tasks.filter((task) => !task.done);
+          const completed = tasks.length - open.length;
+          $("assignment-headline").textContent = open.length
+            ? `${open.length} ${open.length === 1 ? "thing" : "things"} in motion.`
+            : "A clear orbit.";
+          $("assignment-effort").textContent = open.length
+            ? `${durationText(open.reduce((sum, task) => sum + task.estimate, 0))} estimated · across open assignments`
+            : "Add your next assignment when you’re ready.";
+          $("assignment-completed").textContent =
+            `${completed}/${tasks.length}`;
+          $("assignment-orbit").style.setProperty(
+            "--completion",
+            `${tasks.length ? (completed / tasks.length) * 100 : 0}%`,
+          );
+          $("assignment-orbit").setAttribute(
+            "aria-label",
+            `${completed} of ${tasks.length} assignments completed`,
+          );
           for (const [id, items] of [
             ["tasks-rail", tasks.filter((t) => !t.done).slice(0, 3)],
             [
@@ -7461,7 +7907,34 @@
                     : "Nothing hanging over you. Add an assignment when you’re ready.",
                 ),
               );
+            // Deadline groups help students decide what needs attention without hiding later work.
+            let groupLabel = "",
+              groupCards = null;
+            const todayKey = localISO(nowDate());
+            const horizonKey = shiftDate(todayKey, 7);
             for (const task of items) {
+              if (id === "tasks-full") {
+                const label = task.done
+                  ? "Completed"
+                  : task.due < todayKey
+                    ? "Overdue"
+                    : task.due === todayKey
+                      ? "Due today"
+                      : task.due <= horizonKey
+                        ? "Next 7 days"
+                        : "Further out";
+                if (label !== groupLabel) {
+                  groupLabel = label;
+                  const group = el("section", "assignment-group");
+                  const heading = el("header");
+                  heading.append(el("h3", "", label));
+                  const count = el("span", "assignment-count", "0");
+                  heading.append(count);
+                  groupCards = el("div", "assignment-cards");
+                  group.append(heading, groupCards);
+                  list.append(group);
+                }
+              }
               const row = el(
                 "article",
                 "task-item" + (task.done ? " done" : ""),
@@ -7494,7 +7967,8 @@
                     renderTasks();
                     renderOrbitTiles();
                     const next =
-                      $(id).querySelector(".task-check") || $("all-tasks");
+                      $(id).querySelector(".task-check") ||
+                      document.querySelector("#tasks-main [data-new-task]");
                     if (next.getClientRects().length)
                       next.focus({ preventScroll: true });
                   },
@@ -7540,7 +8014,12 @@
                 content.append(actions);
               }
               row.append(check, content);
-              list.append(row);
+              if (groupCards) {
+                groupCards.append(row);
+                groupCards.previousElementSibling.querySelector(
+                  ".assignment-count",
+                ).textContent = String(groupCards.childElementCount);
+              } else list.append(row);
             }
           }
           document
