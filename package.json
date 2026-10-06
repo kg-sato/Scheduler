@@ -1,0 +1,11 @@
+{
+  "name": "scheduler-study",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "build:core": "python scripts/build_core.py"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3"
+  }
+}
