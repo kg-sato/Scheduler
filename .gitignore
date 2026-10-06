@@ -15,3 +15,5 @@ __pycache__/
 Thumbs.db
 *.log
 .env.*
+
+node_modules/

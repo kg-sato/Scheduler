@@ -5563,8 +5563,1686 @@
         }
       }
     </style>
+    <style id="abstract-phase">
+      /* Original orbital composition: sculpted contours, broad negative space and colour at the edges. */
+      .workspace {
+        position: relative;
+        isolation: isolate;
+      }
+      .workspace::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 100px;
+        right: 0;
+        width: min(75%, 750px);
+        height: 660px;
+        pointer-events: none;
+        background:
+          radial-gradient(ellipse at 80% 10%, #a9d5c810, transparent 50%),
+          radial-gradient(ellipse at 45% 60%, #c4b2e30c, transparent 65%);
+      }
+      .greeting {
+        padding: 4px 0 14px;
+        position: relative;
+      }
+      .greeting::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 55px;
+        height: 3px;
+        border-radius: 8px;
+        background: linear-gradient(90deg, #a9d5c8, #c4b2e3);
+      }
+      .hero {
+        border-radius: 28px 28px 72px 28px;
+        min-height: 240px;
+      }
+      .hero > div:not(.orbit-art):not(.next-peek) {
+        position: relative;
+        z-index: 2;
+        max-width: 72%;
+      }
+      .hero .orbit-art {
+        display: block;
+        width: 220px;
+        height: 220px;
+        right: -52px;
+        top: 14px;
+        opacity: 0.85;
+        border: 0;
+        background: conic-gradient(
+          from 30deg,
+          #292b33,
+          #687e79 16%,
+          #a9d5c8 24%,
+          #4b555b 37%,
+          #292b33 50%,
+          #847c97 64%,
+          #c4b2e3 73%,
+          #343740 87%,
+          #292b33
+        );
+        box-shadow:
+          15px 18px 30px #17191f99,
+          inset 3px 3px 9px #ffffff19;
+        transform: rotate(-28deg) scaleY(0.82);
+        mask: radial-gradient(circle, transparent 42%, #000 43%);
+        -webkit-mask: radial-gradient(circle, transparent 42%, #000 43%);
+      }
+      .hero:hover .orbit-art {
+        transform: rotate(-23deg) scaleY(0.82);
+      }
+      .hero .orbit-art::before {
+        display: block;
+        content: "";
+        position: absolute;
+        inset: 23px;
+        border: 1px solid #e6efe744;
+        border-radius: 50%;
+        background: none;
+      }
+      .assignment-overview {
+        min-height: 215px;
+        border-radius: 28px 70px 28px 28px;
+        padding: 34px;
+        background:
+          radial-gradient(ellipse at 100% 100%, #a9d5c819, transparent 60%),
+          var(--surface);
+      }
+      .assignment-overview::before {
+        width: 490px;
+        height: 200px;
+        right: -140px;
+        top: 5px;
+        border: 16px solid #a9d5c809;
+        box-shadow:
+          inset 4px 5px 12px #181b2355,
+          4px 6px 12px #181b2355;
+        transform: rotate(-30deg);
+      }
+      .assignment-overview::after {
+        content: "";
+        position: absolute;
+        width: 260px;
+        height: 100px;
+        right: -60px;
+        bottom: -25px;
+        border: 1px solid #c4b2e32b;
+        border-radius: 50%;
+        transform: rotate(-30deg);
+        pointer-events: none;
+      }
+      .completion-orbit {
+        z-index: 1;
+        box-shadow:
+          var(--inset),
+          12px 18px 24px #181a2044;
+      }
+      .assignment-group > header::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border: 2px solid #a9d5c8;
+        border-radius: 50%;
+        box-shadow: 0 0 0 5px #a9d5c809;
+      }
+      #tasks-full .task-item {
+        border-radius: 22px 22px 42px 22px;
+      }
+      #tasks-full .task-item:nth-child(3n + 2) {
+        border-radius: 22px 42px 22px 22px;
+      }
+      #tasks-full .task-item:nth-child(3n + 2)::after {
+        width: 120px;
+        height: 65px;
+        right: -38px;
+        top: -10px;
+        transform: rotate(-35deg);
+        border-color: #a9d5c808;
+      }
+      #tasks-full .task-item:nth-child(3n)::after {
+        width: 65px;
+        height: 110px;
+        right: -35px;
+        border-color: #efb49c08;
+      }
+      .workspace[data-page="rhythm"] .planner {
+        padding: 28px;
+        border-radius: 28px 60px 28px 28px;
+        box-shadow: var(--raised);
+        background:
+          radial-gradient(ellipse at 100% 0%, #c4b2e30b, transparent 55%),
+          var(--surface);
+      }
+      .rhythm-note {
+        border-left: 2px solid #a9d5c8;
+        border-radius: 0 14px 14px 0;
+        background: #a9d5c807;
+        color: #c7cad5;
+      }
+      .workspace[data-page="focus"] .focus-card {
+        position: relative;
+        overflow: hidden;
+        border-radius: 40px 80px 40px 40px;
+      }
+      .workspace[data-page="focus"] .focus-card::after {
+        content: "";
+        width: 370px;
+        height: 145px;
+        border: 1px solid #a9d5c823;
+        border-radius: 50%;
+        position: absolute;
+        right: -160px;
+        top: 10px;
+        transform: rotate(-38deg);
+        pointer-events: none;
+      }
+      .day-map {
+        background: linear-gradient(
+          110deg,
+          #a9d5c804,
+          transparent 60%,
+          #c4b2e306
+        );
+      }
+      @media (max-width: 720px) {
+        .hero {
+          min-height: 245px;
+          border-radius: 25px 25px 55px 25px;
+        }
+        .hero > div:not(.orbit-art):not(.next-peek) {
+          max-width: 90%;
+        }
+        .hero .orbit-art {
+          width: 185px;
+          height: 185px;
+          right: -100px;
+          top: 30px;
+          opacity: 0.42;
+        }
+        .assignment-overview {
+          padding: 25px 20px;
+          min-height: 170px;
+          border-radius: 24px 44px 24px 24px;
+        }
+        .workspace[data-page="rhythm"] .planner {
+          padding: 20px 12px;
+          border-radius: 24px;
+        }
+      }
+      .solid-glass .workspace::before {
+        display: none;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .hero:hover .orbit-art {
+          transform: rotate(-28deg) scaleY(0.82);
+        }
+      }
+      .reduced-motion .hero:hover .orbit-art {
+        transform: rotate(-28deg) scaleY(0.82);
+      }
+      @media (prefers-contrast: more) {
+        .hero .orbit-art,
+        .assignment-overview::before,
+        .assignment-overview::after {
+          opacity: 0.2;
+        }
+      }
+    </style>
+    <style id="study-features">
+      /* Functional instruments share the existing sculpted orbital material. */
+      :root {
+        --accent: #a9d5c8;
+      }
+      body[data-accent="lilac"] {
+        --accent: #c4b2e3;
+      }
+      body[data-accent="apricot"] {
+        --accent: #efb49c;
+      }
+      .primary,
+      .focus-start {
+        background: var(--accent);
+        color: #20242b;
+        border-color: var(--accent);
+      }
+      .primary:hover,
+      .focus-start:hover {
+        background: var(--accent);
+        color: #20242b;
+        filter: brightness(1.07);
+      }
+      .completion-orbit::before {
+        background: conic-gradient(var(--accent) var(--completion), #424751 0);
+      }
+      .hero-action,
+      .text-button,
+      .task-actions button {
+        color: #edf0f5;
+      }
+      #quick-capture {
+        color: #edf0f5;
+        border-color: #a9d5c838;
+      }
+      .workload-forecast {
+        grid-column: 1/-1;
+        grid-row: 3;
+        padding: 24px;
+        border: 1px solid #ffffff0c;
+        border-radius: 24px 48px 24px 24px;
+        background: var(--surface);
+        box-shadow: var(--inset);
+      }
+      .workspace[data-page="tasks"] .workload-forecast,
+      .workspace[data-page="rhythm"] .workload-forecast {
+        grid-row: 2;
+      }
+      .workload-forecast h2 {
+        font-size: 16px;
+        margin: 0;
+        font-weight: 500;
+      }
+      #forecast-range {
+        color: #c7cad5;
+        font-size: 11px;
+        margin: 7px 0 18px;
+      }
+      .forecast-days {
+        display: grid;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        gap: 10px;
+      }
+      .forecast-day {
+        display: grid;
+        gap: 7px;
+        justify-items: center;
+        padding: 12px 6px;
+        border: 1px solid #ffffff0b;
+        background: transparent;
+        box-shadow: none;
+        color: #edf0f5;
+      }
+      .forecast-day span,
+      .forecast-day small {
+        font-size: 10px;
+        color: #c7cad5;
+      }
+      .forecast-day strong {
+        font-size: 14px;
+        font-weight: 500;
+      }
+      .forecast-meter {
+        display: block;
+        width: 100%;
+        height: 34px;
+        border-radius: 8px;
+        background: linear-gradient(
+          0deg,
+          var(--accent) var(--load),
+          #1e202700 var(--load)
+        );
+        box-shadow: var(--inset);
+        opacity: 0.8;
+      }
+      .forecast-day.overloaded {
+        border-color: #efb49c80;
+      }
+      .forecast-day.overloaded small {
+        color: #ffcfb8;
+      }
+      .milestone-row {
+        display: grid;
+        grid-template-columns: 24px minmax(0, 1fr) 85px 36px;
+        gap: 8px;
+        align-items: center;
+        margin: 12px 0;
+      }
+      .milestone-row input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        accent-color: var(--accent);
+      }
+      .milestone-row input,
+      .milestone-row select {
+        min-width: 0;
+        padding: 10px 8px;
+      }
+      .milestone-row .step-remove {
+        padding: 4px;
+        min-width: 32px;
+      }
+      .step-booked {
+        grid-column: 2/-1;
+        color: #c7cad5;
+        font-size: 11px;
+      }
+      #breakdown-fields {
+        padding: 14px;
+        margin: 16px 0;
+        border: 1px solid #ffffff1c;
+        border-radius: 16px;
+      }
+      #breakdown-fields summary {
+        cursor: pointer;
+        color: #edf0f5;
+      }
+      .step-tools {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 14px;
+      }
+      .step-tools button {
+        font-size: 12px;
+      }
+      .task-progress-note {
+        font-size: 11px;
+        color: #c7cad5;
+        margin: 10px 0;
+      }
+      #plan-list {
+        padding-left: 22px;
+        display: grid;
+        gap: 14px;
+        line-height: 1.6;
+      }
+      #focus-history {
+        font-size: 12px;
+        color: #c7cad5;
+        text-align: center;
+        margin-top: 12px;
+      }
+      .focus-next {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 14px;
+      }
+      .focus-next button {
+        font-size: 12px;
+      }
+      body[data-material="quiet"] .hero,
+      body[data-material="quiet"] .focus-card,
+      body[data-material="quiet"] #tasks-full .task-item,
+      body[data-material="quiet"] .assignment-overview {
+        box-shadow: none;
+        border: 1px solid #ffffff22;
+      }
+      body[data-material="quiet"] .orbit-art,
+      body[data-material="quiet"] .assignment-overview::before,
+      body[data-material="quiet"] .assignment-overview::after,
+      body[data-material="quiet"] #tasks-full .task-item::after {
+        opacity: 0.15;
+      }
+      body[data-material="glass"]:not(.solid-glass) .hero,
+      body[data-material="glass"]:not(.solid-glass) .assignment-overview,
+      body[data-material="glass"]:not(.solid-glass) #tasks-full .task-item {
+        background: linear-gradient(130deg, #d1e5e311, #292b33c9);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        border: 1px solid #ffffff24;
+      }
+      .solid-glass .hero,
+      .solid-glass .assignment-overview,
+      .solid-glass #tasks-full .task-item {
+        background: #292b33;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+      @media (max-width: 720px) {
+        .forecast-days {
+          gap: 4px;
+        }
+        .workload-forecast {
+          padding: 18px 12px;
+        }
+        .forecast-day {
+          padding: 10px 2px;
+        }
+        .forecast-day strong {
+          font-size: 11px;
+        }
+        .forecast-day small {
+          font-size: 9px;
+        }
+        #quick-capture {
+          padding: 7px;
+          font-size: 11px;
+        }
+        .masthead .actions {
+          gap: 4px;
+        }
+        .milestone-row {
+          grid-template-columns: 20px minmax(0, 1fr) 65px 30px;
+          gap: 5px;
+        }
+      }
+      @media (prefers-reduced-transparency: reduce) {
+        body[data-material="glass"]:not(.solid-glass) .hero,
+        body[data-material="glass"]:not(.solid-glass) .assignment-overview,
+        body[data-material="glass"]:not(.solid-glass) #tasks-full .task-item {
+          background: #292b33;
+          backdrop-filter: none;
+          -webkit-backdrop-filter: none;
+        }
+      }
+    </style>
+    <style id="bold-background">
+      /* Decorative stage only: fixed geometry never intercepts input or changes layout. */
+      body {
+        background: #20222b;
+        isolation: isolate;
+      }
+      .orbital-backdrop {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        overflow: hidden;
+        pointer-events: none;
+        background:
+          radial-gradient(ellipse at 98% 0%, #c4b2e35c 0%, transparent 48%),
+          radial-gradient(ellipse at 4% 82%, #a9d5c854 0%, transparent 42%),
+          radial-gradient(ellipse at 86% 100%, #efb49c38 0%, transparent 42%),
+          #20222b;
+      }
+      .orbital-backdrop::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        /* Keep the central reading area dark while the colour escapes around its edges. */
+        background: radial-gradient(
+          ellipse at 48% 43%,
+          #20222bd9 0%,
+          #20222b73 45%,
+          transparent 80%
+        );
+      }
+      .backdrop-ring {
+        position: absolute;
+        display: block;
+        border-radius: 50%;
+        background: conic-gradient(
+          from 15deg,
+          #30343f 0deg,
+          #a9d5c8 65deg,
+          #e1f2ea 83deg,
+          #495663 115deg,
+          #333442 160deg,
+          #c4b2e3 235deg,
+          #f0e6ff 252deg,
+          #665b79 285deg,
+          #30343f 360deg
+        );
+        mask: radial-gradient(
+          ellipse,
+          transparent 51%,
+          #000 52%,
+          #000 68%,
+          transparent 69%
+        );
+        -webkit-mask: radial-gradient(
+          ellipse,
+          transparent 51%,
+          #000 52%,
+          #000 68%,
+          transparent 69%
+        );
+      }
+      .backdrop-ring--main {
+        width: clamp(530px, 63vw, 1020px);
+        aspect-ratio: 1;
+        top: -36%;
+        right: -23%;
+        transform: rotate(-29deg) scaleY(0.76);
+        opacity: 0.76;
+        filter: drop-shadow(0 30px 30px #10121980);
+      }
+      .backdrop-ring--echo {
+        width: clamp(460px, 51vw, 780px);
+        aspect-ratio: 1;
+        bottom: -45%;
+        left: -22%;
+        transform: rotate(28deg) scaleY(0.68);
+        opacity: 0.63;
+      }
+      .backdrop-contour {
+        position: absolute;
+        width: 85vw;
+        height: 38vw;
+        min-height: 280px;
+        right: -29vw;
+        bottom: -7vw;
+        border: 1px solid #e7d9fb4d;
+        border-radius: 50%;
+        transform: rotate(-33deg);
+        box-shadow:
+          0 0 0 22px #c4b2e308,
+          0 0 0 23px #c4b2e31a,
+          0 0 0 57px #a9d5c805,
+          0 0 0 58px #a9d5c828,
+          0 0 0 96px #efb49c04,
+          0 0 0 97px #efb49c1f;
+      }
+      .workspace::before {
+        display: none;
+      }
+      .masthead {
+        border-bottom-color: #ffffff17;
+      }
+      .sidebar {
+        background: #292b33ed;
+      }
+      .hero,
+      .assignment-overview,
+      .focus-card {
+        border: 1px solid #ffffff12;
+      }
+      .greeting h1 {
+        text-shadow: 0 3px 18px #17192280;
+      }
+      /* Quiet and solid modes also tame the background, not just the cards. */
+      body[data-material="quiet"] .orbital-backdrop {
+        opacity: 0.25;
+      }
+      body[data-material="quiet"] .backdrop-ring {
+        opacity: 0.2;
+      }
+      .solid-glass .orbital-backdrop {
+        background: #292b33;
+      }
+      .solid-glass .orbital-backdrop > * {
+        display: none;
+      }
+      .solid-glass .sidebar {
+        background: #292b33;
+      }
+      @media (max-width: 720px) {
+        .backdrop-ring--main {
+          width: 540px;
+          top: -210px;
+          right: -335px;
+          opacity: 0.56;
+        }
+        .backdrop-ring--echo {
+          width: 480px;
+          bottom: -235px;
+          left: -315px;
+          opacity: 0.45;
+        }
+        .backdrop-contour {
+          width: 620px;
+          height: 280px;
+          right: -420px;
+          bottom: 90px;
+          opacity: 0.65;
+        }
+        .orbital-backdrop::after {
+          background: linear-gradient(
+            90deg,
+            #20222b40,
+            #20222b94 35%,
+            #20222b60
+          );
+        }
+      }
+      @media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+        .orbital-backdrop {
+          display: none;
+        }
+        body,
+        .sidebar {
+          background: #292b33;
+        }
+      }
+    </style>
+    <style id="course-atlas-styles">
+      /* Course Atlas: a useful constellation, not a decorative graph with hidden controls. */
+      .course-atlas {
+        grid-column: 1/-1;
+        width: 100%;
+        min-width: 0;
+      }
+      .workspace[data-page="atlas"] .focus-card,
+      .workspace[data-page="atlas"] .rail-section,
+      .workspace[data-page="atlas"] .rail-note {
+        display: none;
+      }
+      .atlas-intro {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 24px;
+        margin: 0 0 30px;
+      }
+      .atlas-intro h2 {
+        font-size: clamp(27px, 3.5vw, 46px);
+        max-width: 580px;
+        line-height: 1.12;
+        font-weight: 500;
+        letter-spacing: -0.04em;
+        margin: 10px 0;
+      }
+      .atlas-intro p {
+        color: #c7cad5;
+        font-size: 13px;
+        margin: 0;
+      }
+      .atlas-count {
+        border: 1px solid #ffffff25;
+        border-radius: 99px;
+        padding: 9px 15px;
+        white-space: nowrap;
+        color: #edf0f5;
+        font-size: 12px;
+      }
+      .atlas-courses {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+        gap: 20px;
+        padding: 18px 0 30px;
+      }
+      .course-planet {
+        display: grid;
+        justify-items: start;
+        position: relative;
+        overflow: hidden;
+        text-align: left;
+        padding: 24px;
+        border-radius: 24px 44px 24px 24px;
+        border: 1px solid #ffffff14;
+        box-shadow: var(--raised);
+        background: var(--surface);
+        min-height: 225px;
+        transition:
+          transform 180ms ease,
+          border-color 180ms ease;
+      }
+      .course-planet:hover {
+        transform: translateY(-4px);
+        background: var(--surface);
+      }
+      .course-planet[aria-pressed="true"] {
+        border-color: var(--planet-color);
+        background:
+          linear-gradient(150deg, #ffffff06, transparent), var(--surface);
+      }
+      .course-planet strong {
+        font-size: 18px;
+        font-weight: 500;
+        color: #edf0f5;
+        margin-top: 12px;
+        overflow-wrap: anywhere;
+      }
+      .planet-caption {
+        font-size: 11px;
+        color: #c7cad5;
+        margin-top: 5px;
+      }
+      .planet-sculpture {
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle at 29% 22%,
+          #ecf5ee,
+          var(--planet-color) 25%,
+          #292b33 72%
+        );
+        box-shadow:
+          12px 16px 22px #12151c88,
+          inset -5px -6px 10px #13172266;
+        position: relative;
+        margin: 5px 0 12px;
+      }
+      .planet-sculpture::before {
+        content: "";
+        position: absolute;
+        width: 155px;
+        height: 58px;
+        border: 9px solid var(--planet-color);
+        border-top-color: #e8edf0aa;
+        border-bottom-color: #1c222aaa;
+        border-radius: 50%;
+        top: 24px;
+        left: -22px;
+        transform: rotate(-32deg);
+        box-shadow: 0 5px 7px #12141b55;
+      }
+      .planet-sculpture::after {
+        content: "";
+        position: absolute;
+        inset: -12px;
+        background: conic-gradient(
+          var(--accent) var(--planet-progress),
+          #ffffff0d 0
+        );
+        border-radius: 50%;
+        mask: radial-gradient(circle, transparent 68%, #000 69%);
+        -webkit-mask: radial-gradient(circle, transparent 68%, #000 69%);
+      }
+      .planet-satellite {
+        position: absolute;
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        top: -8px;
+        right: 2px;
+        background: #edf0f5;
+        box-shadow: 2px 4px 8px #15192199;
+      }
+      .course-planet:nth-child(3n + 2) .planet-sculpture::before {
+        transform: rotate(32deg);
+      }
+      .course-planet:nth-child(3n) .planet-sculpture::before {
+        transform: rotate(-62deg);
+      }
+      .atlas-create {
+        display: flex;
+        gap: 10px;
+        margin: 0 0 28px;
+        max-width: 540px;
+      }
+      .atlas-create input {
+        flex: 1;
+        min-width: 0;
+      }
+      .atlas-detail {
+        padding: 30px;
+        background: var(--surface);
+        border: 1px solid #ffffff14;
+        border-radius: 28px 60px 28px 28px;
+        box-shadow: var(--inset);
+      }
+      .atlas-detail-heading {
+        display: flex;
+        gap: 16px;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 24px;
+      }
+      .atlas-detail-heading h2 {
+        font-size: 28px;
+        font-weight: 500;
+        margin: 0;
+        color: #edf0f5;
+        overflow-wrap: anywhere;
+      }
+      .atlas-detail-heading h2::before {
+        content: "";
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--planet-color);
+        margin-right: 12px;
+        box-shadow: 0 0 0 5px #ffffff07;
+      }
+      #atlas-focused {
+        font-size: 12px;
+        color: #c7cad5;
+        white-space: nowrap;
+      }
+      .atlas-detail-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 32px;
+      }
+      .atlas-detail h3 {
+        margin: 0 0 18px;
+        font-size: 14px;
+        font-weight: 500;
+      }
+      .atlas-assignment {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        column-gap: 10px;
+        padding: 12px 0;
+        border-bottom: 1px solid #ffffff10;
+      }
+      .atlas-task-link {
+        text-align: left;
+        padding: 0;
+        background: none;
+        border: 0;
+        color: #edf0f5;
+        font-size: 14px;
+        font-weight: 500;
+        box-shadow: none;
+      }
+      .atlas-assignment small {
+        grid-column: 1;
+        grid-row: 2;
+        color: #c7cad5;
+        font-size: 11px;
+      }
+      .atlas-task-focus {
+        grid-column: 2;
+        grid-row: 1/3;
+        padding: 7px 10px;
+        font-size: 11px;
+        background: transparent;
+        color: #edf0f5;
+        box-shadow: none;
+      }
+      .atlas-session {
+        display: grid;
+        gap: 5px;
+        padding: 12px 0;
+        text-align: left;
+        width: 100%;
+        background: none;
+        border: 0;
+        border-bottom: 1px solid #ffffff10;
+        border-radius: 0;
+        box-shadow: none;
+      }
+      .atlas-session span,
+      .atlas-muted {
+        color: #c7cad5;
+        font-size: 12px;
+      }
+      .atlas-session strong {
+        color: #edf0f5;
+        font-weight: 500;
+        font-size: 14px;
+      }
+      .atlas-notebook {
+        margin-top: 30px;
+        padding-top: 24px;
+        border-top: 1px solid #ffffff15;
+      }
+      .atlas-notebook textarea {
+        min-height: 130px;
+        resize: vertical;
+        width: 100%;
+      }
+      .atlas-confidence {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 12px;
+        margin: 16px 0;
+        color: #c7cad5;
+        font-size: 12px;
+      }
+      .atlas-confidence input {
+        flex: 1;
+        min-width: 100px;
+        max-width: 220px;
+        accent-color: var(--accent);
+      }
+      .atlas-note-actions {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+      }
+      #atlas-draft-status {
+        color: #c7cad5;
+        font-size: 11px;
+      }
+      .mobile-nav {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+      @media (max-width: 720px) {
+        .atlas-intro {
+          align-items: start;
+        }
+        .atlas-intro h2 {
+          font-size: 29px;
+        }
+        .atlas-count {
+          font-size: 10px;
+          padding: 7px 10px;
+        }
+        .atlas-courses {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 16px;
+        }
+        .course-planet {
+          min-height: 200px;
+          padding: 19px;
+        }
+        .planet-sculpture {
+          width: 83px;
+          height: 83px;
+        }
+        .planet-sculpture::before {
+          width: 120px;
+          height: 45px;
+          top: 18px;
+          left: -19px;
+          border-width: 7px;
+        }
+        .atlas-detail {
+          padding: 22px 18px;
+        }
+        .atlas-detail-grid {
+          grid-template-columns: minmax(0, 1fr);
+          gap: 26px;
+        }
+        .atlas-detail-heading h2 {
+          font-size: 23px;
+        }
+        .mobile-nav button {
+          padding: 8px 3px;
+          font-size: 10px;
+        }
+        .atlas-create button {
+          padding: 8px 12px;
+          white-space: nowrap;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .course-planet {
+          transition: none;
+        }
+        .course-planet:hover {
+          transform: none;
+        }
+      }
+      .reduced-motion .course-planet:hover {
+        transform: none;
+      }
+      body[data-material="quiet"] .course-planet {
+        box-shadow: none;
+      }
+      body[data-material="quiet"] .planet-sculpture::before {
+        opacity: 0.35;
+      }
+      @media (prefers-contrast: more) {
+        .course-planet,
+        .atlas-detail {
+          border-color: #b7bac8;
+        }
+      }
+    </style>
+    <style id="jump-styles">
+      .jump-dialog {
+        width: min(600px, calc(100vw - 28px));
+        max-height: 85dvh;
+        padding: 26px;
+        border-radius: 28px 48px 28px 28px;
+        background: linear-gradient(135deg, #3d414bf2, #262932f5);
+        border: 1px solid #ffffff28;
+        box-shadow:
+          20px 24px 90px #0c1018aa,
+          inset 1px 1px #ffffff16;
+        backdrop-filter: blur(28px);
+        -webkit-backdrop-filter: blur(28px);
+      }
+      .jump-dialog::backdrop {
+        background: #0d111b88;
+        backdrop-filter: blur(7px);
+        -webkit-backdrop-filter: blur(7px);
+      }
+      .jump-heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        gap: 20px;
+        margin-bottom: 18px;
+      }
+      .jump-heading h2 {
+        font-size: 29px;
+        margin: 6px 0;
+        color: #edf0f5;
+        font-weight: 500;
+        letter-spacing: -0.035em;
+      }
+      .jump-heading button {
+        min-width: 44px;
+        min-height: 44px;
+        font-size: 22px;
+      }
+      #jump-query {
+        width: 100%;
+        font-size: 16px;
+        min-height: 50px;
+      }
+      .jump-results {
+        max-height: 45dvh;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+      }
+      .jump-result {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        width: 100%;
+        padding: 13px 12px;
+        margin: 4px 0;
+        text-align: left;
+        border: 1px solid transparent;
+        border-radius: 12px;
+        background: transparent;
+        box-shadow: none;
+        color: #edf0f5;
+      }
+      .jump-result:hover,
+      .jump-result:focus-visible {
+        background: #ffffff09;
+        border-color: #ffffff24;
+      }
+      .jump-result > span:first-child {
+        min-width: 0;
+      }
+      .jump-result strong,
+      .jump-result small {
+        display: block;
+        overflow-wrap: anywhere;
+      }
+      .jump-result strong {
+        font-size: 14px;
+        font-weight: 500;
+      }
+      .jump-result small {
+        margin-top: 5px;
+        font-size: 12px;
+        color: #c7cad5;
+      }
+      .jump-arrow {
+        color: var(--accent);
+      }
+      .jump-hint,
+      #jump-count {
+        font-size: 11px;
+        color: #c7cad5;
+        margin: 12px 0;
+      }
+      .jump-hint {
+        border-top: 1px solid #ffffff15;
+        padding-top: 15px;
+        margin-bottom: 0;
+      }
+      #jump-open {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+      }
+      .workspace[data-page="atlas"] .desk-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .workspace[data-page="atlas"] .study-rail {
+        display: none;
+      }
+      @media (max-width: 720px) {
+        #jump-open span {
+          display: none;
+        }
+        #jump-open {
+          width: 44px;
+          height: 44px;
+          padding: 10px;
+          flex-shrink: 0;
+        }
+        .jump-dialog {
+          padding: 20px;
+        }
+        .atlas-task-focus,
+        .atlas-task-link,
+        .atlas-create button,
+        #atlas-save {
+          min-height: 44px;
+        }
+        .atlas-detail-heading {
+          flex-wrap: wrap;
+        }
+        .atlas-notebook textarea,
+        .atlas-create input {
+          font-size: 16px;
+        }
+      }
+      .solid-glass .jump-dialog {
+        background: #292b33;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+      .solid-glass .jump-dialog::backdrop {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+      @media (prefers-reduced-transparency: reduce) {
+        .jump-dialog {
+          background: #292b33;
+          backdrop-filter: none;
+          -webkit-backdrop-filter: none;
+        }
+        .jump-dialog::backdrop {
+          backdrop-filter: none;
+          -webkit-backdrop-filter: none;
+        }
+      }
+    </style>
+    <style id="export-styles">
+      #export-dialog {
+        width: min(560px, calc(100vw - 28px));
+        max-height: 85dvh;
+        overflow-y: auto;
+      }
+      .export-option {
+        padding: 20px 0;
+        border-top: 1px solid #ffffff18;
+      }
+      .export-option h3 {
+        margin: 0 0 8px;
+        color: #edf0f5;
+      }
+      .export-option p {
+        color: #c7cad5;
+        font-size: 12px;
+        line-height: 1.65;
+      }
+      .export-check {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        min-height: 44px;
+        font-size: 13px;
+      }
+      .export-check input {
+        width: 18px;
+        height: 18px;
+        accent-color: var(--accent);
+      }
+      .export-option button {
+        min-height: 44px;
+      }
+    </style>
+    <style id="weekly-review-styles">
+      .forecast-heading-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .forecast-heading-row button {
+        background: transparent;
+        box-shadow: none;
+        border: 1px solid #ffffff20;
+        min-height: 44px;
+        color: #edf0f5;
+        font-size: 12px;
+      }
+      #review-dialog {
+        width: min(690px, calc(100vw - 24px));
+        padding: 30px;
+        max-height: 90dvh;
+        overflow-y: auto;
+        border-radius: 30px 64px 30px 30px;
+      }
+      .review-sculpture {
+        position: absolute;
+        right: -20px;
+        top: -65px;
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        border: 32px solid #c4b2e320;
+        box-shadow:
+          inset 5px 8px 14px #171a2580,
+          4px 8px 14px #16192266;
+        transform: rotate(-35deg) scaleY(0.5);
+        pointer-events: none;
+      }
+      .review-heading {
+        position: relative;
+        isolation: isolate;
+      }
+      .review-heading > *:not(.review-sculpture) {
+        position: relative;
+      }
+      .review-heading h2 {
+        margin: 4px 0;
+        font-size: 30px;
+        color: #edf0f5;
+      }
+      .review-heading p {
+        color: #c7cad5;
+        font-size: 12px;
+      }
+      .review-totals {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin: 24px 0;
+      }
+      .review-totals strong {
+        display: block;
+        font-size: 34px;
+        font-weight: 500;
+        letter-spacing: -0.04em;
+        color: #edf0f5;
+      }
+      .review-totals span {
+        display: block;
+        font-size: 11px;
+        color: #c7cad5;
+        line-height: 1.6;
+        margin-top: 5px;
+      }
+      .review-bars {
+        display: grid;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        gap: 12px;
+        height: 190px;
+        margin: 24px 0 30px;
+        padding: 12px 8px 0;
+        border-radius: 18px;
+        background: #16192330;
+        box-shadow: var(--inset);
+      }
+      .review-day {
+        position: relative;
+        display: grid;
+        grid-template-rows: 22px 1fr 28px;
+        justify-items: center;
+        align-items: end;
+        width: 100%;
+        min-width: 0;
+        padding: 0 2px;
+        border: 0;
+        background: transparent;
+        box-shadow: none;
+        border-radius: 12px;
+        color: #c7cad5;
+        font-size: 11px;
+      }
+      .review-day:hover,
+      .review-day:focus-visible {
+        background: #ffffff08;
+      }
+      .review-day .review-pillar {
+        display: block;
+        width: 100%;
+        max-width: 36px;
+        height: var(--height);
+        min-height: 5px;
+        max-height: 100%;
+        border-radius: 30px;
+        background: linear-gradient(100deg, #edf5eaaa, #a9d5c8 36%, #3f746a);
+        box-shadow:
+          4px 4px 10px #10172070,
+          inset 2px 0 3px #ffffff40;
+      }
+      .review-day:nth-child(3n + 2) .review-pillar {
+        background: linear-gradient(100deg, #eee5fcaa, #c4b2e3 36%, #786495);
+      }
+      .review-day:nth-child(3n) .review-pillar {
+        background: linear-gradient(100deg, #fff0eaaa, #efb49c 36%, #936953);
+      }
+      .review-minutes {
+        font-size: 10px;
+        white-space: nowrap;
+        align-self: center;
+      }
+      .review-day > span:last-child {
+        align-self: center;
+      }
+      .review-prompts {
+        display: grid;
+        gap: 16px;
+      }
+      .review-prompts label {
+        color: #edf0f5;
+        font-size: 13px;
+      }
+      .review-prompts textarea {
+        width: 100%;
+        min-height: 75px;
+        margin-top: 8px;
+        resize: vertical;
+      }
+      .review-footer {
+        display: flex;
+        gap: 18px;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+      }
+      .review-footer p {
+        color: #c7cad5;
+        font-size: 11px;
+      }
+      .review-footer button {
+        min-height: 44px;
+      }
+      @media (max-width: 600px) {
+        #review-dialog {
+          padding: 22px 18px;
+        }
+        .review-bars {
+          gap: 6px;
+          height: 170px;
+        }
+        .review-minutes {
+          font-size: 9px;
+        }
+        .review-prompts textarea {
+          font-size: 16px;
+        }
+        .review-totals strong {
+          font-size: 29px;
+        }
+      }
+    </style>
+    <style id="mobile-polish">
+      #mobile-more {
+        display: none;
+      }
+      .mobile-menu-actions {
+        display: grid;
+        gap: 10px;
+      }
+      .mobile-menu-actions button {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        align-items: center;
+        text-align: left;
+        min-height: 54px;
+        padding: 14px 18px;
+        color: #edf0f5;
+      }
+      .mobile-menu-actions span {
+        color: #c7cad5;
+        font-size: 12px;
+      }
+      #mobile-menu {
+        width: min(440px, calc(100vw - 28px));
+        max-height: 85dvh;
+        overflow-y: auto;
+      }
+      .atlas-courses {
+        position: relative;
+        isolation: isolate;
+      }
+      .atlas-courses::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        inset: 10% -3%;
+        background:
+          radial-gradient(ellipse at 10% 50%, #a9d5c822, transparent 38%),
+          radial-gradient(ellipse at 85% 50%, #c4b2e322, transparent 40%);
+        filter: blur(26px);
+        pointer-events: none;
+      }
+      .atlas-notebook textarea {
+        line-height: 1.7;
+      }
+      .atlas-note-actions button {
+        min-height: 44px;
+      }
+      .course-planet:active {
+        transform: translateY(1px);
+        box-shadow: var(--inset);
+      }
+      @media (max-width: 720px) {
+        .masthead {
+          gap: 12px;
+        }
+        .masthead .actions {
+          flex: 1;
+          justify-content: flex-end;
+          gap: 7px;
+          min-width: 0;
+        }
+        .masthead #import,
+        .masthead #export {
+          display: none;
+        }
+        #mobile-more {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          order: 5;
+          width: 44px;
+          height: 44px;
+          min-width: 44px;
+          padding: 0;
+          font-size: 14px;
+          letter-spacing: 1px;
+        }
+        .masthead #add {
+          min-width: 44px;
+          width: 44px;
+          height: 44px;
+          padding: 10px;
+        }
+        .masthead #quick-capture {
+          min-width: 64px;
+          min-height: 44px;
+          white-space: nowrap;
+          padding: 7px;
+          font-size: 11px;
+        }
+        .mobile-brand {
+          font-size: 0;
+          width: 30px;
+          min-width: 30px;
+          gap: 0;
+        }
+        .mobile-brand .mark {
+          width: 30px;
+          height: 30px;
+        }
+        .mobile-nav {
+          min-height: 56px;
+        }
+        .mobile-nav button {
+          min-height: 44px;
+          gap: 4px;
+        }
+        .atlas-courses {
+          padding-top: 8px;
+        }
+        .atlas-intro {
+          margin-bottom: 18px;
+        }
+        input,
+        select,
+        textarea {
+          scroll-margin-top: 30px;
+        }
+        .atlas-detail,
+        .workload-forecast {
+          scroll-margin-bottom: 90px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .course-planet:active {
+          transform: none;
+        }
+      }
+      .reduced-motion .course-planet:active {
+        transform: none;
+      }
+      body[data-material="quiet"] .atlas-courses::before,
+      .solid-glass .atlas-courses::before {
+        display: none;
+      }
+      @media (prefers-contrast: more), (prefers-reduced-transparency: reduce) {
+        .atlas-courses::before {
+          display: none;
+        }
+      }
+    </style>
+    <style id="study-window-styles">
+      #window-dialog {
+        width: min(680px, calc(100vw - 24px));
+        max-height: 90dvh;
+        overflow-y: auto;
+      }
+      .window-options {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin: 20px 0;
+      }
+      .window-options label {
+        font-size: 12px;
+        color: #c7cad5;
+      }
+      .window-options input,
+      .window-options select {
+        display: block;
+        width: 100%;
+        margin-top: 8px;
+        min-width: 0;
+      }
+      .window-assignment-label {
+        grid-column: 1/-1;
+      }
+      .window-results {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      .study-window {
+        display: flex;
+        align-items: center;
+        text-align: left;
+        gap: 12px;
+        min-height: 114px;
+        min-width: 0;
+        padding: 18px 12px;
+        border-radius: 24px 36px 24px 24px;
+        border: 1px solid #ffffff18;
+        background: linear-gradient(130deg, #ffffff06, #ffffff01);
+        box-shadow: var(--raised);
+      }
+      .study-window strong,
+      .study-window small {
+        display: block;
+        color: #edf0f5;
+      }
+      .study-window strong {
+        font-size: 15px;
+        margin: 7px 0;
+        font-weight: 500;
+      }
+      .study-window small {
+        color: #c7cad5;
+        font-size: 10px;
+        line-height: 1.6;
+      }
+      .window-art {
+        flex: 0 0 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: linear-gradient(145deg, #cce9df, #55847b);
+        box-shadow:
+          inset -14px -4px #292b33,
+          3px 4px 8px #14181d66;
+        transform: rotate(-30deg);
+      }
+      .study-window:nth-child(3n + 2) .window-art {
+        background: linear-gradient(145deg, #e5d5f5, #9c88b9);
+        transform: rotate(30deg);
+      }
+      .study-window:nth-child(3n) .window-art {
+        background: linear-gradient(145deg, #ffe0c8, #c18f76);
+        transform: rotate(-90deg);
+      }
+      #window-status {
+        color: #c7cad5;
+        font-size: 12px;
+        line-height: 1.65;
+      }
+      @media (max-width: 600px) {
+        .window-results {
+          grid-template-columns: 1fr;
+        }
+        .study-window {
+          min-height: 95px;
+          padding: 14px 18px;
+        }
+        .window-options input,
+        .window-options select {
+          font-size: 16px;
+        }
+        .forecast-heading-row {
+          gap: 10px;
+        }
+        .forecast-heading-row h2 {
+          width: 100%;
+        }
+        .forecast-heading-row button {
+          flex: 1;
+          font-size: 11px;
+        }
+      }
+    </style>
+    <style id="dialog-polish">
+      .review-heading {
+        overflow: hidden;
+        border-radius: 16px;
+      }
+      .review-heading .jump-heading {
+        min-width: 0;
+      }
+      dialog {
+        overscroll-behavior: contain;
+      }
+      .atlas-confidence input {
+        min-height: 44px;
+      }
+      @media (prefers-contrast: more) {
+        .jump-result,
+        .study-window {
+          border-color: #aeb4c2;
+        }
+        .review-pillar {
+          outline: 1px solid #edf0f5;
+        }
+      }
+    </style>
+    <style id="dialog-spacing">
+      /* These dialogs have direct content; the older editors get padding from their forms. */
+      #window-dialog,
+      #export-dialog,
+      #mobile-menu {
+        padding: 26px;
+      }
+      #window-dialog .study-window {
+        background: linear-gradient(135deg, #ffffff08, #ffffff02), #30333d;
+      }
+      #window-dialog .study-window:hover {
+        background: linear-gradient(135deg, #ffffff0e, #ffffff03), #30333d;
+      }
+      @media (max-width: 600px) {
+        #window-dialog,
+        #export-dialog,
+        #mobile-menu {
+          padding: 22px 18px;
+        }
+        .window-options {
+          grid-template-columns: minmax(0, 1fr);
+          gap: 12px;
+        }
+        .window-options input,
+        .window-options select {
+          min-height: 44px;
+        }
+        .jump-heading h2 {
+          font-size: 27px;
+        }
+      }
+    </style>
   </head>
   <body>
+    <div class="orbital-backdrop" aria-hidden="true">
+      <i class="backdrop-ring backdrop-ring--main"></i>
+      <i class="backdrop-ring backdrop-ring--echo"></i>
+      <i class="backdrop-contour"></i>
+    </div>
     <div class="demo-banner" id="demo-banner" hidden>
       Interactive design preview · fictional student data · changes stay in this
       preview <a href="../../Application.html">Open your scheduler ↗</a>
@@ -5587,6 +7265,10 @@
             <button data-page="tasks" aria-pressed="false">
               <svg class="icon"><use href="#i-check" /></svg
               ><span>Assignments</span>
+            </button>
+            <button data-page="atlas" aria-pressed="false">
+              <svg class="icon" aria-hidden="true"><use href="#i-atlas" /></svg
+              ><span>Atlas</span>
             </button>
             <button data-page="rhythm" aria-pressed="false">
               <svg class="icon"><use href="#i-rhythm" /></svg
@@ -5623,6 +7305,30 @@
             Scheduler
           </div>
           <div class="actions">
+            <button
+              id="mobile-more"
+              aria-label="More workspace options"
+              title="More options"
+            >
+              •••
+            </button>
+            <button
+              id="jump-open"
+              aria-label="Search workspace"
+              title="Search workspace (Ctrl/⌘ K)"
+            >
+              <svg class="icon" aria-hidden="true">
+                <circle cx="10" cy="10" r="6" />
+                <path d="m15 15 5 5" /></svg
+              ><span>Search</span>
+            </button>
+            <button
+              id="quick-capture"
+              title="Quick capture (Ctrl/⌘ Shift K)"
+              aria-label="Quick capture assignment"
+            >
+              Capture +
+            </button>
             <button id="import" title="Import a JSON backup">Import</button
             ><button
               id="export"
@@ -5640,7 +7346,9 @@
             <div class="eyebrow" id="greeting-kicker">
               A LITTLE MOMENTUM, EVERY DAY
             </div>
-            <h1 id="greeting-title">Make room for <em>what matters.</em></h1>
+            <h1 tabindex="-1" id="greeting-title">
+              Make room for <em>what matters.</em>
+            </h1>
             <p id="greeting-subtitle">
               Your classes, your focus, your breathing room.
             </p>
@@ -5776,6 +7484,84 @@
                 </div>
               </div>
             </section>
+            <section
+              class="course-atlas"
+              id="course-atlas"
+              aria-label="Course Atlas"
+              hidden
+            >
+              <div class="atlas-intro">
+                <div>
+                  <p class="eyebrow">YOUR KNOWLEDGE, IN ORBIT</p>
+                  <h2>A world for every course.</h2>
+                </div>
+                <span class="atlas-count" id="atlas-count"></span>
+              </div>
+              <div class="atlas-courses" id="atlas-courses"></div>
+              <p id="atlas-empty" class="atlas-muted">
+                Add a course to begin. Courses from your calendar and
+                assignments appear here too.
+              </p>
+              <form id="atlas-create" class="atlas-create">
+                <label class="sr-only" for="atlas-new-name">Course name</label
+                ><input
+                  id="atlas-new-name"
+                  maxlength="60"
+                  placeholder="Add a course, e.g. PSY 204"
+                  required
+                  autocomplete="off"
+                /><button type="submit">Add course +</button>
+              </form>
+              <section
+                id="atlas-detail"
+                class="atlas-detail"
+                hidden
+                aria-labelledby="atlas-course-heading"
+              >
+                <div class="atlas-detail-heading">
+                  <h2 id="atlas-course-heading" tabindex="-1"></h2>
+                  <span id="atlas-focused"></span>
+                </div>
+                <div class="atlas-detail-grid">
+                  <section>
+                    <div class="section-heading">
+                      <h3>Assignments</h3>
+                      <button id="atlas-add-task" type="button">Add +</button>
+                    </div>
+                    <div id="atlas-assignments"></div>
+                  </section>
+                  <section>
+                    <h3 id="atlas-week-label">Selected week</h3>
+                    <div id="atlas-week"></div>
+                  </section>
+                </div>
+                <div class="atlas-notebook">
+                  <label for="atlas-notes">Course notes</label
+                  ><textarea
+                    id="atlas-notes"
+                    maxlength="5000"
+                    placeholder="Questions to revisit. Things that clicked. Your next idea."
+                    spellcheck="true"
+                  ></textarea>
+                  <div class="atlas-confidence">
+                    <label for="atlas-confidence">How it feels</label
+                    ><input
+                      id="atlas-confidence"
+                      type="range"
+                      min="1"
+                      max="5"
+                      step="1"
+                      value="3"
+                      aria-describedby="atlas-confidence-label"
+                    /><span id="atlas-confidence-label"></span>
+                  </div>
+                  <div class="atlas-note-actions">
+                    <span id="atlas-draft-status" role="status"></span
+                    ><button id="atlas-save" type="button">Save notes</button>
+                  </div>
+                </div>
+              </section>
+            </section>
             <section class="tasks-main" id="tasks-main" hidden>
               <section
                 class="assignment-overview"
@@ -5808,6 +7594,19 @@
               <div class="task-list" id="tasks-full"></div>
             </section>
           </div>
+          <section
+            class="workload-forecast"
+            id="workload-forecast"
+            aria-labelledby="forecast-heading"
+          >
+            <div class="forecast-heading-row">
+              <h2 id="forecast-heading">Room to think</h2>
+              <button id="study-windows-open">Find study time +</button
+              ><button id="weekly-review-open">Week in orbit ↗</button>
+            </div>
+            <p id="forecast-range"></p>
+            <div class="forecast-days" id="forecast-days"></div>
+          </section>
           <aside class="study-rail" aria-label="Study tools">
             <section class="focus-card" aria-label="Focus timer">
               <div class="eyebrow">
@@ -5852,6 +7651,11 @@
               </div>
               <div class="focus-task" id="focus-task">
                 No pressure. Just a little progress.
+              </div>
+              <div id="focus-history"></div>
+              <div class="focus-next" id="focus-next" hidden>
+                <button id="focus-complete-task">Complete assignment</button
+                ><button id="focus-clear-intention">Take a break</button>
               </div>
               <span
                 class="sr-only"
@@ -5925,15 +7729,171 @@
     </main>
     <nav class="mobile-nav" aria-label="Workspace navigation">
       <button data-page="desk" aria-pressed="true">
-        <svg class="icon"><use href="#i-desk" /></svg>My day</button
-      ><button data-page="tasks" aria-pressed="false">
-        <svg class="icon"><use href="#i-check" /></svg>Tasks</button
-      ><button data-page="rhythm" aria-pressed="false">
-        <svg class="icon"><use href="#i-rhythm" /></svg>Rhythm</button
-      ><button data-page="focus" aria-pressed="false">
+        <svg class="icon"><use href="#i-desk" /></svg>My day
+      </button>
+      <button data-page="tasks" aria-pressed="false">
+        <svg class="icon"><use href="#i-check" /></svg>Tasks
+      </button>
+      <button data-page="atlas" aria-pressed="false">
+        <svg class="icon" aria-hidden="true"><use href="#i-atlas" /></svg
+        ><span>Atlas</span>
+      </button>
+      <button data-page="rhythm" aria-pressed="false">
+        <svg class="icon"><use href="#i-rhythm" /></svg>Rhythm
+      </button>
+      <button data-page="focus" aria-pressed="false">
         <svg class="icon"><use href="#i-focus" /></svg>Focus
       </button>
     </nav>
+    <dialog id="jump-dialog" aria-labelledby="jump-heading" class="jump-dialog">
+      <div class="jump-heading">
+        <div>
+          <p class="eyebrow">FIND YOUR NEXT MOVE</p>
+          <h2 id="jump-heading">Jump to</h2>
+        </div>
+        <button id="jump-close" type="button" aria-label="Close search">
+          ×
+        </button>
+      </div>
+      <label class="sr-only" for="jump-query"
+        >Search courses, assignments and this week's events</label
+      ><input
+        id="jump-query"
+        type="search"
+        placeholder="Course, assignment, or event…"
+        autocomplete="off"
+        maxlength="160"
+        aria-describedby="jump-count"
+      />
+      <p id="jump-count" role="status"></p>
+      <div
+        id="jump-results"
+        class="jump-results"
+        aria-label="Search results"
+      ></div>
+      <p class="jump-hint">↑ ↓ Navigate · Enter Open · Esc Close</p>
+    </dialog>
+    <dialog id="export-dialog" aria-labelledby="export-heading">
+      <div class="jump-heading">
+        <h2 id="export-heading">Take it with you.</h2>
+        <button id="export-close" aria-label="Close export">×</button>
+      </div>
+      <div class="export-option">
+        <h3>Full backup</h3>
+        <p>Calendar, assignments, course notes and focus history.</p>
+        <button id="export-backup">Download backup · JSON</button>
+      </div>
+      <div class="export-option">
+        <h3>This week, anywhere</h3>
+        <p id="export-week-label"></p>
+        <label class="export-check"
+          ><input type="checkbox" id="export-deadlines" /> Include open
+          assignment deadlines</label
+        >
+        <p id="export-timezone"></p>
+        <button id="export-calendar">Export calendar · ICS</button>
+        <p>
+          A one-time copy for calendar apps. Later edits do not sync; repeated
+          imports may create duplicates.
+        </p>
+      </div>
+      <div id="web-app-option" class="export-option" hidden>
+        <h3>Your space, on your home screen</h3>
+        <p id="web-install-status" tabindex="-1"></p>
+        <button id="web-install">How to install</button>
+        <p id="web-offline-status" role="status"></p>
+        <p>
+          Browser and native app data are separate until account sync is
+          connected. Use a JSON backup to move a copy.
+        </p>
+      </div>
+      <p id="export-error" class="error" role="alert"></p>
+    </dialog>
+    <dialog id="review-dialog" aria-labelledby="review-heading">
+      <div class="jump-heading review-heading">
+        <i class="review-sculpture" aria-hidden="true"></i>
+        <div>
+          <p class="eyebrow">A LITTLE PERSPECTIVE</p>
+          <h2 id="review-heading">Your week in orbit.</h2>
+          <p id="review-range"></p>
+        </div>
+        <button id="review-close" aria-label="Close weekly review">×</button>
+      </div>
+      <div class="review-totals">
+        <div>
+          <strong id="review-focus"></strong><span id="review-sessions"></span>
+        </div>
+        <div>
+          <strong id="review-due"></strong><span id="review-due-label"></span>
+        </div>
+      </div>
+      <div
+        id="review-bars"
+        class="review-bars"
+        aria-label="Completed focus time by day"
+      ></div>
+      <div class="review-prompts">
+        <label for="review-win"
+          >What clicked?<textarea
+            id="review-win"
+            maxlength="1000"
+            placeholder="One thing worth remembering…"
+          ></textarea></label
+        ><label for="review-next"
+          >Carry into next week<textarea
+            id="review-next"
+            maxlength="1000"
+            placeholder="One small change, one next step…"
+          ></textarea>
+        </label>
+      </div>
+      <div class="review-footer">
+        <p id="review-status" role="status"></p>
+        <button id="review-save">Save reflection</button>
+      </div>
+    </dialog>
+    <dialog id="mobile-menu" aria-labelledby="mobile-menu-heading">
+      <div class="jump-heading">
+        <h2 id="mobile-menu-heading">Your workspace</h2>
+        <button id="mobile-menu-close" aria-label="Close workspace options">
+          ×
+        </button>
+      </div>
+      <div class="mobile-menu-actions">
+        <button id="mobile-import">Import backup <span>JSON</span></button
+        ><button id="mobile-export">Export &amp; install <span>↗</span></button
+        ><button id="mobile-personalize">Make it yours <span>↗</span></button
+        ><button id="mobile-review">Week in orbit <span>↗</span></button>
+      </div>
+      <p class="atlas-muted">Saved on this device.</p>
+    </dialog>
+    <dialog id="window-dialog" aria-labelledby="window-heading">
+      <div class="jump-heading">
+        <div>
+          <p class="eyebrow">A SPACE TO BEGIN</p>
+          <h2 id="window-heading">Make room.</h2>
+        </div>
+        <button id="window-close" aria-label="Close study suggestions">
+          ×
+        </button>
+      </div>
+      <div class="window-options">
+        <label for="window-date"
+          >Starting from<input id="window-date" type="date" required /></label
+        ><label for="window-length"
+          >Session<select id="window-length">
+            <option value="30">30 minutes</option>
+            <option value="60">1 hour</option>
+            <option value="90">1½ hours</option>
+            <option value="120">2 hours</option>
+          </select></label
+        ><label for="window-assignment" class="window-assignment-label"
+          >What for?<select id="window-assignment"></select
+        ></label>
+      </div>
+      <p id="window-status" role="status"></p>
+      <div id="window-results" class="window-results"></div>
+    </dialog>
     <div class="notice" id="notice" hidden>
       <span id="notice-text"></span><button id="undo-change" hidden>Undo</button
       ><button id="dismiss-notice" aria-label="Dismiss notification">×</button>
@@ -5945,6 +7905,17 @@
       aria-hidden="true"
     >
       <defs>
+        <symbol id="i-atlas" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="6" />
+          <ellipse
+            cx="12"
+            cy="12"
+            rx="11"
+            ry="4"
+            transform="rotate(-30 12 12)"
+          />
+          <circle cx="19" cy="4" r="1" />
+        </symbol>
         <symbol id="i-desk" viewBox="0 0 24 24">
           <rect x="3" y="4" width="18" height="17" rx="3" />
           <path d="M3 9h18M8 2v4M16 2v4M7 13h3M7 17h3M14 13h3" />
@@ -6147,6 +8118,18 @@
             </select>
           </div>
         </div>
+        <details id="breakdown-fields">
+          <summary>Study steps</summary>
+          <p class="dialog-description">
+            Break this into sessions. Editing a scheduled step keeps its
+            existing calendar block.
+          </p>
+          <div id="task-steps"></div>
+          <div class="step-tools">
+            <button type="button" id="step-add">+ Step</button
+            ><button type="button" id="step-suggest">Starter steps</button>
+          </div>
+        </details>
         <p class="field-error" id="task-error" role="alert"></p>
         <div class="dialog-actions">
           <button type="button" class="danger" id="task-delete" hidden>
@@ -6201,6 +8184,72 @@
           Your device’s reduced-motion and reduced-transparency preferences are
           also respected.
         </p>
+        <div class="row">
+          <div class="field">
+            <label for="setting-accent">Accent</label
+            ><select id="setting-accent">
+              <option value="mint">Mint</option>
+              <option value="lilac">Lilac</option>
+              <option value="apricot">Apricot</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="setting-material">Material</label
+            ><select id="setting-material">
+              <option value="sculpted">Sculpted</option>
+              <option value="glass">Glass</option>
+              <option value="quiet">Quiet</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="setting-study-start">Study hours from</label
+            ><input
+              id="setting-study-start"
+              type="time"
+              min="06:00"
+              max="22:30"
+              step="1800"
+              required
+            />
+          </div>
+          <div class="field">
+            <label for="setting-study-end">Until</label
+            ><input
+              id="setting-study-end"
+              type="time"
+              min="06:30"
+              max="23:00"
+              step="1800"
+              required
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label for="setting-daily-target">Daily study target (hours)</label
+          ><input
+            id="setting-daily-target"
+            type="number"
+            min="0.5"
+            max="12"
+            step="0.5"
+            required
+          />
+        </div>
+        <div id="native-preferences" hidden>
+          <label class="preference-check"
+            ><input id="setting-haptics" type="checkbox" />Tactile feedback on
+            iPhone</label
+          ><label class="preference-check"
+            ><input id="setting-reminders" type="checkbox" />Notify me when
+            focus sessions finish</label
+          >
+          <p class="dialog-description">
+            iPhone notification permission is requested when you save this
+            preference.
+          </p>
+        </div>
         <p class="field-error" id="settings-error" role="alert"></p>
         <div class="dialog-actions">
           <button type="button" class="cancel" data-close="settings-editor">
@@ -6209,8 +8258,225 @@
         </div>
       </form>
     </dialog>
+    <dialog id="capture-editor" aria-labelledby="capture-heading">
+      <div class="dialog-header">
+        <h2 id="capture-heading">Catch the thought.</h2>
+        <button
+          class="close"
+          data-close="capture-editor"
+          aria-label="Close quick capture"
+        >
+          ×
+        </button>
+      </div>
+      <form id="capture-form">
+        <div class="field">
+          <label for="capture-title">Assignment</label
+          ><input
+            id="capture-title"
+            maxlength="160"
+            required
+            autocomplete="off"
+          />
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="capture-course">Course (optional)</label
+            ><input
+              id="capture-course"
+              maxlength="60"
+              list="course-suggestions"
+            />
+          </div>
+          <div class="field">
+            <label for="capture-due">Due</label
+            ><input id="capture-due" type="date" required />
+          </div>
+        </div>
+        <p class="dialog-description">
+          Starts with a one-hour estimate. Add steps in Assignments.
+        </p>
+        <p class="field-error" id="capture-error" role="alert"></p>
+        <div class="dialog-actions">
+          <button type="button" data-close="capture-editor">Cancel</button
+          ><button class="primary" type="submit">Capture</button>
+        </div>
+      </form>
+    </dialog>
+    <dialog id="plan-editor" aria-labelledby="plan-title">
+      <div class="dialog-header">
+        <h2 id="plan-title">Study plan</h2>
+        <button
+          class="close"
+          data-close="plan-editor"
+          aria-label="Close study plan"
+        >
+          ×
+        </button>
+      </div>
+      <ul id="plan-list"></ul>
+      <p id="plan-note" class="dialog-description"></p>
+      <p id="plan-error" class="field-error" role="alert"></p>
+      <div class="dialog-actions">
+        <button data-close="plan-editor">Cancel</button
+        ><button class="primary" id="plan-save">Save study blocks</button>
+      </div>
+    </dialog>
     <datalist id="course-suggestions"></datalist>
 
+    <!-- Generated from src/study-core.ts; run npm run build:core. -->
+<script id="study-core">
+"use strict";
+/** Pure scheduling primitives. No DOM, persistence or network side effects. */
+var StudyCore;
+(function (StudyCore) {
+    function localDate(date) {
+        return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+    }
+    StudyCore.localDate = localDate;
+    function shiftDate(key, days) {
+        const date = new Date(`${key}T12:00:00`);
+        date.setDate(date.getDate() + days);
+        return localDate(date);
+    }
+    StudyCore.shiftDate = shiftDate;
+    function mergeIntervals(events, start, end) {
+        const sorted = events
+            .map((event) => ({
+            start: Math.max(start, event.start),
+            end: Math.min(end, event.end),
+        }))
+            .filter((event) => Number.isFinite(event.start) &&
+            Number.isFinite(event.end) &&
+            event.end > event.start)
+            .sort((a, b) => a.start - b.start);
+        const merged = [];
+        for (const event of sorted) {
+            const previous = merged[merged.length - 1];
+            if (previous && event.start <= previous.end)
+                previous.end = Math.max(previous.end, event.end);
+            else
+                merged.push({ ...event });
+        }
+        return merged;
+    }
+    StudyCore.mergeIntervals = mergeIntervals;
+    function freeSlots(events, start, end) {
+        const result = [];
+        let cursor = Math.ceil(start / 30) * 30;
+        for (const event of mergeIntervals(events, start, end)) {
+            if (event.start > cursor)
+                result.push({ start: cursor, end: event.start });
+            cursor = Math.max(cursor, Math.ceil(event.end / 30) * 30);
+        }
+        if (cursor < end)
+            result.push({ start: cursor, end });
+        return result;
+    }
+    StudyCore.freeSlots = freeSlots;
+    function occupied(events, start, end) {
+        return mergeIntervals(events, start, end).reduce((sum, event) => sum + event.end - event.start, 0);
+    }
+    StudyCore.occupied = occupied;
+    /** Keep step order. If a prerequisite cannot fit, do not schedule later steps ahead of it. */
+    function planSteps(steps, days) {
+        const placements = [];
+        const unplaced = [];
+        const working = days.map((day) => ({
+            ...day,
+            events: day.events.map((event) => ({ ...event })),
+        }));
+        let lastDate = "", lastEnd = 0, blocked = false;
+        for (const step of steps.filter((step) => !step.done)) {
+            let found = false;
+            if (!blocked)
+                for (const day of working) {
+                    if (day.date < lastDate)
+                        continue;
+                    const begin = day.date === lastDate ? Math.max(day.start, lastEnd) : day.start;
+                    const slot = freeSlots(day.events, begin, day.end).find((slot) => slot.end - slot.start >= step.minutes);
+                    if (!slot)
+                        continue;
+                    const placement = {
+                        date: day.date,
+                        start: slot.start,
+                        end: slot.start + step.minutes,
+                        stepId: step.id,
+                    };
+                    placements.push(placement);
+                    day.events.push(placement);
+                    lastDate = day.date;
+                    lastEnd = placement.end;
+                    found = true;
+                    break;
+                }
+            if (!found) {
+                unplaced.push(step);
+                blocked = true;
+            }
+        }
+        return { placements, unplaced };
+    }
+    StudyCore.planSteps = planSteps;
+    /** RFC 5545 TEXT escaping prevents notes from becoming calendar properties. */
+    function calendarText(value) {
+        return value
+            .replace(/\\/g, "\\\\")
+            .replace(/\r\n|\r|\n/g, "\\n")
+            .replace(/;/g, "\\;")
+            .replace(/,/g, "\\,")
+            .replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/g, "");
+    }
+    /** Fold by UTF-8 octets, never inside a Unicode code point. */
+    function foldCalendarLine(line) {
+        const encoder = new TextEncoder();
+        let output = "", octets = 0;
+        for (const character of line) {
+            const size = encoder.encode(character).length;
+            if (octets + size > 75) {
+                output += "\r\n ";
+                octets = 1;
+            }
+            output += character;
+            octets += size;
+        }
+        return output;
+    }
+    function calendarUTC(date) {
+        return date
+            .toISOString()
+            .replace(/[-:]/g, "")
+            .replace(/\.\d{3}Z$/, "Z");
+    }
+    /** One-off snapshot. Timed events use the exporting device's local time zone. */
+    function calendarFile(items, generatedAt) {
+        const stamp = calendarUTC(generatedAt);
+        const lines = [
+            "BEGIN:VCALENDAR",
+            "VERSION:2.0",
+            "PRODID:-//Scheduler//Study Observatory//EN",
+            "CALSCALE:GREGORIAN",
+        ];
+        for (const item of items) {
+            lines.push("BEGIN:VEVENT", `UID:${encodeURIComponent(item.id + ":" + item.date)}@scheduler.local`, `DTSTAMP:${stamp}`);
+            if (item.start && item.end) {
+                lines.push(`DTSTART:${calendarUTC(new Date(`${item.date}T${item.start}:00`))}`, `DTEND:${calendarUTC(new Date(`${item.date}T${item.end}:00`))}`);
+            }
+            else {
+                lines.push(`DTSTART;VALUE=DATE:${item.date.replace(/-/g, "")}`, `DTEND;VALUE=DATE:${shiftDate(item.date, 1).replace(/-/g, "")}`, "TRANSP:TRANSPARENT");
+            }
+            lines.push(`SUMMARY:${calendarText(item.title)}`);
+            if (item.description)
+                lines.push(`DESCRIPTION:${calendarText(item.description)}`);
+            lines.push("END:VEVENT");
+        }
+        lines.push("END:VCALENDAR");
+        return lines.map(foldCalendarLine).join("\r\n") + "\r\n";
+    }
+    StudyCore.calendarFile = calendarFile;
+})(StudyCore || (StudyCore = {}));
+
+</script>
     <script>
       "use strict";
       (() => {
@@ -6490,6 +8756,7 @@
             state.data = data;
             state.writable = true;
             clearUndo();
+            syncNativeFocusReminder();
             return true;
           } catch (error) {
             announce(
@@ -6990,7 +9257,18 @@
         function importText(text) {
           try {
             const data = validateData(JSON.parse(text));
+            if (
+              (courseDrafts.size || reflectionDrafts.size) &&
+              !confirm(
+                "Import this backup and discard unsaved course notes and reflections?",
+              )
+            )
+              return;
+            const before = clone(state.data);
             if (!commit(data, true)) return;
+            courseDrafts.clear();
+            reflectionDrafts.clear();
+            offerUndo(before);
             // Keep an import exact: display an existing week without silently adding another one.
             const keys = Object.keys(data.weeks).sort();
             if (!Object.hasOwn(data.weeks, state.week) && keys.length)
@@ -7134,7 +9412,7 @@
               announce(event.detail.message, Boolean(event.detail.error));
           });
           $("import-file").addEventListener("change", importData);
-          $("export").addEventListener("click", exportData);
+          $("export").addEventListener("click", openExportOptions);
         }
         // Student workspace additions use the existing atomic schedule save and export path.
 
@@ -7331,6 +9609,52 @@
             !obj(study.timer)
           )
             throw new Error("Study workspace is invalid.");
+
+          // Course notebooks are optional so older backups remain importable.
+          if (study.courses !== undefined) {
+            if (!Array.isArray(study.courses) || study.courses.length > 80)
+              throw new Error("Invalid course atlas.");
+            const courseNames = new Set();
+            for (const course of study.courses) {
+              if (
+                !obj(course) ||
+                typeof course.name !== "string" ||
+                !course.name.trim() ||
+                course.name.length > 60 ||
+                typeof course.notes !== "string" ||
+                course.notes.length > 5000 ||
+                !Number.isInteger(course.confidence) ||
+                course.confidence < 1 ||
+                course.confidence > 5 ||
+                courseNames.has(course.name.toLocaleLowerCase())
+              )
+                throw new Error("Invalid course notebook.");
+              courseNames.add(course.name.toLocaleLowerCase());
+            }
+          }
+
+          if (study.reflections !== undefined) {
+            if (
+              !Array.isArray(study.reflections) ||
+              study.reflections.length > 260
+            )
+              throw new Error("Invalid weekly reflections.");
+            const reflectionWeeks = new Set();
+            for (const reflection of study.reflections) {
+              if (
+                !obj(reflection) ||
+                !date(reflection.week) ||
+                mondayOf(parseDate(reflection.week)) !== reflection.week ||
+                reflectionWeeks.has(reflection.week) ||
+                typeof reflection.win !== "string" ||
+                reflection.win.length > 1000 ||
+                typeof reflection.next !== "string" ||
+                reflection.next.length > 1000
+              )
+                throw new Error("Invalid weekly reflection.");
+              reflectionWeeks.add(reflection.week);
+            }
+          }
           const ids = new Set();
           for (const task of study.tasks) {
             if (
@@ -7348,6 +9672,27 @@
               typeof task.done !== "boolean"
             )
               throw new Error("An assignment is invalid.");
+            if (task.steps !== undefined) {
+              if (!Array.isArray(task.steps) || task.steps.length > 20)
+                throw new Error("Invalid assignment steps.");
+              const stepIds = new Set();
+              for (const step of task.steps) {
+                if (
+                  !obj(step) ||
+                  typeof step.id !== "string" ||
+                  !step.id ||
+                  step.id.length > 100 ||
+                  stepIds.has(step.id) ||
+                  typeof step.title !== "string" ||
+                  !step.title.trim() ||
+                  step.title.length > 120 ||
+                  ![30, 60, 90, 120].includes(step.minutes) ||
+                  typeof step.done !== "boolean"
+                )
+                  throw new Error("Invalid assignment step.");
+                stepIds.add(step.id);
+              }
+            }
             ids.add(task.id);
           }
           for (const session of study.sessions)
@@ -7358,6 +9703,19 @@
               typeof session.title !== "string"
             )
               throw new Error("A focus session is invalid.");
+          for (const session of study.sessions)
+            if (
+              session.taskId !== undefined &&
+              session.taskId !== null &&
+              typeof session.taskId !== "string"
+            )
+              throw new Error("Invalid focus assignment.");
+          for (const key of ["haptics", "reminders"])
+            if (
+              study.preferences[key] !== undefined &&
+              typeof study.preferences[key] !== "boolean"
+            )
+              throw new Error("Invalid native preference.");
           const p = study.preferences,
             t = study.timer;
           if (
@@ -7370,6 +9728,39 @@
             typeof p.solid !== "boolean"
           )
             throw new Error("Workspace preferences are invalid.");
+          if (
+            p.accent !== undefined &&
+            !["mint", "lilac", "apricot"].includes(p.accent)
+          )
+            throw new Error("Invalid accent.");
+          if (
+            p.material !== undefined &&
+            !["sculpted", "glass", "quiet"].includes(p.material)
+          )
+            throw new Error("Invalid material.");
+          const from = p.studyStart ?? 540,
+            until = p.studyEnd ?? 1260,
+            target = p.dailyTarget ?? 180;
+          if (
+            !Number.isInteger(from) ||
+            !Number.isInteger(until) ||
+            from < FIRST ||
+            until > LAST ||
+            until <= from ||
+            from % 30 ||
+            until % 30 ||
+            !Number.isInteger(target) ||
+            target < 30 ||
+            target > 720 ||
+            target % 30
+          )
+            throw new Error("Invalid study hours.");
+          if (
+            t.taskId !== undefined &&
+            t.taskId !== null &&
+            typeof t.taskId !== "string"
+          )
+            throw new Error("Invalid focus intention.");
           if (
             ![25, 50, 90].includes(t.duration) ||
             !finite(t.remaining) ||
@@ -7489,6 +9880,7 @@
         // Coordinate the visible page and its derived panels; keep persistence outside rendering.
         function renderStudio() {
           const prefs = studyData().preferences;
+          applyTheme();
           document.body.classList.toggle("reduced-motion", prefs.motion);
           document.body.classList.toggle("solid-glass", prefs.solid);
           $("workspace").dataset.page = state.page;
@@ -7497,6 +9889,7 @@
             tasks: "Assignments",
             rhythm: "My rhythm",
             focus: "Focus room",
+            atlas: "Course Atlas",
           };
           $("page-crumb").textContent = names[state.page];
           document.querySelectorAll("[data-page]").forEach((button) => {
@@ -7525,6 +9918,7 @@
             tasks: "Assignments",
             rhythm: "My rhythm",
             focus: "Focus",
+            atlas: "Course Atlas",
           }[state.page];
           $("greeting-kicker").textContent = prefs.name
             ? `${prefs.name.toUpperCase()}'S STUDY SPACE`
@@ -7534,6 +9928,7 @@
             tasks: "A place for every deadline. A plan for the work behind it.",
             rhythm: "Your usual week, ready to adapt when life happens.",
             focus: "Settle in. The rest of your week can wait.",
+            atlas: "Your courses, connected.",
           }[state.page];
           $("date-stamp").textContent = nowDate()
             .toLocaleDateString("en-US", {
@@ -7542,7 +9937,7 @@
               day: "numeric",
             })
             .toUpperCase();
-          $("planner").hidden = state.page === "tasks";
+          $("planner").hidden = ["tasks", "atlas"].includes(state.page);
           $("tasks-main").hidden = state.page !== "tasks";
           $("now-card").hidden = state.page !== "desk";
           $("task-rail").hidden = state.page === "tasks";
@@ -7575,6 +9970,8 @@
           renderGoal();
           renderTimer();
           renderOrbitTiles();
+          renderForecast();
+          renderAtlas();
         }
         function renderWeekStrip() {
           const strip = $("week-strip");
@@ -7876,7 +10273,7 @@
             ? `${open.length} ${open.length === 1 ? "thing" : "things"} in motion.`
             : "A clear orbit.";
           $("assignment-effort").textContent = open.length
-            ? `${durationText(open.reduce((sum, task) => sum + task.estimate, 0))} estimated · across open assignments`
+            ? `${durationText(open.reduce((sum, task) => sum + taskEffort(task), 0))} estimated · across open assignments`
             : "Add your next assignment when you’re ready.";
           $("assignment-completed").textContent =
             `${completed}/${tasks.length}`;
@@ -8000,6 +10397,24 @@
                 ),
               );
               content.append(meta);
+              const focused = studyData()
+                .sessions.filter((session) => session.taskId === task.id)
+                .reduce((sum, session) => sum + session.minutes, 0);
+              if (task.steps?.length || focused)
+                content.append(
+                  el(
+                    "p",
+                    "task-progress-note",
+                    [
+                      task.steps?.length
+                        ? `${task.steps.filter((step) => step.done).length}/${task.steps.length} steps`
+                        : "",
+                      focused ? `${durationText(focused)} focused` : "",
+                    ]
+                      .filter(Boolean)
+                      .join(" · "),
+                  ),
+                );
               if (!task.done) {
                 const actions = el("div", "task-actions");
                 const plan = el(
@@ -8010,7 +10425,13 @@
                   focus = el("button", "", "Focus on this");
                 plan.onclick = () => planTask(task);
                 focus.onclick = () => chooseFocusTask(task);
-                actions.append(plan, focus);
+                const breakdown = el(
+                  "button",
+                  "",
+                  task.steps?.length ? "Plan steps" : "Break down",
+                );
+                breakdown.onclick = () => previewSteps(task);
+                actions.append(plan, focus, breakdown);
                 content.append(actions);
               }
               row.append(check, content);
@@ -8047,6 +10468,9 @@
           $("task-due").value = task?.due || localISO(nowDate());
           $("task-estimate").value = task?.estimate || 60;
           $("task-delete").hidden = !task;
+          $("task-steps").replaceChildren();
+          for (const step of task?.steps || []) appendStepRow(step);
+          $("breakdown-fields").open = !!task?.steps?.length;
           showAuxiliary("task-editor");
           $("task-title").focus();
         }
@@ -8060,12 +10484,17 @@
               "Add an assignment title and due date.";
             return;
           }
+          if (readSteps().some((step) => !step.title)) {
+            $("task-error").textContent = "Give every study step a title.";
+            return;
+          }
           const task = {
             id: editingTask || uid(),
             title,
             course,
             due,
             estimate: Number($("task-estimate").value),
+            steps: readSteps(),
             done:
               studyData().tasks.find((t) => t.id === editingTask)?.done ||
               false,
@@ -8086,18 +10515,18 @@
         }
         // Find the earliest fitting gap from 09:00, or the next half-hour today, without overlapping existing events. Return null when it cannot fit before the grid closes.
         function freeStart(day, duration) {
-          const events = (state.data.weeks[state.week] || state.data.template)
-            .filter((e) => e.day === day)
-            .sort((a, b) => minutes(a.start) - minutes(b.start));
-          let start = 540;
+          const prefs = studyPreferences();
+          const events = (
+            state.data.weeks[state.week] || state.data.template
+          ).filter((event) => event.day === day);
+          let start = prefs.studyStart;
           if (shiftDate(state.week, day) === localISO(nowDate()))
             start = Math.max(start, Math.ceil(nowMinutes() / 30) * 30);
-          for (const event of events) {
-            if (minutes(event.end) <= start) continue;
-            if (minutes(event.start) >= start + duration) break;
-            start = Math.max(start, minutes(event.end));
-          }
-          return start + duration <= LAST ? start : null;
+          return (
+            StudyCore.freeSlots(intervals(events), start, prefs.studyEnd).find(
+              (slot) => slot.end - slot.start >= duration,
+            )?.start ?? null
+          );
         }
         // Populate an event draft for review; planning an assignment does not save the event until the user confirms.
         function planTask(task) {
@@ -8121,11 +10550,20 @@
           $("notes").value = `Work toward: ${task.title}\nDue ${task.due}`;
         }
         function openSettings() {
-          const p = studyData().preferences;
+          const p = studyPreferences();
           $("setting-name").value = p.name;
           $("setting-goal").value = p.goal;
           $("setting-motion").checked = p.motion;
           $("setting-glass").checked = p.solid;
+          $("native-preferences").hidden =
+            !window.webkit?.messageHandlers?.scheduleFiles;
+          $("setting-haptics").checked = !!p.haptics;
+          $("setting-reminders").checked = !!p.reminders;
+          $("setting-accent").value = p.accent;
+          $("setting-material").value = p.material;
+          $("setting-study-start").value = timeText(p.studyStart);
+          $("setting-study-end").value = timeText(p.studyEnd);
+          $("setting-daily-target").value = p.dailyTarget / 60;
           $("settings-error").textContent = "";
           showAuxiliary("settings-editor");
         }
@@ -8182,7 +10620,20 @@
             "--timer-offset",
             String(465 * (1 - r / (t.duration * 60))),
           );
-          $("focus-task").textContent = t.title || "";
+          const linkedTask = studyData().tasks.find(
+            (task) => task.id === t.taskId,
+          );
+          $("focus-task").textContent = linkedTask?.title || t.title || "";
+          const focused = t.taskId
+            ? studyData()
+                .sessions.filter((session) => session.taskId === t.taskId)
+                .reduce((sum, session) => sum + session.minutes, 0)
+            : 0;
+          $("focus-history").textContent = t.taskId
+            ? `${durationText(focused)} focused${linkedTask ? " on this assignment" : " · archived assignment"}`
+            : "";
+          $("focus-next").hidden = r !== 0 || !!t.endAt;
+          $("focus-complete-task").hidden = !linkedTask || linkedTask.done;
           document.querySelectorAll("[data-duration]").forEach((b) => {
             b.setAttribute(
               "aria-pressed",
@@ -8200,6 +10651,7 @@
                 date: localISO(isDemo ? nowDate() : new Date(t.endAt)),
                 minutes: t.duration,
                 title: t.title,
+                taskId: t.taskId || null,
               });
               s.timer.endAt = null;
               s.timer.remaining = 0;
@@ -8255,6 +10707,7 @@
           if (
             changeStudy((s) => {
               s.timer.title = task.title;
+              s.timer.taskId = task.id;
             })
           ) {
             selectPage("focus");
@@ -8326,6 +10779,7 @@
                 tasks: "Assignments",
                 rhythm: "My rhythm",
                 focus: "Focus room",
+                atlas: "Course Atlas",
               }[button.dataset.page],
             );
             button.onclick = () => selectPage(button.dataset.page);
@@ -8424,14 +10878,40 @@
               goal: Number($("setting-goal").value),
               motion: $("setting-motion").checked,
               solid: $("setting-glass").checked,
+              haptics: $("setting-haptics").checked,
+              reminders: $("setting-reminders").checked,
+              accent: $("setting-accent").value,
+              material: $("setting-material").value,
+              studyStart: minutes($("setting-study-start").value),
+              studyEnd: minutes($("setting-study-end").value),
+              dailyTarget: Number($("setting-daily-target").value) * 60,
             };
             if (!Number.isInteger(p.goal) || p.goal < 1 || p.goal > 80) return;
+            if (
+              !Number.isFinite(p.studyStart) ||
+              !Number.isFinite(p.studyEnd) ||
+              p.studyEnd <= p.studyStart ||
+              p.studyStart < FIRST ||
+              p.studyEnd > LAST ||
+              p.studyStart % 30 ||
+              p.studyEnd % 30 ||
+              !Number.isFinite(p.dailyTarget) ||
+              p.dailyTarget < 30 ||
+              p.dailyTarget > 720 ||
+              p.dailyTarget % 30
+            ) {
+              $("settings-error").textContent =
+                "Choose valid study hours and a target in half-hour steps.";
+              return;
+            }
             if (
               changeStudy((s) => {
                 s.preferences = p;
               })
             ) {
               $("settings-editor").close();
+              if (p.reminders && window.webkit?.messageHandlers?.scheduleFiles)
+                nativeMessage({ action: "requestReminders" });
               render();
               announce("Your workspace, a little more you.");
             } else
@@ -8463,6 +10943,7 @@
                 s.timer.remaining = s.timer.duration * 60;
                 s.timer.endAt = null;
                 s.timer.title = "";
+                s.timer.taskId = null;
               })
             ) {
               timerSaveFailed = false;
@@ -8501,6 +10982,1349 @@
           });
         }
 
+        // Feature helpers operate on copies; only commit/changeStudy persist user data.
+        let planDraft = null;
+        function studyPreferences() {
+          return {
+            accent: "mint",
+            material: "sculpted",
+            studyStart: 540,
+            studyEnd: 1260,
+            dailyTarget: 180,
+            ...studyData().preferences,
+          };
+        }
+        function taskEffort(task) {
+          return task.steps?.length
+            ? task.steps
+                .filter((step) => !step.done)
+                .reduce((sum, step) => sum + step.minutes, 0)
+            : task.estimate;
+        }
+        function applyTheme(preferences = studyPreferences()) {
+          document.body.dataset.accent = preferences.accent || "mint";
+          document.body.dataset.material = preferences.material || "sculpted";
+        }
+        function eventsOnDate(key, data = state.data) {
+          const week = mondayOf(parseDate(key));
+          const day = (parseDate(key).getDay() + 6) % 7;
+          return (data.weeks[week] || data.template).filter(
+            (event) => event.day === day,
+          );
+        }
+        function intervals(events) {
+          return events.map((event) => ({
+            start: minutes(event.start),
+            end: minutes(event.end),
+          }));
+        }
+        function linkedStepId(taskId, stepId) {
+          return `study:${taskId}:${stepId}`;
+        }
+        function scheduledStep(taskId, stepId) {
+          const id = linkedStepId(taskId, stepId);
+          for (const [week, events] of Object.entries(state.data.weeks)) {
+            const event = events.find((event) => event.id === id);
+            if (event) return { event, date: shiftDate(week, event.day) };
+          }
+          return null;
+        }
+        function appendStepRow(
+          step = { id: uid(), title: "", minutes: 30, done: false },
+        ) {
+          const row = el("div", "milestone-row");
+          row.dataset.stepId = step.id;
+          const check = document.createElement("input");
+          check.type = "checkbox";
+          check.checked = step.done;
+          check.className = "step-done";
+          check.setAttribute("aria-label", "Step completed");
+          const title = document.createElement("input");
+          title.className = "step-title";
+          title.value = step.title;
+          title.maxLength = 120;
+          title.placeholder = "e.g. Review lecture notes";
+          title.required = true;
+          title.setAttribute("aria-label", "Step title");
+          const duration = document.createElement("select");
+          duration.className = "step-minutes";
+          duration.setAttribute("aria-label", "Step duration");
+          for (const value of [30, 60, 90, 120]) {
+            const option = el("option", "", durationText(value));
+            option.value = value;
+            duration.append(option);
+          }
+          duration.value = step.minutes;
+          const remove = el("button", "step-remove", "×");
+          remove.type = "button";
+          remove.setAttribute("aria-label", "Remove step");
+          remove.onclick = () => {
+            row.remove();
+            $("step-add").focus();
+          };
+          row.append(check, title, duration, remove);
+          if (editingTask && scheduledStep(editingTask, step.id))
+            row.append(
+              el(
+                "small",
+                "step-booked",
+                "Scheduled · existing calendar block kept if edited or removed",
+              ),
+            );
+          $("task-steps").append(row);
+          return title;
+        }
+        function readSteps() {
+          return [...$("task-steps").children].map((row) => ({
+            id: row.dataset.stepId,
+            title: row.querySelector(".step-title").value.trim(),
+            minutes: Number(row.querySelector(".step-minutes").value),
+            done: row.querySelector(".step-done").checked,
+          }));
+        }
+        function previewSteps(task) {
+          const steps = (task.steps || []).filter((step) => !step.done);
+          if (!steps.length) {
+            openTask(task);
+            $("breakdown-fields").open = true;
+            $("step-add").focus();
+            return;
+          }
+          const today = localISO(nowDate()),
+            prefs = studyPreferences();
+          const days = [];
+          const lastDay =
+            task.due < shiftDate(today, 29) ? task.due : shiftDate(today, 29);
+          const scheduled = steps
+            .map((step) => ({ step, booking: scheduledStep(task.id, step.id) }))
+            .filter((item) => item.booking);
+          const pending = steps.filter(
+            (step) => !scheduledStep(task.id, step.id),
+          );
+          // Keep new work after any already-booked steps; never duplicate a linked calendar event.
+          const latest = scheduled
+            .map((item) => item.booking)
+            .sort(
+              (a, b) =>
+                a.date.localeCompare(b.date) ||
+                minutes(a.event.end) - minutes(b.event.end),
+            )
+            .at(-1);
+          for (let key = today; key <= lastDay; key = shiftDate(key, 1)) {
+            let start =
+              key === today
+                ? Math.max(prefs.studyStart, Math.ceil(nowMinutes() / 30) * 30)
+                : prefs.studyStart;
+            if (latest && key < latest.date) continue;
+            if (latest && key === latest.date)
+              start = Math.max(start, minutes(latest.event.end));
+            days.push({
+              date: key,
+              start,
+              end: prefs.studyEnd,
+              events: intervals(eventsOnDate(key)),
+            });
+          }
+          const proposal = StudyCore.planSteps(pending, days);
+          planDraft = {
+            taskId: task.id,
+            snapshot: JSON.stringify(state.data),
+            placements: proposal.placements,
+          };
+          $("plan-title").textContent = task.title;
+          $("plan-list").replaceChildren();
+          for (const { step, booking } of scheduled)
+            $("plan-list").append(
+              el(
+                "li",
+                "",
+                `${step.title} · already scheduled ${booking.date}, ${booking.event.start}`,
+              ),
+            );
+          for (const placement of proposal.placements) {
+            const step = steps.find((step) => step.id === placement.stepId);
+            $("plan-list").append(
+              el(
+                "li",
+                "",
+                `${step.title} · ${parseDate(placement.date).toLocaleDateString("en-US", { month: "short", day: "numeric" })} · ${timeText(placement.start)}–${timeText(placement.end)}`,
+              ),
+            );
+          }
+          $("plan-note").textContent = proposal.unplaced.length
+            ? `${proposal.unplaced.length} step(s) could not fit in order before the deadline within the next 30 days. Shorten a step or adjust study hours.`
+            : proposal.placements.length
+              ? "Suggested times within your study hours. Save to add these blocks."
+              : "All unfinished steps are already scheduled.";
+          $("plan-error").textContent = "";
+          $("plan-save").disabled = !proposal.placements.length;
+          showAuxiliary("plan-editor");
+        }
+        function saveStepPlan() {
+          if (!planDraft || planDraft.snapshot !== JSON.stringify(state.data)) {
+            $("plan-error").textContent =
+              "Your schedule changed. Close this preview and generate a fresh plan.";
+            return;
+          }
+          const task = studyData().tasks.find(
+            (task) => task.id === planDraft.taskId,
+          );
+          if (!task) return;
+          const next = clone(state.data);
+          for (const placement of planDraft.placements) {
+            const step = task.steps.find(
+              (step) => step.id === placement.stepId,
+            );
+            const week = mondayOf(parseDate(placement.date));
+            ensureWeek(next, week).push({
+              id: linkedStepId(task.id, step.id),
+              title: step.title,
+              day: (parseDate(placement.date).getDay() + 6) % 7,
+              start: timeText(placement.start),
+              end: timeText(placement.end),
+              color: courseColor(task.course),
+              notes: `Assignment: ${task.title}\nDue ${task.due}`,
+              course: task.course,
+              kind: "study",
+            });
+          }
+          if (!commit(next)) {
+            $("plan-error").textContent =
+              "Could not save. Your existing calendar was preserved.";
+            return;
+          }
+          const count = planDraft.placements.length;
+          $("plan-editor").close();
+          planDraft = null;
+          render();
+          announce(
+            `${count} study blocks added. You can edit each one in the calendar.`,
+          );
+        }
+        function renderForecast() {
+          const panel = $("workload-forecast");
+          panel.hidden = !["desk", "tasks", "rhythm"].includes(state.page);
+          const prefs = studyPreferences();
+          $("forecast-days").replaceChildren();
+          $("forecast-range").textContent =
+            `${timeText(prefs.studyStart)}–${timeText(prefs.studyEnd)} · ${durationText(prefs.dailyTarget)} daily study target`;
+          for (let day = 0; day < 7; day++) {
+            const key = shiftDate(state.week, day);
+            const events =
+              state.page === "rhythm"
+                ? state.data.template.filter((event) => event.day === day)
+                : eventsOnDate(key);
+            const busy = StudyCore.occupied(
+              intervals(events),
+              prefs.studyStart,
+              prefs.studyEnd,
+            );
+            const study = StudyCore.occupied(
+              intervals(events.filter((event) => event.kind === "study")),
+              prefs.studyStart,
+              prefs.studyEnd,
+            );
+            const free = Math.max(0, prefs.studyEnd - prefs.studyStart - busy);
+            const due = studyData().tasks.filter(
+              (task) => !task.done && task.due === key,
+            ).length;
+            const button = el(
+              "button",
+              "forecast-day" + (study > prefs.dailyTarget ? " overloaded" : ""),
+            );
+            button.type = "button";
+            button.style.setProperty(
+              "--load",
+              `${(busy / (prefs.studyEnd - prefs.studyStart)) * 100}%`,
+            );
+            button.setAttribute(
+              "aria-label",
+              `${DAYS[day]}: ${durationText(busy)} planned, ${durationText(free)} free, ${durationText(study)} studying${study > prefs.dailyTarget ? ", above study target" : ""}${due ? `, ${due} assignment(s) due` : ""}. Open day`,
+            );
+            button.append(
+              el("span", "", DAYS[day].slice(0, 3)),
+              el("i", "forecast-meter"),
+              el("strong", "", durationText(free)),
+              el(
+                "small",
+                "",
+                study > prefs.dailyTarget
+                  ? "over target"
+                  : due
+                    ? `${due} due · free`
+                    : "free",
+              ),
+            );
+            button.onclick = () => {
+              state.selectedDay = day;
+              state.view = "day";
+              selectPage(state.page === "rhythm" ? "rhythm" : "desk");
+              $("planner").scrollIntoView({
+                behavior: calm() ? "instant" : "smooth",
+                block: "start",
+              });
+            };
+            $("forecast-days").append(button);
+          }
+        }
+        function openQuickCapture() {
+          if (document.querySelector("dialog[open]")) return;
+          $("capture-form").reset();
+          $("capture-due").value = localISO(nowDate());
+          $("capture-error").textContent = "";
+          showAuxiliary("capture-editor");
+          $("capture-title").focus();
+        }
+        function nativeMessage(message) {
+          try {
+            window.webkit?.messageHandlers?.scheduleFiles?.postMessage(message);
+          } catch (_) {
+            /* Browser-only mode has no native bridge. */
+          }
+        }
+        function syncNativeFocusReminder() {
+          const study = studyData();
+          nativeMessage({
+            action: "focusReminder",
+            endAt: study.preferences.reminders ? study.timer.endAt : null,
+          });
+        }
+        function bindStudyFeatures() {
+          document.addEventListener("click", (event) => {
+            if (
+              event.isTrusted &&
+              event.target.closest("button") &&
+              studyPreferences().haptics
+            )
+              nativeMessage({ action: "haptic" });
+          });
+          window.addEventListener("nativeReminderPermission", (event) => {
+            if (event.detail?.granted) {
+              syncNativeFocusReminder();
+              announce("Focus notifications enabled.");
+            } else {
+              changeStudy((study) => {
+                study.preferences.reminders = false;
+              });
+              announce(
+                "Notifications are unavailable. You can enable them in iPhone Settings.",
+                true,
+              );
+            }
+          });
+          $("quick-capture").onclick = openQuickCapture;
+          document.addEventListener("keydown", (event) => {
+            if (
+              (event.ctrlKey || event.metaKey) &&
+              event.shiftKey &&
+              event.key.toLowerCase() === "k" &&
+              !event.repeat &&
+              !event.isComposing &&
+              !event.target.closest(
+                "input,textarea,select,[contenteditable=true]",
+              ) &&
+              !document.querySelector("dialog[open]")
+            ) {
+              event.preventDefault();
+              openQuickCapture();
+            }
+          });
+          $("capture-form").onsubmit = (event) => {
+            event.preventDefault();
+            const title = $("capture-title").value.trim(),
+              due = $("capture-due").value;
+            if (!title || !due) return;
+            const task = {
+              id: uid(),
+              title,
+              due,
+              course: $("capture-course").value.trim(),
+              estimate: 60,
+              done: false,
+            };
+            if (!changeStudy((study) => study.tasks.push(task))) {
+              $("capture-error").textContent =
+                "Could not save. Your draft is still here.";
+              return;
+            }
+            $("capture-editor").close();
+            render();
+            announce("Assignment captured.");
+          };
+          $("step-add").onclick = () => {
+            if ($("task-steps").children.length >= 20) {
+              $("task-error").textContent =
+                "Keep this assignment to 20 steps or fewer.";
+              return;
+            }
+            appendStepRow().focus();
+          };
+          $("step-suggest").onclick = () => {
+            if ($("task-steps").children.length) {
+              $("task-error").textContent =
+                "Starter steps are available for an empty breakdown. Your existing steps were kept.";
+              return;
+            }
+            for (const title of [
+              "Understand the brief",
+              "Work through the main task",
+              "Review and submit",
+            ])
+              appendStepRow({ id: uid(), title, minutes: 30, done: false });
+          };
+          $("plan-save").onclick = saveStepPlan;
+          for (const id of ["setting-accent", "setting-material"])
+            $(id).onchange = () =>
+              applyTheme({
+                ...studyPreferences(),
+                accent: $("setting-accent").value,
+                material: $("setting-material").value,
+              });
+          $("settings-editor").addEventListener("close", () => applyTheme());
+          $("focus-complete-task").onclick = () => {
+            const taskId = studyData().timer.taskId;
+            if (!taskId) return;
+            if (
+              changeStudy((study) => {
+                const task = study.tasks.find((task) => task.id === taskId);
+                if (task) task.done = true;
+              })
+            ) {
+              render();
+              announce("Assignment completed.");
+            }
+          };
+          $("focus-clear-intention").onclick = () => {
+            if (
+              changeStudy((study) => {
+                study.timer.taskId = null;
+                study.timer.title = "";
+                study.timer.remaining = study.timer.duration * 60;
+                study.timer.endAt = null;
+              })
+            ) {
+              render();
+              announce(
+                "Ready for a break. Start a new session when you return.",
+              );
+            }
+          };
+          for (const id of ["plan-editor", "capture-editor"])
+            $(id).addEventListener("close", () => {
+              if (
+                auxiliaryFocus?.isConnected &&
+                auxiliaryFocus.getClientRects().length
+              )
+                auxiliaryFocus.focus({ preventScroll: true });
+              else $("quick-capture").focus({ preventScroll: true });
+            });
+        }
+
+        // Course Atlas keeps study context together. Draft notes survive page switches
+        // in this window; only the explicit Save action persists them.
+        let selectedAtlasCourse = "";
+        const courseDrafts = new Map();
+        function atlasCourses() {
+          const names = new Set(
+            (studyData().courses || []).map((course) => course.name),
+          );
+          for (const task of studyData().tasks)
+            if (task.course) names.add(task.course);
+          for (const events of [
+            state.data.template,
+            ...Object.values(state.data.weeks),
+          ]) {
+            for (const event of events)
+              if (event.course) names.add(event.course);
+          }
+          return [...names].sort((a, b) => a.localeCompare(b));
+        }
+        function courseRecord(name) {
+          return (
+            studyData().courses?.find((course) => course.name === name) || {
+              name,
+              notes: "",
+              confidence: 3,
+            }
+          );
+        }
+        function courseTasks(name) {
+          return studyData().tasks.filter((task) => task.course === name);
+        }
+        function renderAtlas() {
+          $("course-atlas").hidden = state.page !== "atlas";
+          if (state.page !== "atlas") return;
+          const names = atlasCourses();
+          if (!names.includes(selectedAtlasCourse))
+            selectedAtlasCourse = names[0] || "";
+          $("atlas-count").textContent =
+            `${names.length} ${names.length === 1 ? "course" : "courses"}`;
+          $("atlas-courses").replaceChildren();
+          $("atlas-empty").hidden = !!names.length;
+          $("atlas-detail").hidden = !names.length;
+          for (const name of names) {
+            const tasks = courseTasks(name),
+              done = tasks.filter((task) => task.done).length;
+            const card = el("button", "course-planet");
+            card.type = "button";
+            card.setAttribute(
+              "aria-pressed",
+              String(name === selectedAtlasCourse),
+            );
+            card.setAttribute(
+              "aria-label",
+              `${name}: ${done} of ${tasks.length} assignments complete. Open course`,
+            );
+            card.style.setProperty("--planet-color", courseColor(name));
+            card.style.setProperty(
+              "--planet-progress",
+              `${tasks.length ? (done / tasks.length) * 100 : 0}%`,
+            );
+            const sculpture = el("span", "planet-sculpture");
+            sculpture.setAttribute("aria-hidden", "true");
+            sculpture.append(el("i", "planet-satellite"));
+            card.append(
+              sculpture,
+              el("strong", "", name),
+              el(
+                "span",
+                "planet-caption",
+                `${tasks.filter((task) => !task.done).length} open · ${done} done`,
+              ),
+            );
+            card.onclick = () => {
+              selectedAtlasCourse = name;
+              renderAtlas();
+              $("atlas-course-heading").focus({ preventScroll: true });
+            };
+            $("atlas-courses").append(card);
+          }
+          if (!names.length) return;
+          const name = selectedAtlasCourse,
+            record = courseRecord(name),
+            tasks = courseTasks(name);
+          const draft = courseDrafts.get(name) || record;
+          $("atlas-detail").style.setProperty(
+            "--planet-color",
+            courseColor(name),
+          );
+          $("atlas-course-heading").textContent = name;
+          const taskIds = new Set(tasks.map((task) => task.id));
+          const focused = studyData()
+            .sessions.filter((session) => taskIds.has(session.taskId))
+            .reduce((total, session) => total + session.minutes, 0);
+          $("atlas-focused").textContent = `${durationText(focused)} focused`;
+          $("atlas-notes").value = draft.notes;
+          $("atlas-confidence").value = draft.confidence;
+          $("atlas-confidence-label").textContent = [
+            "",
+            "Starting out",
+            "Finding my feet",
+            "Getting there",
+            "Feeling steady",
+            "Ready to explain",
+          ][draft.confidence];
+          $("atlas-draft-status").textContent = courseDrafts.has(name)
+            ? "Unsaved notes"
+            : "Saved on this device";
+          $("atlas-assignments").replaceChildren();
+          const open = tasks
+            .filter((task) => !task.done)
+            .sort((a, b) => a.due.localeCompare(b.due));
+          if (!open.length)
+            $("atlas-assignments").append(
+              el("p", "atlas-muted", "No open assignments."),
+            );
+          for (const task of open.slice(0, 6)) {
+            const row = el("div", "atlas-assignment");
+            const title = el("button", "atlas-task-link", task.title);
+            title.onclick = () => openTask(task);
+            const focus = el("button", "atlas-task-focus", "Focus ↗");
+            focus.onclick = () => chooseFocusTask(task);
+            row.append(title, el("small", "", dueLabel(task.due)), focus);
+            $("atlas-assignments").append(row);
+          }
+          if (open.length > 6)
+            $("atlas-assignments").append(
+              el("p", "atlas-muted", `${open.length - 6} more in Assignments`),
+            );
+          $("atlas-week").replaceChildren();
+          const events = (state.data.weeks[state.week] || state.data.template)
+            .filter((event) => event.course === name)
+            .sort(
+              (a, b) => a.day - b.day || minutes(a.start) - minutes(b.start),
+            );
+          if (!events.length)
+            $("atlas-week").append(
+              el("p", "atlas-muted", "No sessions in the selected week."),
+            );
+          for (const event of events.slice(0, 5)) {
+            const button = el("button", "atlas-session");
+            button.append(
+              el("span", "", `${DAYS[event.day].slice(0, 3)} · ${event.start}`),
+              el("strong", "", event.title),
+            );
+            button.onclick = () => {
+              state.selectedDay = event.day;
+              state.page = "desk";
+              state.view = "day";
+              render();
+              openEditor(event);
+            };
+            $("atlas-week").append(button);
+          }
+          $("atlas-week-label").textContent =
+            `Selected week · ${parseDate(state.week).toLocaleDateString("en-US", { month: "short", day: "numeric" })}`;
+        }
+        function rememberCourseDraft() {
+          if (!selectedAtlasCourse) return;
+          courseDrafts.set(selectedAtlasCourse, {
+            name: selectedAtlasCourse,
+            notes: $("atlas-notes").value,
+            confidence: Number($("atlas-confidence").value),
+          });
+          $("atlas-confidence-label").textContent = [
+            "",
+            "Starting out",
+            "Finding my feet",
+            "Getting there",
+            "Feeling steady",
+            "Ready to explain",
+          ][Number($("atlas-confidence").value)];
+          $("atlas-draft-status").textContent = "Unsaved notes";
+        }
+        function bindAtlas() {
+          $("atlas-create").onsubmit = (event) => {
+            event.preventDefault();
+            const name = $("atlas-new-name").value.trim();
+            if (!name || name.length > 60) return;
+            const existing = atlasCourses().find(
+              (course) =>
+                course.toLocaleLowerCase() === name.toLocaleLowerCase(),
+            );
+            if (existing) {
+              selectedAtlasCourse = existing;
+              renderAtlas();
+              announce("That course is already in your atlas.");
+              return;
+            }
+            if ((studyData().courses || []).length >= 80) {
+              announce("Your atlas supports up to 80 saved courses.", true);
+              return;
+            }
+            if (
+              changeStudy((study) => {
+                study.courses ||= [];
+                study.courses.push({ name, notes: "", confidence: 3 });
+              })
+            ) {
+              selectedAtlasCourse = name;
+              $("atlas-new-name").value = "";
+              renderAtlas();
+              announce("Course added.");
+            }
+          };
+          $("atlas-notes").oninput = rememberCourseDraft;
+          $("atlas-confidence").oninput = rememberCourseDraft;
+          $("atlas-save").onclick = () => {
+            const record =
+              courseDrafts.get(selectedAtlasCourse) ||
+              courseRecord(selectedAtlasCourse);
+            if (
+              !(studyData().courses || []).some(
+                (course) => course.name === record.name,
+              ) &&
+              (studyData().courses || []).length >= 80
+            ) {
+              announce("Your atlas supports up to 80 saved courses.", true);
+              return;
+            }
+            if (
+              !changeStudy((study) => {
+                study.courses ||= [];
+                const index = study.courses.findIndex(
+                  (course) => course.name === record.name,
+                );
+                if (index < 0) study.courses.push({ ...record });
+                else study.courses[index] = { ...record };
+              })
+            )
+              return;
+            courseDrafts.delete(selectedAtlasCourse);
+            $("atlas-draft-status").textContent = "Saved on this device";
+            announce("Course notes saved.");
+          };
+          $("atlas-add-task").onclick = () => {
+            openTask();
+            $("task-course").value = selectedAtlasCourse;
+          };
+          // A normal beforeunload warning protects unsaved course notes without interrupting in-app navigation.
+          window.addEventListener("beforeunload", (event) => {
+            if (courseDrafts.size) {
+              event.preventDefault();
+              event.returnValue = "";
+            }
+          });
+        }
+
+        // Search stays on-device. Results are rebuilt from current state on every query.
+        let jumpReturnFocus = null;
+        let jumpDestination = false;
+        function jumpEntries() {
+          const entries = [
+            {
+              title: "My day",
+              meta: "Workspace",
+              action: () => selectPage("desk"),
+            },
+            {
+              title: "Week in orbit",
+              meta: "Review selected week",
+              action: openWeeklyReview,
+            },
+            {
+              title: "Course Atlas",
+              meta: "Workspace",
+              action: () => selectPage("atlas"),
+            },
+            {
+              title: "Assignments",
+              meta: "Workspace",
+              action: () => selectPage("tasks"),
+            },
+            {
+              title: "My rhythm",
+              meta: "Workspace",
+              action: () => selectPage("rhythm"),
+            },
+            {
+              title: "Focus room",
+              meta: "Workspace",
+              action: () => selectPage("focus"),
+            },
+            {
+              title: "Find study time",
+              meta: "Plan",
+              action: openStudyWindows,
+            },
+            {
+              title: "Capture an assignment",
+              meta: "Create",
+              action: openQuickCapture,
+            },
+          ];
+          for (const course of atlasCourses())
+            entries.push({
+              title: course,
+              meta: "Course",
+              action: () => {
+                selectedAtlasCourse = course;
+                selectPage("atlas");
+                $("atlas-course-heading").focus();
+              },
+            });
+          for (const task of [...studyData().tasks].sort(
+            (a, b) =>
+              Number(a.done) - Number(b.done) || a.due.localeCompare(b.due),
+          ))
+            entries.push({
+              title: task.title,
+              meta: `${task.course || "Assignment"} · ${task.done ? "Done" : dueLabel(task.due)}`,
+              action: () => openTask(task),
+            });
+          // Calendar results intentionally cover the selected week, avoiding duplicate recurring entries.
+          for (const event of state.data.weeks[state.week] ||
+            state.data.template)
+            entries.push({
+              title: event.title,
+              meta: `${event.course || "Event"} · ${DAYS[event.day].slice(0, 3)} ${event.start} · selected week`,
+              action: () => {
+                state.selectedDay = event.day;
+                state.page = "desk";
+                state.course = "";
+                render();
+                openEditor(event);
+              },
+            });
+          return entries;
+        }
+        function renderJump() {
+          const words = $("jump-query")
+            .value.trim()
+            .toLocaleLowerCase()
+            .split(/\s+/)
+            .filter(Boolean);
+          const matches = jumpEntries().filter((entry) =>
+            words.every((word) =>
+              `${entry.title} ${entry.meta}`.toLocaleLowerCase().includes(word),
+            ),
+          );
+          const results = $("jump-results");
+          results.replaceChildren();
+          $("jump-count").textContent = matches.length
+            ? `${matches.length} ${matches.length === 1 ? "result" : "results"}${matches.length > 24 ? " · first 24 shown" : ""}`
+            : "No matches. Try a course name or a shorter phrase.";
+          for (const entry of matches.slice(0, 24)) {
+            const button = el("button", "jump-result");
+            button.type = "button";
+            const text = el("span", "");
+            text.append(
+              el("strong", "", entry.title),
+              el("small", "", entry.meta),
+            );
+            const arrow = el("span", "jump-arrow", "↗");
+            arrow.setAttribute("aria-hidden", "true");
+            button.append(text, arrow);
+            button.onclick = () => {
+              jumpDestination = true;
+              $("jump-dialog").close();
+              requestAnimationFrame(() => {
+                entry.action();
+                if (
+                  !document.querySelector("dialog[open]") &&
+                  state.page !== "atlas"
+                )
+                  $("greeting-title").focus({ preventScroll: true });
+              });
+            };
+            results.append(button);
+          }
+        }
+        function openJump() {
+          if (document.querySelector("dialog[open]")) return;
+          jumpReturnFocus = document.activeElement;
+          jumpDestination = false;
+          $("jump-query").value = "";
+          renderJump();
+          $("jump-dialog").showModal();
+          $("jump-query").focus();
+        }
+        function bindJump() {
+          $("jump-open").onclick = openJump;
+          $("jump-close").onclick = () => $("jump-dialog").close();
+          $("jump-query").oninput = renderJump;
+          $("jump-query").onkeydown = (event) => {
+            if (
+              (event.key === "ArrowDown" || event.key === "Enter") &&
+              !event.isComposing
+            ) {
+              const first = $("jump-results").querySelector("button");
+              if (first) {
+                event.preventDefault();
+                if (event.key === "Enter") first.click();
+                else first.focus();
+              }
+            }
+          };
+          $("jump-results").onkeydown = (event) => {
+            if (!["ArrowDown", "ArrowUp", "Home", "End"].includes(event.key))
+              return;
+            const buttons = [...$("jump-results").querySelectorAll("button")],
+              index = buttons.indexOf(document.activeElement);
+            if (index < 0) return;
+            event.preventDefault();
+            if (event.key === "ArrowUp" && index === 0) {
+              $("jump-query").focus();
+              return;
+            }
+            const next =
+              event.key === "Home"
+                ? 0
+                : event.key === "End"
+                  ? buttons.length - 1
+                  : Math.max(
+                      0,
+                      Math.min(
+                        buttons.length - 1,
+                        index + (event.key === "ArrowDown" ? 1 : -1),
+                      ),
+                    );
+            buttons[next].focus();
+          };
+          $("jump-dialog").addEventListener("close", () => {
+            if (!jumpDestination && jumpReturnFocus?.isConnected)
+              jumpReturnFocus.focus({ preventScroll: true });
+          });
+          document.addEventListener("keydown", (event) => {
+            if (
+              (event.ctrlKey || event.metaKey) &&
+              !event.shiftKey &&
+              !event.altKey &&
+              event.key.toLowerCase() === "k" &&
+              !event.repeat &&
+              !event.isComposing &&
+              !event.target.closest(
+                "input,textarea,select,[contenteditable]",
+              ) &&
+              !document.querySelector("dialog[open]")
+            ) {
+              event.preventDefault();
+              openJump();
+            }
+          });
+        }
+        function exportCalendar() {
+          const weekEnd = shiftDate(state.week, 6);
+          const items = (
+            state.data.weeks[state.week] || state.data.template
+          ).map((event) => ({
+            id: `event:${event.id}`,
+            title: event.title,
+            date: shiftDate(state.week, event.day),
+            start: event.start,
+            end: event.end,
+            description: [event.course, event.notes].filter(Boolean).join("\n"),
+          }));
+          if ($("export-deadlines").checked)
+            for (const task of studyData().tasks.filter(
+              (task) =>
+                !task.done && task.due >= state.week && task.due <= weekEnd,
+            ))
+              items.push({
+                id: `assignment:${task.id}`,
+                title: `Due: ${task.title}`,
+                date: task.due,
+                description: task.course || "Assignment deadline",
+              });
+          if (!items.length) {
+            $("export-error").textContent =
+              "There are no events or selected deadlines in this week.";
+            return;
+          }
+          try {
+            const text = StudyCore.calendarFile(items, new Date());
+            if (globalThis.webkit?.messageHandlers?.scheduleFiles) {
+              globalThis.webkit.messageHandlers.scheduleFiles.postMessage({
+                action: "exportCalendar",
+                text,
+              });
+            } else {
+              const url = URL.createObjectURL(
+                new Blob([text], { type: "text/calendar;charset=utf-8" }),
+              );
+              const link = document.createElement("a");
+              link.href = url;
+              link.download = `scheduler-${state.week}.ics`;
+              document.body.append(link);
+              link.click();
+              link.remove();
+              setTimeout(() => URL.revokeObjectURL(url), 1000);
+              announce(
+                "Calendar file prepared. Import it into your calendar app.",
+              );
+            }
+            $("export-dialog").close();
+          } catch (error) {
+            $("export-error").textContent =
+              "Could not prepare the calendar file. Your schedule is unchanged.";
+          }
+        }
+        function openExportOptions() {
+          $("export-error").textContent =
+            courseDrafts.size || reflectionDrafts.size
+              ? "Save your open notes and reflections first if you want them included in the backup."
+              : "";
+          $("export-week-label").textContent =
+            `${state.week} — ${shiftDate(state.week, 6)}`;
+          $("export-timezone").textContent =
+            `Times use this device’s time zone: ${Intl.DateTimeFormat().resolvedOptions().timeZone || "local time"}.`;
+          showAuxiliary("export-dialog");
+        }
+        function bindCalendarExport() {
+          $("export-close").onclick = () => $("export-dialog").close();
+          $("export-backup").onclick = () => {
+            $("export-dialog").close();
+            exportData();
+          };
+          $("export-calendar").onclick = exportCalendar;
+          $("export-dialog").addEventListener("close", () => {
+            if (auxiliaryFocus?.isConnected)
+              auxiliaryFocus.focus({ preventScroll: true });
+          });
+        }
+        let reviewWeek = "";
+        const reflectionDrafts = new Map();
+        function openWeeklyReview() {
+          reviewWeek = state.week;
+          const end = shiftDate(reviewWeek, 6),
+            study = studyData();
+          const sessions = study.sessions.filter(
+            (session) => session.date >= reviewWeek && session.date <= end,
+          );
+          const total = sessions.reduce(
+            (sum, session) => sum + session.minutes,
+            0,
+          );
+          const due = study.tasks.filter(
+            (task) => task.due >= reviewWeek && task.due <= end,
+          );
+          $("review-range").textContent =
+            `${parseDate(reviewWeek).toLocaleDateString("en-US", { month: "short", day: "numeric" })} — ${parseDate(end).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}`;
+          $("review-focus").textContent = durationText(total);
+          $("review-sessions").textContent =
+            `${sessions.length} completed focus ${sessions.length === 1 ? "session" : "sessions"}`;
+          $("review-due").textContent = due.length
+            ? `${due.filter((task) => task.done).length} / ${due.length}`
+            : "—";
+          $("review-due-label").textContent = due.length
+            ? "assignments due this week marked done"
+            : "no assignments due this week";
+          const daily = Array.from({ length: 7 }, (_, day) =>
+            sessions
+              .filter((session) => session.date === shiftDate(reviewWeek, day))
+              .reduce((sum, session) => sum + session.minutes, 0),
+          );
+          const max = Math.max(60, ...daily);
+          $("review-bars").replaceChildren();
+          daily.forEach((value, day) => {
+            const button = el("button", "review-day");
+            button.type = "button";
+            button.style.setProperty(
+              "--height",
+              `${Math.max(5, (value / max) * 100)}%`,
+            );
+            button.setAttribute(
+              "aria-label",
+              `${DAYS[day]}: ${durationText(value)} focused. Open this day.`,
+            );
+            button.append(
+              el("span", "review-minutes", value ? durationText(value) : "—"),
+              el("i", "review-pillar"),
+              el("span", "", DAYS[day].slice(0, 3)),
+            );
+            button.onclick = () => {
+              $("review-dialog").close();
+              requestAnimationFrame(() => {
+                state.week = reviewWeek;
+                state.selectedDay = day;
+                state.view = "day";
+                selectPage("desk");
+                $("agenda-date").setAttribute("tabindex", "-1");
+                $("agenda-date").focus({ preventScroll: true });
+              });
+            };
+            $("review-bars").append(button);
+          });
+          const record = reflectionDrafts.get(reviewWeek) ||
+            study.reflections?.find((item) => item.week === reviewWeek) || {
+              win: "",
+              next: "",
+            };
+          $("review-win").value = record.win;
+          $("review-next").value = record.next;
+          $("review-status").textContent = reflectionDrafts.has(reviewWeek)
+            ? "Unsaved reflection"
+            : "Saved on this device";
+          showAuxiliary("review-dialog");
+        }
+        function bindWeeklyReview() {
+          $("weekly-review-open").onclick = openWeeklyReview;
+          $("review-close").onclick = () => $("review-dialog").close();
+          for (const id of ["review-win", "review-next"])
+            $(id).oninput = () => {
+              reflectionDrafts.set(reviewWeek, {
+                week: reviewWeek,
+                win: $("review-win").value,
+                next: $("review-next").value,
+              });
+              $("review-status").textContent = "Unsaved reflection";
+            };
+          $("review-save").onclick = () => {
+            const record = {
+              week: reviewWeek,
+              win: $("review-win").value,
+              next: $("review-next").value,
+            };
+            const all = studyData().reflections || [];
+            if (
+              all.length >= 260 &&
+              !all.some((item) => item.week === reviewWeek)
+            ) {
+              $("review-status").textContent =
+                "Reflection limit reached. Export a backup before starting a new archive.";
+              return;
+            }
+            if (
+              !changeStudy((study) => {
+                study.reflections ||= [];
+                const index = study.reflections.findIndex(
+                  (item) => item.week === reviewWeek,
+                );
+                if (index < 0) study.reflections.push(record);
+                else study.reflections[index] = record;
+              })
+            ) {
+              $("review-status").textContent =
+                "Could not save. Your draft is still here.";
+              return;
+            }
+            reflectionDrafts.delete(reviewWeek);
+            $("review-status").textContent = "Reflection saved";
+          };
+          $("review-dialog").addEventListener("close", () => {
+            if (auxiliaryFocus?.isConnected)
+              auxiliaryFocus.focus({ preventScroll: true });
+          });
+          window.addEventListener("beforeunload", (event) => {
+            if (reflectionDrafts.size) {
+              event.preventDefault();
+              event.returnValue = "";
+            }
+          });
+        }
+        let installPrompt = null;
+        function bindWebApp() {
+          const web =
+            !isDemo &&
+            ["https:", "http:"].includes(location.protocol) &&
+            !globalThis.webkit?.messageHandlers?.scheduleFiles;
+          $("web-app-option").hidden = !web;
+          if (!web) return;
+          const installed =
+            matchMedia("(display-mode: standalone)").matches ||
+            navigator.standalone === true;
+          $("web-install").hidden = installed;
+          $("web-install-status").textContent = installed
+            ? "Opened as an app. Your data is saved on this device."
+            : "On iPhone or iPad: open the hosted site in Safari, then Share → Add to Home Screen. On desktop or Android, use your browser’s Install app option.";
+          if (
+            location.hostname === "localhost" ||
+            location.hostname === "127.0.0.1"
+          )
+            $("web-install-status").textContent +=
+              " This PC preview address will not open on your phone; a hosted HTTPS address is still needed.";
+          window.addEventListener("beforeinstallprompt", (event) => {
+            event.preventDefault();
+            installPrompt = event;
+            $("web-install").textContent = "Install Scheduler";
+          });
+          window.addEventListener("appinstalled", () => {
+            installPrompt = null;
+            $("web-install").hidden = true;
+            $("web-install-status").textContent =
+              "Scheduler installed. Data stays on this device.";
+          });
+          $("web-install").onclick = async () => {
+            if (!installPrompt) {
+              $("web-install-status").focus();
+              return;
+            }
+            const prompt = installPrompt;
+            installPrompt = null;
+            try {
+              await prompt.prompt();
+              const choice = await prompt.userChoice;
+              if (choice.outcome === "dismissed")
+                $("web-install-status").textContent =
+                  "Installation cancelled. You can keep using Scheduler in this browser.";
+            } catch (error) {
+              $("web-install-status").textContent =
+                "Use your browser’s Install app or Add to Home Screen menu.";
+            }
+          };
+          // Native/file/fictional previews stay self-contained. HTTPS hosting activates offline caching.
+          if ("serviceWorker" in navigator && location.protocol === "https:") {
+            navigator.serviceWorker
+              .register("./sw.js")
+              .then((registration) => {
+                const showReady = () => {
+                  if (registration.active)
+                    $("web-offline-status").textContent =
+                      "Offline app shell ready. Your schedule remains saved on this device.";
+                };
+                showReady();
+                if (registration.waiting)
+                  $("web-offline-status").textContent =
+                    "An app update is ready. Save your drafts, then close all Scheduler windows and reopen.";
+                else navigator.serviceWorker.ready.then(showReady);
+                registration.addEventListener("updatefound", () => {
+                  const worker = registration.installing;
+                  worker?.addEventListener("statechange", () => {
+                    if (
+                      worker.state === "installed" &&
+                      navigator.serviceWorker.controller
+                    )
+                      $("web-offline-status").textContent =
+                        "An app update is ready. Save your drafts, then close all Scheduler windows and reopen.";
+                  });
+                });
+              })
+              .catch(() => {
+                $("web-offline-status").textContent =
+                  "Offline setup is unavailable. The current page still works while it stays open.";
+              });
+          } else
+            $("web-offline-status").textContent =
+              "Offline reopening becomes available on the hosted HTTPS version.";
+        }
+
+        function bindMobileMenu() {
+          $("mobile-more").onclick = () => showAuxiliary("mobile-menu");
+          $("mobile-menu-close").onclick = () => $("mobile-menu").close();
+          $("mobile-import").onclick = () => {
+            $("mobile-menu").close();
+            $("import").click();
+          };
+          for (const [id, action] of [
+            ["mobile-export", openExportOptions],
+            ["mobile-personalize", openSettings],
+            ["mobile-review", openWeeklyReview],
+          ])
+            $(id).onclick = () => {
+              $("mobile-menu").close();
+              requestAnimationFrame(action);
+            };
+          $("mobile-menu").addEventListener("close", () => {
+            $("mobile-more").focus({ preventScroll: true });
+          });
+        }
+        function openStudyWindows() {
+          $("window-date").value =
+            selectedDate() < localISO(nowDate())
+              ? localISO(nowDate())
+              : selectedDate();
+          $("window-length").value = "60";
+          const select = $("window-assignment");
+          select.replaceChildren(el("option", "", "Open study time"));
+          select.firstElementChild.value = "";
+          for (const task of studyData()
+            .tasks.filter((task) => !task.done)
+            .sort((a, b) => a.due.localeCompare(b.due))) {
+            const option = el(
+              "option",
+              "",
+              `${task.course ? task.course + " · " : ""}${task.title}`,
+            );
+            option.value = task.id;
+            select.append(option);
+          }
+          renderStudyWindows();
+          showAuxiliary("window-dialog");
+        }
+        function renderStudyWindows() {
+          const date = $("window-date").value,
+            length = Number($("window-length").value),
+            prefs = studyPreferences(),
+            today = localISO(nowDate());
+          const result = $("window-results");
+          result.replaceChildren();
+          if (!date || localISO(parseDate(date)) !== date || date < today) {
+            $("window-status").textContent = "Choose today or a future date.";
+            return;
+          }
+          const task = studyData().tasks.find(
+            (task) => task.id === $("window-assignment").value,
+          );
+          let count = 0;
+          // Offer the first fitting interval per gap, across seven days. Nothing is saved here.
+          for (let offset = 0; offset < 7 && count < 6; offset++) {
+            const key = shiftDate(date, offset);
+            const begin =
+              key === today
+                ? Math.max(prefs.studyStart, Math.ceil(nowMinutes() / 30) * 30)
+                : prefs.studyStart;
+            for (const slot of StudyCore.freeSlots(
+              intervals(eventsOnDate(key)),
+              begin,
+              prefs.studyEnd,
+            )) {
+              if (slot.end - slot.start < length) continue;
+              const button = el("button", "study-window");
+              button.type = "button";
+              const title = parseDate(key).toLocaleDateString("en-US", {
+                weekday: "short",
+                month: "short",
+                day: "numeric",
+              });
+              const art = el("span", "window-art");
+              art.setAttribute("aria-hidden", "true");
+              const content = el("span", "");
+              content.append(
+                el("small", "", title),
+                el(
+                  "strong",
+                  "",
+                  `${timeText(slot.start)} — ${timeText(slot.start + length)}`,
+                ),
+                el(
+                  "small",
+                  "",
+                  task && key > task.due
+                    ? "After assignment deadline"
+                    : "Review this study block ↗",
+                ),
+              );
+              button.append(art, content);
+              button.setAttribute(
+                "aria-label",
+                `${title}, ${timeText(slot.start)} to ${timeText(slot.start + length)}${task && key > task.due ? ", after the assignment deadline" : ""}. Review study block`,
+              );
+              button.onclick = () => {
+                // Recheck availability at click time; another action may have changed the calendar.
+                const stillFree = StudyCore.freeSlots(
+                  intervals(eventsOnDate(key)),
+                  prefs.studyStart,
+                  prefs.studyEnd,
+                ).some(
+                  (gap) =>
+                    gap.start <= slot.start && gap.end >= slot.start + length,
+                );
+                if (
+                  !stillFree ||
+                  key < localISO(nowDate()) ||
+                  (key === localISO(nowDate()) && slot.start < nowMinutes())
+                ) {
+                  renderStudyWindows();
+                  $("window-status").textContent =
+                    "That time is no longer available. Choose an updated suggestion.";
+                  return;
+                }
+                $("window-dialog").close();
+                requestAnimationFrame(() => {
+                  const week = mondayOf(parseDate(key));
+                  state.page = "desk";
+                  state.course = "";
+                  state.view = "day";
+                  state.selectedDay = (parseDate(key).getDay() + 6) % 7;
+                  openWeek(week);
+                  if (state.week !== week) return;
+                  openEditor(null, state.selectedDay, slot.start);
+                  $("end").value = timeText(slot.start + length);
+                  $("title").value = task?.title || "Study block";
+                  $("event-kind").value = "study";
+                  $("event-course").value = task?.course || "";
+                  if (task?.course) $("color").value = courseColor(task.course);
+                  $("notes").value = task
+                    ? `Work toward: ${task.title}\nDue ${task.due}`
+                    : "";
+                });
+              };
+              result.append(button);
+              count++;
+              if (count === 6) break;
+            }
+          }
+          $("window-status").textContent = count
+            ? `${count} ${count === 1 ? "window" : "windows"} in the next seven days. Choose one to review before saving.`
+            : "No window fits within your study hours. Try a shorter session or another starting date.";
+        }
+        function bindStudyWindows() {
+          $("study-windows-open").onclick = openStudyWindows;
+          $("window-close").onclick = () => $("window-dialog").close();
+          for (const id of [
+            "window-date",
+            "window-length",
+            "window-assignment",
+          ])
+            $(id).onchange = renderStudyWindows;
+          $("window-dialog").addEventListener("close", () => {
+            if (
+              auxiliaryFocus?.isConnected &&
+              auxiliaryFocus.getClientRects().length
+            )
+              auxiliaryFocus.focus({ preventScroll: true });
+          });
+        }
         for (let day = 0; day < 7; day++) {
           const option = document.createElement("option");
           option.value = day;
@@ -8510,6 +12334,19 @@
         state.data = loadData();
         bindHandlers();
         bindStudio();
+        bindStudyFeatures();
+        bindAtlas();
+        bindJump();
+        bindCalendarExport();
+        bindWeeklyReview();
+        bindWebApp();
+        bindMobileMenu();
+        bindStudyWindows();
+        const requestedView = new URLSearchParams(location.search).get("view");
+        if (
+          ["desk", "tasks", "rhythm", "focus", "atlas"].includes(requestedView)
+        )
+          state.page = requestedView;
         if (state.writable) {
           openWeek(state.week);
           if (!$("grid").children.length) render();

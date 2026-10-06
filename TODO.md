@@ -1,0 +1,92 @@
+# Scheduler implementation checklist
+
+Canonical project: `C:\Users\kgsat\Documents\Scheduler`.
+Keep changes local and uncommitted until explicitly asked to commit or push.
+
+## 1. Abstract UI — in progress
+- [x] Review accessible supplied reference pages; record unavailable assets.
+- [x] Create original CSS orbital sculptures, flowing highlights and asymmetric surfaces using the existing slate/mint/lilac/apricot palette.
+- [ ] Visually inspect desktop and mobile layouts when browser access is available.
+- [ ] Refine assignment, rhythm and focus layouts with real content, long titles and empty states.
+- [ ] Preserve neutral readable text, visible focus, reduced-motion and solid-material preferences.
+
+## 2. TypeScript foundation
+- [x] Add a pinned TypeScript build without introducing a required network connection at runtime.
+- [x] Move pure scheduling/date/workload functions into typed source.
+- [x] Bundle generated JavaScript into canonical HTML for the existing native and preview sync workflow.
+- [x] Document source ownership and build commands; preserve existing backup compatibility.
+
+## 3. Assignment breakdown
+- [x] Add editable milestones with duration estimates and completion state.
+- [x] Offer an explicit preview of proposed study sessions before saving calendar events.
+- [x] Avoid occupied time; surface work that cannot fit before a deadline.
+- [x] Link sessions to their parent assignment and prevent duplicate planning.
+
+## 4. Workload forecast
+- [x] Show planned time and available study capacity by day.
+- [x] Merge overlapping events before calculating occupied time.
+- [x] Let the user set study hours and a daily study target.
+- [x] Suggest free blocks; distinguish suggestions from saved events.
+
+## 5. Quick capture
+- [x] Open a compact assignment form from every main page without navigating away.
+- [x] Add a keyboard shortcut that does not interfere with typing or existing dialogs.
+- [x] Preserve focus, show save errors and keep entered text after failed saves.
+
+## 6. Personal themes
+- [x] Add mint/lilac/apricot accent choices within the existing palette.
+- [x] Add sculpted/glass/quiet material choices with live preview and persistence.
+- [ ] Keep readable neutral text and respect reduced-transparency/contrast preferences.
+
+## 7. Focus companion
+- [x] Store a stable assignment ID on the timer and completed sessions.
+- [x] Display actual focused time by assignment without treating time as task completion.
+- [ ] Handle deleted assignments, reloads and timer recovery without duplicate sessions.
+- [x] Add a session-complete action to continue, take a break or mark work done.
+
+## 8. Swift / Apple features
+- [x] Add optional native haptic feedback to deliberate user actions.
+- [x] Add permission-based local reminders with cancel/reschedule behavior; native device review remains pending.
+- [ ] Add an actual WidgetKit extension and shared data container; configure signing and entitlements.
+- [ ] Build on macOS and review on physical Apple hardware before TestFlight.
+
+## 9. SQL, accounts and cross-device sync
+- [ ] Implement schema and ownership policies for events, assignments, milestones, preferences and focus sessions.
+- [ ] Choose/configure backend project and callback/domain settings with the user.
+- [ ] Add sign-in, recovery, account deletion and authenticated data access.
+- [ ] Implement offline queue, version checks, deletions and conflict resolution.
+- [ ] Migrate device-local data explicitly and partition caches per account.
+- [ ] Deploy website and distribute the Apple beta only when explicitly authorized.
+
+## October 5 afternoon additions
+
+- [x] Course Atlas with original 3D orbital cards, assignment progress and course context.
+- [x] Per-course notebooks and a self-reported confidence control; explicit save and draft warnings.
+- [x] Search workspace with Ctrl/Command K, keyboard navigation and local results.
+- [x] Week in orbit: completed-focus sculpture, due-work status and saved weekly reflections.
+- [x] Find study time: available windows over seven days with an editable event draft before saving.
+- [x] Calendar-file export with optional deadlines, Unicode-safe RFC 5545 formatting and native Files handoff.
+- [x] Installable web manifest, HTTPS-only offline shell and home-screen shortcuts.
+- [x] Original orbital web/native app icons generated from source.
+- [x] Phone toolbar menu, touch-sized controls and narrow-dialog overflow corrections.
+- [x] Extend the unapplied SQL draft for course notebooks and weekly reflections.
+- [x] Visually inspect the desktop Atlas and 390px phone Atlas/reflection layouts.
+
+## Release work still required
+
+- [ ] Full browser interaction, accessibility and performance review, including keyboard-only use and long data.
+- [ ] Calendar import review in Apple Calendar, Google Calendar and Outlook.
+- [ ] Hosted installation, offline relaunch, upgrade, cache eviction and multi-window review.
+- [ ] Build the native project on macOS; review Files exports, haptics and notifications on an iPhone.
+- [ ] Configure a backend and implement account identity, sync, conflict recovery and account deletion.
+- [ ] Add WidgetKit only after shared data/signing decisions are made.
+- [ ] Add course archive/rename and semester onboarding without losing event/task relationships.
+- [ ] Consolidate accumulated CSS layers after visual direction approval.
+
+## Handoff
+
+October 6 handoff: the user requested completion of the current work and a short commit message. This implementation pass is finished locally; all changes remain uncommitted for review. No automatic continuation is scheduled. The release work above remains outstanding.
+
+Checked items mean implemented in code, not release-tested. TypeScript compilation succeeded and HTML was formatted. No automated tests, native builds, calendar round trips, offline installation tests or SQL migrations were run. The in-app browser became available and was used for visual inspection with fictional preview data; the earlier Firefox limitation was not bypassed.
+
+Read `docs/STUDY-FEATURES.md`, `docs/WEB-APP.md` and `design/RESEARCH-OCT05.md` before continuing. The root Application.html is the UI source of truth; `npm run build:core` embeds TypeScript and refreshes native/preview copies. The preview server runs locally on port 8002 while its process remains open.

@@ -1,6 +1,7 @@
 import SwiftUI
 import WebKit
 import UniformTypeIdentifiers
+import UserNotifications
 
 // A small native shell; all scheduling logic remains in Application.html.
 @main
@@ -11,7 +12,7 @@ struct SchedulerApp: App {
 }
 
 struct ScheduleDocument: FileDocument {
-    static var readableContentTypes: [UTType] { [.json] }
+    static var readableContentTypes: [UTType] { [.json, UTType(filenameExtension: "ics") ?? .plainText] }
     var text: String
     init(text: String = "") { self.text = text }
     init(configuration: ReadConfiguration) throws {
@@ -48,7 +49,7 @@ struct ScheduleScreen: View {
                 }
             }
             .fileExporter(isPresented: $bridge.exporting, document: bridge.document,
-                          contentType: .json, defaultFilename: "week-by-week") { result in
+                          contentType: bridge.exportType, defaultFilename: bridge.exportFilename) { result in
                 switch result {
                 case .success: bridge.status("Schedule exported.")
                 case .failure: bridge.status("Export was not completed. Your schedule is still saved on this device.", error: true)
@@ -57,19 +58,90 @@ struct ScheduleScreen: View {
     }
 }
 
-final class ScheduleBridge: NSObject, ObservableObject, WKScriptMessageHandler {
+final class ScheduleBridge: NSObject, ObservableObject, WKScriptMessageHandler, UNUserNotificationCenterDelegate {
     @Published var importing = false
     @Published var exporting = false
     @Published var document = ScheduleDocument()
+    @Published var exportType: UTType = .json
+    @Published var exportFilename = "week-by-week"
     weak var webView: WKWebView?
+    private var reminderGeneration = 0
+    private let focusReminderID = "scheduler.focus.complete"
+    private var activeReminderID = UserDefaults.standard.string(forKey: "Scheduler.activeFocusReminder")
+
+    override init() {
+        super.init()
+        UNUserNotificationCenter.current().delegate = self
+    }
+
+    // Each request has a unique ID, so a stale asynchronous add can cancel itself
+    // without removing the newer session's reminder. Persist the active ID across launches.
+    private func syncFocusReminder(endAt: Double?) {
+        reminderGeneration += 1
+        let generation = reminderGeneration
+        let center = UNUserNotificationCenter.current()
+        center.removePendingNotificationRequests(withIdentifiers: [focusReminderID] + (activeReminderID.map { [$0] } ?? []))
+        activeReminderID = nil
+        UserDefaults.standard.removeObject(forKey: "Scheduler.activeFocusReminder")
+        guard let endAt, endAt.isFinite else { return }
+        let requestID = focusReminderID + "." + UUID().uuidString
+        activeReminderID = requestID
+        UserDefaults.standard.set(requestID, forKey: "Scheduler.activeFocusReminder")
+        center.getNotificationSettings { [weak self] settings in
+            DispatchQueue.main.async {
+                guard let self, self.reminderGeneration == generation else { return }
+                guard settings.authorizationStatus == .authorized || settings.authorizationStatus == .provisional else { return }
+                let delay = endAt / 1000 - Date().timeIntervalSince1970
+                guard delay > 1, delay <= 90 * 60 + 5 else { return }
+                let content = UNMutableNotificationContent()
+                content.title = "Focus session complete"
+                content.body = "Your study session is finished. Take a moment to recharge."
+                content.sound = .default
+                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: delay, repeats: false)
+                center.add(UNNotificationRequest(identifier: requestID, content: content, trigger: trigger)) { [weak self] error in
+                    DispatchQueue.main.async {
+                        guard let self, self.reminderGeneration == generation else {
+                            center.removePendingNotificationRequests(withIdentifiers: [requestID])
+                            return
+                        }
+                        if error != nil { self.status("Could not schedule the focus reminder.", error: true) }
+                    }
+                }
+            }
+        }
+    }
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.banner, .sound])
+    }
+
 
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         // Accept Files requests only from the bundled main document, not embedded or remote pages.
         guard message.frameInfo.isMainFrame, message.frameInfo.request.url?.isFileURL == true,
               let body = message.body as? [String: Any], let action = body["action"] as? String else { return }
-        if action == "import" {
+        if action == "haptic" {
+            UISelectionFeedbackGenerator().selectionChanged()
+        } else if action == "focusReminder" {
+            syncFocusReminder(endAt: body["endAt"] as? Double)
+        } else if action == "requestReminders" {
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { [weak self] granted, _ in
+                DispatchQueue.main.async {
+                    self?.dispatch("nativeReminderPermission", detail: ["granted": granted])
+                }
+            }
+        } else if action == "import" {
             importing = true
         } else if action == "export", let text = body["text"] as? String {
+            exportType = .json
+            exportFilename = "week-by-week"
+            document = ScheduleDocument(text: text)
+            exporting = true
+        } else if action == "exportCalendar", let text = body["text"] as? String {
+            // The local web app creates a standards-based snapshot; Files owns the save UI.
+            exportType = UTType(filenameExtension: "ics") ?? .plainText
+            exportFilename = "scheduler-week"
             document = ScheduleDocument(text: text)
             exporting = true
         }
