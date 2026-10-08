@@ -7238,12 +7238,1177 @@
         }
       }
     </style>
+    <style id="observatory-shell">
+      /* Observatory shell: navigation floats; reading surfaces remain grounded. */
+      :root {
+        --shell-glass: linear-gradient(145deg, #edf6ff12, #1b202b99 65%);
+        --shell-edge: #e4f4ff25;
+        --shell-shadow: 0 18px 50px #070b1638, inset 0 1px 0 #ffffff24;
+        --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      body {
+        background: #171c26;
+      }
+      /* Explicit stacking fixes the old negative layer disappearing behind the canvas. */
+      .orbital-backdrop {
+        z-index: 0;
+        background:
+          radial-gradient(ellipse at 8% 48%, #638b8128, transparent 46%),
+          radial-gradient(ellipse at 94% 4%, #8f77b440, transparent 45%),
+          #171c26;
+      }
+      .app,
+      .demo-banner {
+        position: relative;
+        z-index: 1;
+      }
+      .app {
+        max-width: 1660px;
+        grid-template-columns: 204px minmax(0, 1fr);
+        gap: 30px;
+        padding: 22px 28px 24px 22px;
+        background: transparent;
+      }
+      .workspace {
+        padding: 0;
+        background: transparent;
+      }
+      .orbital-backdrop::after {
+        background: radial-gradient(
+          ellipse at 54% 70%,
+          #171c2680,
+          transparent 75%
+        );
+      }
+      .backdrop-ring,
+      .backdrop-contour {
+        display: none;
+      }
+      .light-sculpture {
+        position: absolute;
+        width: min(78vw, 1100px);
+        height: auto;
+        right: -260px;
+        top: -350px;
+        opacity: 0.8;
+        transform: translate3d(var(--light-x, 0px), var(--light-y, 0px), 0)
+          rotate(-12deg);
+        transition: transform 950ms var(--motion-ease);
+      }
+      .light-sculpture--echo {
+        width: 650px;
+        top: auto;
+        right: auto;
+        bottom: -420px;
+        left: -330px;
+        opacity: 0.45;
+        transform: rotate(155deg);
+      }
+      .orbit-dust {
+        position: absolute;
+        inset: 0;
+        opacity: 0.2;
+        background-image: radial-gradient(#d5e4e9 0.6px, transparent 0.6px);
+        background-size: 46px 46px;
+        mask-image: linear-gradient(110deg, black, transparent 48%);
+      }
+      .sidebar {
+        position: sticky;
+        top: 22px;
+        height: calc(100dvh - 44px);
+        min-height: 540px;
+        padding: 24px 14px 14px;
+        gap: 30px;
+        overflow-y: auto;
+        border: 1px solid var(--shell-edge);
+        border-radius: 32px;
+        background: var(--shell-glass);
+        box-shadow: var(--shell-shadow);
+        backdrop-filter: blur(24px) saturate(125%);
+        -webkit-backdrop-filter: blur(24px) saturate(125%);
+      }
+      .sidebar .identity {
+        margin: 0 9px 14px;
+        gap: 10px;
+      }
+      .brand-name {
+        font-size: 17px;
+        font-weight: 600;
+        letter-spacing: -0.6px;
+      }
+      .brand-caption {
+        display: block;
+        font-size: 8px;
+        color: #b1bfc9;
+        letter-spacing: 2px;
+        margin-top: 3px;
+      }
+      .sidebar .mark {
+        flex: none;
+        width: 35px;
+        height: 38px;
+      }
+      .sidebar .side-label {
+        display: block;
+        font-size: 9px;
+        color: #a9b7c3;
+        letter-spacing: 1.8px;
+        margin: 0 12px 12px;
+      }
+      .sidebar .side-nav {
+        position: relative;
+        isolation: isolate;
+        gap: 5px;
+      }
+      .nav-lens {
+        position: absolute;
+        inset: 0 0 auto;
+        height: 48px;
+        border: 1px solid #e9fbff29;
+        border-radius: 17px;
+        background: linear-gradient(125deg, #d9f3ee22, #bac7dc0b);
+        box-shadow:
+          inset 0 1px #ffffff26,
+          0 6px 15px #060c192a;
+        z-index: -1;
+        pointer-events: none;
+        transform: translateY(var(--nav-y, 0px));
+        transition:
+          transform 430ms var(--motion-ease),
+          opacity 200ms;
+      }
+      .sidebar .side-nav button {
+        min-height: 48px;
+        padding: 12px;
+        border-radius: 17px;
+        color: #b9c5ce;
+        font-size: 12px;
+        box-shadow: none;
+        transition:
+          color 180ms,
+          transform 180ms var(--motion-ease);
+      }
+      .sidebar .side-nav button:hover {
+        background: #ffffff06;
+        color: #f5f7fa;
+        transform: translateX(2px);
+      }
+      .sidebar .side-nav button[aria-pressed="true"] {
+        background: transparent;
+        color: #f2f8f7;
+        box-shadow: none;
+      }
+      .sidebar .side-nav button[aria-pressed="true"] .icon {
+        color: var(--mint, #a9d5c8);
+        filter: drop-shadow(0 0 7px #a9d5c844);
+      }
+      .sidebar .side-nav button[aria-pressed="true"]::after {
+        display: block;
+        width: 4px;
+        height: 4px;
+        background: #b9e6d6;
+        box-shadow: 0 0 9px #b9e6d660;
+      }
+      .course-section {
+        border-top: 1px solid #ffffff0c;
+        padding-top: 24px;
+      }
+      .sidebar .course-list {
+        gap: 2px;
+      }
+      .sidebar .course-button {
+        min-height: 40px;
+        border-radius: 12px;
+        box-shadow: none;
+        background: transparent;
+        border: 0;
+        color: #c7d0d8;
+        font-size: 11px;
+      }
+      .sidebar .course-button:hover,
+      .sidebar .course-button.active {
+        background: #ffffff09;
+      }
+      .course-dot {
+        width: 6px;
+        height: 6px;
+      }
+      .sidebar-bottom {
+        gap: 10px;
+        padding-top: 20px;
+      }
+      .sidebar .device-note {
+        display: flex;
+        font-size: 9px;
+        color: #a8b8c3;
+      }
+      .profile-button {
+        border: 1px solid #ffffff12;
+        background: #10172235;
+        padding: 12px 9px;
+        border-radius: 17px;
+        gap: 8px;
+      }
+      .profile-button strong {
+        font-size: 11px;
+        font-weight: 500;
+      }
+      .profile-button small {
+        display: block;
+        margin-top: 3px;
+        font-size: 9px;
+      }
+      .avatar {
+        width: 30px;
+        height: 30px;
+        flex-shrink: 0;
+        background: radial-gradient(
+          circle at 30% 20%,
+          #f2e9ff,
+          #c4b2e3 45%,
+          #637081
+        );
+      }
+      /* One compact command bar; occasional actions live in the existing Options dialog. */
+      .masthead {
+        margin: 0;
+        padding: 8px 9px 8px 20px;
+        min-height: 64px;
+        border: 1px solid var(--shell-edge);
+        border-radius: 24px;
+        background: var(--shell-glass);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        box-shadow: var(--shell-shadow);
+        gap: 18px;
+      }
+      .breadcrumb {
+        gap: 10px;
+        font-size: 11px;
+        color: #bac7d0;
+        white-space: nowrap;
+      }
+      .breadcrumb::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #a9d5c8;
+        box-shadow: 0 0 12px #a9d5c855;
+      }
+      .breadcrumb b {
+        font-weight: 500;
+      }
+      .masthead .actions {
+        gap: 6px;
+      }
+      .masthead .actions button {
+        border-radius: 15px;
+        min-height: 44px;
+        border: 1px solid transparent;
+        background: transparent;
+        box-shadow: none;
+        color: #d5dfe5;
+        font-size: 11px;
+        padding: 10px 14px;
+      }
+      .masthead .actions button:hover {
+        background: #ffffff0d;
+        border-color: #ffffff18;
+      }
+      .masthead #import,
+      .masthead #export {
+        display: none;
+      }
+      .masthead #jump-open {
+        width: clamp(150px, 18vw, 260px);
+        justify-content: flex-start;
+        gap: 9px;
+        background: #0e142345;
+        border-color: #ffffff0d;
+        box-shadow: inset 0 2px 5px #070d1b30;
+      }
+      #jump-open kbd {
+        margin-left: auto;
+        font: 10px var(--font-ui);
+        color: #aabac7;
+        border: 1px solid #ffffff20;
+        border-radius: 5px;
+        padding: 1px 5px;
+      }
+      .masthead #add {
+        background: linear-gradient(145deg, #c6e7db, #97c6ba);
+        color: #182c2c;
+        box-shadow:
+          inset 0 1px #efffffc0,
+          0 5px 15px #060b1925;
+        border: 1px solid #d6f6e640;
+        padding: 10px 17px;
+      }
+      .masthead #add:hover {
+        background: #c8e8df;
+      }
+      .masthead #mobile-more {
+        display: flex;
+        order: 5;
+        width: 44px;
+        min-width: 44px;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        letter-spacing: 2px;
+        border-left: 1px solid #ffffff12;
+      }
+      .greeting {
+        margin: 32px 4px 24px;
+        padding: 0;
+        align-items: center;
+      }
+      .greeting::after {
+        display: none;
+      }
+      .greeting h1 {
+        font-family: var(--font-ui);
+        font-size: clamp(28px, 3vw, 38px);
+        font-weight: 500;
+        letter-spacing: -1.6px;
+        line-height: 1.2;
+      }
+      .greeting #greeting-kicker {
+        display: block;
+        font-size: 8px;
+        letter-spacing: 2.4px;
+        color: #aabdc9;
+        margin-bottom: 9px;
+      }
+      .date-stamp {
+        border: 0;
+        padding: 0;
+        transform: none;
+        letter-spacing: 1px;
+        font-size: 10px;
+        color: #bac8d2;
+      }
+      .desk-layout {
+        gap: 26px;
+      }
+      .hero {
+        background: linear-gradient(125deg, #303a43, #262c39 68%);
+        border: 1px solid #d7e9f422;
+        box-shadow:
+          0 18px 34px #080d1838,
+          inset 0 1px #ffffff0d;
+        min-height: 224px;
+        border-radius: 28px 28px 64px 28px;
+      }
+      .hero h2 {
+        font-size: clamp(25px, 2.6vw, 36px);
+        font-weight: 500;
+        line-height: 1.16;
+        letter-spacing: -1px;
+        max-width: 490px;
+      }
+      .hero .eyebrow {
+        font-size: 9px;
+        color: #bed4d5;
+      }
+      .hero .orbit-art {
+        right: -30px;
+        top: 5px;
+        opacity: 0.95;
+      }
+      .focus-card {
+        background: linear-gradient(155deg, #313640, #252b36);
+        border-color: #ffffff17;
+        box-shadow:
+          0 18px 36px #080d1833,
+          inset 0 1px #ffffff0c;
+      }
+      .planner {
+        background: transparent;
+      }
+      .week-strip {
+        background: #252c36;
+        box-shadow:
+          inset 4px 4px 12px #11182390,
+          inset -3px -3px 10px #8591a011;
+        border: 1px solid #ffffff09;
+      }
+      .agenda-block {
+        background: linear-gradient(120deg, #2c333e, #262c36);
+        border-color: #ffffff12;
+        box-shadow:
+          6px 8px 20px #080d1833,
+          inset 0 1px #ffffff06;
+      }
+      .day-signal {
+        background: #222b35;
+      }
+      #tasks-main > .dialog-description {
+        display: none;
+      }
+      .assignment-overview {
+        min-height: 178px;
+        background: linear-gradient(135deg, #344047, #292d3b);
+        border-color: #ffffff1a;
+        box-shadow: 0 20px 35px #070c192b;
+      }
+      .assignment-overview h2 {
+        font-size: clamp(27px, 3vw, 40px);
+        letter-spacing: -1px;
+      }
+      #tasks-full .task-item {
+        background: linear-gradient(135deg, #303640, #272e38);
+        border-color: #ffffff13;
+      }
+      .atlas-intro {
+        margin: 0 0 14px;
+        align-items: center;
+      }
+      .atlas-intro .eyebrow {
+        display: none;
+      }
+      .atlas-intro h2 {
+        font-size: 16px;
+        color: #c1ced8;
+        letter-spacing: -0.2px;
+        margin: 0;
+      }
+      .atlas-count {
+        border: 0;
+        padding: 0;
+        font-size: 11px;
+        color: #b6c4cd;
+      }
+      .course-planet {
+        border-radius: 26px;
+        background: linear-gradient(145deg, #333b46, #272e3a);
+        border-color: #ffffff17;
+        box-shadow:
+          0 16px 30px #070d1933,
+          inset 0 1px #ffffff12;
+      }
+      .course-planet:hover,
+      .course-planet[aria-pressed="true"] {
+        background: linear-gradient(145deg, #394550, #2a303e);
+      }
+      .atlas-detail,
+      .workload-forecast {
+        background: #252d38;
+        border-color: #ffffff15;
+      }
+      .footer {
+        color: #9cabb8;
+      }
+      .demo-banner {
+        background: #101620;
+        border-bottom: 1px solid #ffffff08;
+        font-size: 10px;
+        padding: 6px 12px;
+      }
+      /* Short, finite entrance motion; no decorative loop runs during a study session. */
+      @keyframes panel-arrive {
+        from {
+          opacity: 0;
+          transform: translateY(12px) scale(0.99);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .desk-layout.scene-in {
+        animation: none;
+      }
+      .scene-in .hero,
+      .scene-in .planner,
+      .scene-in .focus-card,
+      .scene-in .tasks-main,
+      .scene-in .course-atlas {
+        animation: panel-arrive 480ms var(--motion-ease) both;
+      }
+      .scene-in .focus-card,
+      .scene-in .course-atlas {
+        animation-delay: 45ms;
+      }
+      .scene-in .planner {
+        animation-delay: 70ms;
+      }
+      dialog[open] {
+        animation: panel-arrive 260ms var(--motion-ease) both;
+      }
+      button {
+        transition-timing-function: var(--motion-ease);
+      }
+      @media (hover: hover) and (pointer: fine) {
+        .hero .orbit-art {
+          transform: translate3d(var(--art-x, 0px), var(--art-y, 0px), 0)
+            rotate(-22deg);
+          transition: transform 700ms var(--motion-ease);
+        }
+        .hero:hover .orbit-art {
+          transform: translate3d(var(--art-x, 0px), var(--art-y, 0px), 0)
+            rotate(-16deg);
+        }
+        .course-planet:hover {
+          transform: translateY(-5px);
+        }
+      }
+      @media (max-width: 1190px) and (min-width: 721px) {
+        .app {
+          grid-template-columns: 78px minmax(0, 1fr);
+          padding: 18px;
+          gap: 20px;
+        }
+        .sidebar {
+          padding: 23px 10px 12px;
+          border-radius: 26px;
+          top: 18px;
+          height: calc(100dvh - 36px);
+        }
+        .sidebar .identity {
+          margin: 0 auto 20px;
+        }
+        .sidebar .identity > div:last-child,
+        .sidebar .side-label,
+        .sidebar .course-section,
+        .sidebar .device-note,
+        .sidebar .profile-button > span:last-child,
+        .sidebar .side-nav button span {
+          display: none;
+        }
+        .sidebar .side-nav button {
+          justify-content: center;
+          padding: 12px;
+        }
+        .sidebar .side-nav button::after {
+          display: none !important;
+        }
+        .sidebar .profile-button {
+          justify-content: center;
+          padding: 8px;
+        }
+        .masthead #jump-open {
+          width: 150px;
+        }
+        .masthead #quick-capture {
+          padding: 10px;
+        }
+        .desk-layout {
+          gap: 20px;
+        }
+      }
+      @media (max-width: 850px) and (min-width: 721px) {
+        .masthead .breadcrumb {
+          display: none;
+        }
+        .masthead .actions {
+          width: 100%;
+        }
+        .masthead #jump-open {
+          flex: 1;
+        }
+      }
+      @media (max-width: 720px) {
+        .app {
+          display: block;
+          padding: 12px 14px 100px;
+        }
+        .workspace {
+          padding: 0;
+        }
+        .sidebar {
+          display: none;
+        }
+        .masthead {
+          border-radius: 22px;
+          padding: 6px 7px 6px 13px;
+          gap: 9px;
+          min-height: 58px;
+        }
+        .masthead .breadcrumb {
+          display: none;
+        }
+        .masthead .actions {
+          gap: 3px;
+        }
+        .masthead .actions button {
+          min-width: 42px;
+          min-height: 44px;
+          padding: 8px;
+        }
+        .masthead #jump-open {
+          width: 42px;
+          min-width: 42px;
+          padding: 12px;
+          background: transparent;
+          border: 0;
+          box-shadow: none;
+        }
+        #jump-open span,
+        #jump-open kbd {
+          display: none;
+        }
+        .masthead #quick-capture {
+          min-width: 44px;
+          width: 44px;
+          padding: 10px;
+          font-size: 0;
+        }
+        #quick-capture::before {
+          content: "";
+          display: block;
+          width: 16px;
+          height: 18px;
+          border: 1.5px solid currentColor;
+          border-radius: 4px;
+          background:
+            linear-gradient(currentColor, currentColor) 3px 5px / 8px 1px
+              no-repeat,
+            linear-gradient(currentColor, currentColor) 3px 9px / 5px 1px
+              no-repeat;
+        }
+        .masthead #add {
+          width: 44px;
+          min-width: 44px;
+          padding: 12px;
+          border-radius: 15px;
+        }
+        .masthead #mobile-more {
+          min-width: 42px;
+          width: 42px;
+        }
+        .greeting {
+          margin: 27px 4px 22px;
+          gap: 12px;
+        }
+        .greeting h1 {
+          font-size: 29px;
+          letter-spacing: -1px;
+        }
+        .greeting #greeting-kicker {
+          font-size: 7px;
+          letter-spacing: 1.5px;
+        }
+        .date-stamp {
+          font-size: 8px;
+          letter-spacing: 0.4px;
+        }
+        .desk-layout {
+          gap: 22px;
+        }
+        .hero {
+          min-height: 214px;
+          padding: 24px;
+          border-radius: 26px 26px 48px 26px;
+        }
+        .hero h2 {
+          font-size: 27px;
+        }
+        .hero .orbit-art {
+          width: 170px;
+          height: 170px;
+          right: -70px;
+          top: 28px;
+          opacity: 0.65;
+        }
+        .hero > div:not(.orbit-art):not(.next-peek) {
+          max-width: 85%;
+        }
+        .light-sculpture {
+          width: 700px;
+          top: -300px;
+          right: -460px;
+          opacity: 0.55;
+        }
+        .light-sculpture--echo {
+          top: auto;
+          bottom: -420px;
+          right: auto;
+          left: -430px;
+        }
+        .mobile-nav {
+          bottom: max(12px, env(safe-area-inset-bottom));
+          left: 14px;
+          right: 14px;
+          width: auto;
+          border-radius: 24px;
+          padding: 6px;
+          background: #26323fd9;
+          border: 1px solid #deeeff30;
+          box-shadow:
+            0 12px 35px #050b1c66,
+            inset 0 1px #ffffff21;
+        }
+        .mobile-nav button {
+          border-radius: 18px;
+          min-height: 48px;
+          font-size: 8px;
+        }
+        .mobile-nav button[aria-pressed="true"] {
+          background: #c3dfda17;
+          box-shadow: inset 0 1px #ffffff1c;
+          color: #d6f2e9;
+        }
+        .mobile-nav button[aria-pressed="true"] .icon {
+          transform: translateY(-1px);
+        }
+        .atlas-intro h2 {
+          font-size: 14px;
+        }
+      }
+      /* Appearance preferences remain authoritative for every new material and motion. */
+      body[data-material="quiet"] .light-sculpture {
+        opacity: 0.12;
+      }
+      body[data-material="quiet"] .sidebar,
+      body[data-material="quiet"] .masthead {
+        box-shadow: none;
+      }
+      .solid-glass .sidebar,
+      .solid-glass .masthead,
+      .solid-glass .mobile-nav {
+        background: #252e3b;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+      .reduced-motion .nav-lens,
+      .reduced-motion .light-sculpture,
+      .reduced-motion .hero .orbit-art {
+        transition: none;
+      }
+      .reduced-motion .scene-in *,
+      .reduced-motion dialog[open] {
+        animation: none;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .nav-lens,
+        .light-sculpture,
+        .hero .orbit-art {
+          transition: none;
+        }
+        .scene-in *,
+        dialog[open] {
+          animation: none !important;
+        }
+      }
+      @media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+        .sidebar,
+        .masthead,
+        .mobile-nav {
+          background: #252e3b;
+          backdrop-filter: none;
+          -webkit-backdrop-filter: none;
+        }
+        .orbital-backdrop {
+          display: none;
+        }
+      }
+
+      /* Refinement pass: neutral controls, compact copy and a solid-material variant. */
+      :root {
+        --font-ui:
+          "Avenir Next", -apple-system, BlinkMacSystemFont,
+          "Segoe UI Variable Text", "Segoe UI", sans-serif;
+      }
+      .atlas-courses::before {
+        inset: 10% 0;
+      }
+      .atlas-create {
+        padding-inline: 0;
+      }
+      #atlas-add-task {
+        min-width: 64px;
+        white-space: nowrap;
+      }
+      input:not([type="checkbox"]):not([type="range"]):not([type="color"]),
+      select,
+      textarea {
+        background: #1b2432;
+        color: #e8eef3;
+        border-color: #ffffff1b;
+        box-shadow: inset 0 2px 6px #090f1d45;
+      }
+      input::placeholder,
+      textarea::placeholder {
+        color: #97a8b8;
+        opacity: 1;
+      }
+      .atlas-create button,
+      #atlas-add-task,
+      #atlas-save,
+      .atlas-task-focus,
+      .atlas-task-link,
+      .mobile-menu-actions button {
+        background: #303b49;
+        border-color: #ffffff20;
+        color: #e5edf3;
+      }
+      dialog {
+        background: #252e3bf5;
+        border-color: #d5e6ff25;
+        border-radius: 28px;
+        box-shadow:
+          0 35px 100px #05091588,
+          inset 0 1px #ffffff1a;
+      }
+      dialog::backdrop {
+        background: #080e1b80;
+        backdrop-filter: blur(7px);
+        -webkit-backdrop-filter: blur(7px);
+      }
+      .system-appearance-note {
+        padding: 12px 14px;
+        border: 1px solid #a9d5c82a;
+        border-radius: 12px;
+        color: #d1e2e0;
+        background: #a9d5c808;
+        font-size: 12px;
+        line-height: 1.6;
+      }
+      .system-appearance-note:empty {
+        display: none;
+      }
+      #mobile-personalize {
+        font-weight: 550;
+      }
+      /* Solid surfaces do not need to erase the app's identity. The ornament stays behind opaque reading panels. */
+      .solid-glass .orbital-backdrop {
+        display: block;
+        background: #171c26;
+      }
+      .solid-glass .orbital-backdrop > .light-sculpture {
+        display: block;
+        opacity: 0.28;
+      }
+      @media (prefers-reduced-transparency: reduce) {
+        .orbital-backdrop {
+          display: block;
+          background: #171c26;
+        }
+        .light-sculpture {
+          opacity: 0.28;
+        }
+        .orbital-backdrop > .orbit-dust {
+          display: none;
+        }
+        dialog,
+        .jump-dialog,
+        .solid-glass dialog {
+          background: #252e3b;
+          backdrop-filter: none;
+          -webkit-backdrop-filter: none;
+        }
+        dialog::backdrop {
+          backdrop-filter: none;
+          -webkit-backdrop-filter: none;
+          background: #080e1bcc;
+        }
+      }
+      .solid-glass dialog::backdrop {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+      @media (prefers-contrast: more) {
+        .orbital-backdrop,
+        .solid-glass .orbital-backdrop {
+          display: none;
+        }
+        .sidebar,
+        .masthead,
+        .mobile-nav,
+        dialog {
+          border-color: #9cabbf;
+        }
+        .nav-lens {
+          border-color: #d3ece5;
+        }
+      }
+
+      /* Focus continuity: a compact return path, derived from the existing timer. */
+      .focus-beacon {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        min-height: 44px;
+        padding: 8px 12px;
+        border: 1px solid #b8e5d43b;
+        background: #c3e9d810;
+        box-shadow: inset 0 1px #e0fff113;
+        color: #d7eee5;
+        border-radius: 17px;
+        white-space: nowrap;
+      }
+      .focus-beacon:hover {
+        background: #c3e9d821;
+      }
+      .focus-beacon[hidden] {
+        display: none;
+      }
+      .focus-beacon:not([hidden]) ~ .breadcrumb {
+        display: none;
+      }
+      .beacon-time {
+        font-size: 13px;
+        font-weight: 600;
+        font-variant-numeric: tabular-nums;
+        min-width: 36px;
+      }
+      .beacon-label {
+        font-size: 10px;
+      }
+      .beacon-orbit {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: conic-gradient(
+          #b9e6d6 var(--beacon-progress, 0%),
+          #b9e6d625 0
+        );
+        position: relative;
+        flex: none;
+      }
+      .beacon-orbit::after {
+        content: "";
+        position: absolute;
+        inset: 3px;
+        border-radius: 50%;
+        background: #253740;
+        box-shadow: inset 1px 2px 4px #0c172566;
+      }
+      .focus-beacon[data-paused="true"] {
+        color: #f1cbb6;
+        border-color: #efb49c40;
+      }
+      .focus-beacon[data-paused="true"] .beacon-orbit {
+        background: conic-gradient(
+          #efb49c var(--beacon-progress, 0%),
+          #efb49c25 0
+        );
+      }
+      .date-stamp,
+      .atlas-count {
+        background: #141c29b8;
+        border: 1px solid #ffffff0c;
+        border-radius: 12px;
+        padding: 7px 10px;
+      }
+      body[data-scene="focus"] .light-sculpture {
+        opacity: 0.38;
+      }
+      body[data-scene="tasks"] .light-sculpture {
+        --scene-angle: -22deg;
+      }
+      body[data-scene="atlas"] .light-sculpture {
+        --scene-angle: 0deg;
+      }
+      .light-sculpture:not(.light-sculpture--echo) {
+        transform: translate3d(var(--light-x, 0px), var(--light-y, 0px), 0)
+          rotate(var(--scene-angle, -12deg));
+      }
+      body[data-material="quiet"] .light-sculpture {
+        opacity: 0.12;
+      }
+      @media (max-width: 850px) and (min-width: 721px) {
+        .focus-beacon .beacon-label {
+          display: none;
+        }
+      }
+      @media (max-width: 720px) {
+        .focus-beacon {
+          position: fixed;
+          z-index: 15;
+          bottom: calc(max(12px, env(safe-area-inset-bottom)) + 78px);
+          left: 50%;
+          transform: translateX(-50%);
+          background: #253742;
+          border-radius: 99px;
+          box-shadow:
+            0 8px 25px #050d1c77,
+            inset 0 1px #e6fff11c;
+        }
+        body:has(.focus-beacon:not([hidden])) .app {
+          padding-bottom: 164px;
+        }
+      }
+      @media (prefers-reduced-transparency: reduce) {
+        body[data-scene="focus"] .light-sculpture {
+          opacity: 0.2;
+        }
+      }
+
+      #jump-open span,
+      #jump-open kbd {
+        white-space: nowrap;
+      }
+      #jump-open kbd {
+        flex-shrink: 0;
+      }
+      .notice {
+        background: #2b3a48;
+        border-color: #b9d9da40;
+        color: #edf4f7;
+        box-shadow: 0 12px 30px #080e1b66;
+      }
+      .notice.error {
+        background: #473337;
+        border-color: #efb49c66;
+      }
+      @media (max-width: 1190px) and (min-width: 721px) {
+        #jump-open kbd {
+          display: none;
+        }
+        .masthead #jump-open {
+          width: 150px;
+          flex-shrink: 0;
+        }
+      }
+      @media (max-width: 720px) {
+        body:has(.focus-beacon:not([hidden])) .notice {
+          bottom: calc(max(12px, env(safe-area-inset-bottom)) + 136px);
+        }
+        body:has(.focus-beacon:not([hidden])) .mobile-nav {
+          z-index: 16;
+        }
+      }
+      .reduced-motion .sidebar .side-nav button:hover {
+        transform: none;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .sidebar .side-nav button:hover {
+          transform: none;
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="orbital-backdrop" aria-hidden="true">
       <i class="backdrop-ring backdrop-ring--main"></i>
       <i class="backdrop-ring backdrop-ring--echo"></i>
       <i class="backdrop-contour"></i>
+      <svg
+        class="light-sculpture"
+        viewBox="0 0 1000 1000"
+        fill="none"
+        aria-hidden="true"
+      >
+        <defs>
+          <linearGradient
+            id="ribbon-mint"
+            x1="170"
+            y1="180"
+            x2="820"
+            y2="810"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color="#19353e" />
+            <stop offset=".23" stop-color="#bfe6dc" />
+            <stop offset=".38" stop-color="#607b80" />
+            <stop offset=".58" stop-color="#26363f" />
+            <stop offset=".79" stop-color="#c4b2e3" />
+            <stop offset="1" stop-color="#4a5065" />
+          </linearGradient>
+          <linearGradient
+            id="ribbon-peach"
+            x1="760"
+            y1="250"
+            x2="260"
+            y2="770"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color="#5a536a" />
+            <stop offset=".25" stop-color="#d4c3ec" />
+            <stop offset=".42" stop-color="#efb49c" />
+            <stop offset=".56" stop-color="#a77973" />
+            <stop offset=".8" stop-color="#293543" />
+            <stop offset="1" stop-color="#799c9c" />
+          </linearGradient>
+          <linearGradient
+            id="ribbon-edge"
+            x1="200"
+            y1="180"
+            x2="710"
+            y2="800"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color="#e8fff4" stop-opacity=".8" />
+            <stop offset=".5" stop-color="#e8fff4" stop-opacity="0" />
+            <stop offset="1" stop-color="#e9d9ff" stop-opacity=".6" />
+          </linearGradient>
+          <radialGradient id="satellite-light" cx=".28" cy=".2" r=".78">
+            <stop stop-color="#fff0dc" />
+            <stop offset=".35" stop-color="#e5b4a2" />
+            <stop offset=".8" stop-color="#715c6f" />
+            <stop offset="1" stop-color="#293447" />
+          </radialGradient>
+        </defs>
+        <g transform="rotate(-32 500 500)">
+          <ellipse
+            cx="500"
+            cy="535"
+            rx="265"
+            ry="350"
+            stroke="#080f1c"
+            stroke-opacity=".45"
+            stroke-width="104"
+          />
+          <ellipse
+            cx="500"
+            cy="500"
+            rx="265"
+            ry="350"
+            stroke="url(#ribbon-mint)"
+            stroke-width="96"
+          />
+          <ellipse
+            cx="500"
+            cy="500"
+            rx="309"
+            ry="394"
+            stroke="url(#ribbon-edge)"
+            stroke-width="2"
+          />
+          <ellipse
+            cx="500"
+            cy="500"
+            rx="218"
+            ry="303"
+            stroke="#111f2d"
+            stroke-opacity=".6"
+            stroke-width="3"
+          />
+        </g>
+        <g transform="rotate(42 500 500)">
+          <ellipse
+            cx="500"
+            cy="500"
+            rx="375"
+            ry="160"
+            stroke="url(#ribbon-peach)"
+            stroke-width="56"
+          />
+          <ellipse
+            cx="500"
+            cy="500"
+            rx="401"
+            ry="186"
+            stroke="url(#ribbon-edge)"
+            stroke-width="1.5"
+          />
+        </g>
+        <circle cx="214" cy="701" r="41" fill="url(#satellite-light)" />
+        <circle cx="824" cy="343" r="9" fill="#d7eae3" />
+        <ellipse
+          cx="500"
+          cy="500"
+          rx="455"
+          ry="245"
+          transform="rotate(42 500 500)"
+          stroke="#c9dbed"
+          stroke-opacity=".18"
+        />
+      </svg>
+      <div class="orbit-dust"></div>
     </div>
     <div class="demo-banner" id="demo-banner" hidden>
       Interactive design preview · fictional student data · changes stay in this
@@ -7255,12 +8420,13 @@
           <div class="mark" aria-hidden="true"><i></i></div>
           <div>
             <div class="brand-name">Scheduler</div>
-            <div class="brand-caption">After hours</div>
+            <div class="brand-caption">STUDY OBSERVATORY</div>
           </div>
         </div>
         <div>
           <p class="side-label">YOUR SPACE</p>
-          <nav class="side-nav">
+          <nav class="side-nav" aria-label="Pages">
+            <span class="nav-lens" aria-hidden="true"></span>
             <button data-page="desk" aria-pressed="true">
               <svg class="icon"><use href="#i-desk" /></svg><span>My day</span>
             </button>
@@ -7283,7 +8449,7 @@
           </nav>
         </div>
         <section class="course-section">
-          <p class="side-label">ON YOUR DESK</p>
+          <p class="side-label">COURSES</p>
           <div class="course-list" id="course-list"></div>
         </section>
         <div class="sidebar-bottom">
@@ -7292,15 +8458,22 @@
             <span class="avatar" id="avatar">S</span
             ><span
               ><strong id="profile-name">Your workspace</strong
-              ><small>Make it yours ↗</small></span
+              ><small>Preferences ↗</small></span
             >
           </button>
         </div>
       </aside>
       <div class="workspace" id="workspace" data-page="desk">
         <header class="masthead">
+          <button id="focus-beacon" class="focus-beacon" type="button" hidden>
+            <span class="beacon-orbit" aria-hidden="true"></span>
+            <span class="beacon-time" id="beacon-time"></span>
+            <span class="beacon-label" id="beacon-label">Focus</span>
+            <span aria-hidden="true">↗</span>
+          </button>
           <div class="breadcrumb">
-            Your workspace <span>/</span><b id="page-crumb">My day</b>
+            <span class="shell-name">Workspace</span
+            ><span aria-hidden="true">/</span><b id="page-crumb">My day</b>
           </div>
           <div class="mobile-brand">
             <div class="mark" aria-hidden="true"><i></i></div>
@@ -7322,14 +8495,14 @@
               <svg class="icon" aria-hidden="true">
                 <circle cx="10" cy="10" r="6" />
                 <path d="m15 15 5 5" /></svg
-              ><span>Search</span>
+              ><span>Find anything</span><kbd aria-hidden="true">⌘ K</kbd>
             </button>
             <button
               id="quick-capture"
               title="Quick capture (Ctrl/⌘ Shift K)"
               aria-label="Quick capture assignment"
             >
-              Capture +
+              Capture
             </button>
             <button id="import" title="Import a JSON backup">Import</button
             ><button
@@ -7495,7 +8668,7 @@
               <div class="atlas-intro">
                 <div>
                   <p class="eyebrow">YOUR KNOWLEDGE, IN ORBIT</p>
-                  <h2>A world for every course.</h2>
+                  <h2>Your constellation</h2>
                 </div>
                 <span class="atlas-count" id="atlas-count"></span>
               </div>
@@ -7864,7 +9037,7 @@
       <div class="mobile-menu-actions">
         <button id="mobile-import">Import backup <span>JSON</span></button
         ><button id="mobile-export">Export &amp; install <span>↗</span></button
-        ><button id="mobile-personalize">Make it yours <span>↗</span></button
+        ><button id="mobile-personalize">Preferences <span>↗</span></button
         ><button id="mobile-review">Week in orbit <span>↗</span></button>
       </div>
       <p class="atlas-muted">Saved on this device.</p>
@@ -8144,7 +9317,7 @@
     </dialog>
     <dialog id="settings-editor" aria-labelledby="settings-title">
       <div class="dialog-header">
-        <h2 id="settings-title">Make yourself at home.</h2>
+        <h2 id="settings-title">Preferences</h2>
         <button
           class="close"
           data-close="settings-editor"
@@ -8154,9 +9327,8 @@
         </button>
       </div>
       <form id="settings-form">
-        <p class="dialog-description">A workspace that moves at your pace.</p>
         <div class="field">
-          <label for="setting-name">What should we call you?</label
+          <label for="setting-name">Name</label
           ><input
             id="setting-name"
             maxlength="40"
@@ -8183,9 +9355,13 @@
           instead of glass</label
         >
         <p class="dialog-description">
-          Your device’s reduced-motion and reduced-transparency preferences are
-          also respected.
+          Device accessibility settings take priority.
         </p>
+        <p
+          id="system-appearance-note"
+          class="system-appearance-note"
+          role="status"
+        ></p>
         <div class="row">
           <div class="field">
             <label for="setting-accent">Accent</label
@@ -9886,6 +11062,7 @@ var StudyCore;
           document.body.classList.toggle("reduced-motion", prefs.motion);
           document.body.classList.toggle("solid-glass", prefs.solid);
           $("workspace").dataset.page = state.page;
+          document.body.dataset.scene = state.page;
           const names = {
             desk: "My day",
             tasks: "Assignments",
@@ -9901,20 +11078,15 @@ var StudyCore;
                 String(button.dataset.page === state.page),
               );
           });
+          updateNavigationLens();
           $("profile-name").textContent = prefs.name
-            ? `${prefs.name}'s workspace`
+            ? prefs.name
             : "Your workspace";
           $("avatar").textContent = (prefs.name || "S")
             .slice(0, 1)
             .toUpperCase();
           const greeting = $("greeting-title");
           greeting.replaceChildren();
-          const titles = {
-            desk: ["A mind in motion.", "A space of your own."],
-            tasks: ["Less in your head.", "More on your terms."],
-            rhythm: ["Find your rhythm.", "Keep your freedom."],
-            focus: ["One thing.", "Your full attention."],
-          };
           greeting.textContent = {
             desk: "My day",
             tasks: "Assignments",
@@ -10272,10 +11444,10 @@ var StudyCore;
           const open = tasks.filter((task) => !task.done);
           const completed = tasks.length - open.length;
           $("assignment-headline").textContent = open.length
-            ? `${open.length} ${open.length === 1 ? "thing" : "things"} in motion.`
+            ? `${open.length} ${open.length === 1 ? "assignment" : "assignments"} in orbit.`
             : "A clear orbit.";
           $("assignment-effort").textContent = open.length
-            ? `${durationText(open.reduce((sum, task) => sum + taskEffort(task), 0))} estimated · across open assignments`
+            ? `${durationText(open.reduce((sum, task) => sum + taskEffort(task), 0))} estimated remaining`
             : "Add your next assignment when you’re ready.";
           $("assignment-completed").textContent =
             `${completed}/${tasks.length}`;
@@ -10551,7 +11723,31 @@ var StudyCore;
           $("color").value = courseColor(task.course);
           $("notes").value = `Work toward: ${task.title}\nDue ${task.due}`;
         }
+        function updateSystemAppearanceNote() {
+          const reducedTransparency = matchMedia(
+            "(prefers-reduced-transparency: reduce)",
+          ).matches;
+          const reducedMotion = matchMedia(
+            "(prefers-reduced-motion: reduce)",
+          ).matches;
+          const higherContrast = matchMedia("(prefers-contrast: more)").matches;
+          const messages = [];
+          if (reducedTransparency)
+            messages.push(
+              "Reduced transparency is on for this device. To see glass, enable transparency in your device’s visual-effects settings.",
+            );
+          if (reducedMotion)
+            messages.push(
+              "Your device requests reduced motion; movement effects are off.",
+            );
+          if (higherContrast)
+            messages.push(
+              "Your device requests higher contrast; background artwork is hidden.",
+            );
+          $("system-appearance-note").textContent = messages.join(" ");
+        }
         function openSettings() {
+          updateSystemAppearanceNote();
           const p = studyPreferences();
           $("setting-name").value = p.name;
           $("setting-goal").value = p.goal;
@@ -10600,6 +11796,22 @@ var StudyCore;
             r = timerRemaining(t);
           $("timer-display").textContent =
             `${pad(Math.floor(r / 60))}:${pad(r % 60)}`;
+          const beacon = $("focus-beacon");
+          // This indicator never starts, pauses, completes or persists a session.
+          const inProgress = r > 0 && (!!t.endAt || r < t.duration * 60);
+          beacon.hidden = !inProgress || state.page === "focus";
+          beacon.dataset.paused = String(!t.endAt);
+          $("beacon-time").textContent = $("timer-display").textContent;
+          $("beacon-label").textContent = t.endAt ? "Focusing" : "Paused";
+          beacon.style.setProperty(
+            "--beacon-progress",
+            `${100 * (1 - r / (t.duration * 60))}%`,
+          );
+          beacon.setAttribute(
+            "aria-label",
+            `${t.endAt ? "Focus session" : "Paused focus session"}, ${Math.floor(r / 60)} minutes ${r % 60} seconds remaining. Open focus room.`,
+          );
+
           $("timer-display").setAttribute(
             "aria-label",
             `${Math.floor(r / 60)} minutes ${r % 60} seconds remaining`,
@@ -10784,6 +11996,7 @@ var StudyCore;
                 atlas: "Course Atlas",
               }[button.dataset.page],
             );
+            button.title = button.getAttribute("aria-label");
             button.onclick = () => selectPage(button.dataset.page);
           });
           $("add").setAttribute("aria-label", "New event");
@@ -12160,6 +13373,104 @@ var StudyCore;
               "Offline reopening becomes available on the hosted HTTPS version.";
         }
 
+        // The lens follows real button geometry, including when the sidebar collapses.
+        function updateNavigationLens() {
+          const nav = document.querySelector(".side-nav");
+          const active = nav.querySelector('[aria-pressed="true"]');
+          if (active) nav.style.setProperty("--nav-y", `${active.offsetTop}px`);
+        }
+        function bindObservatoryMotion() {
+          $("focus-beacon").onclick = () => {
+            selectPage("focus");
+            // The return control disappears on this page; preserve keyboard context.
+            $("greeting-title").focus({ preventScroll: true });
+          };
+          const phoneLayout = matchMedia("(max-width: 720px)");
+          function placeFocusBeacon() {
+            const beacon = $("focus-beacon");
+            // A blurred ancestor establishes a fixed-position containing block.
+            // Keep the phone indicator at body level so it anchors to the viewport.
+            if (phoneLayout.matches) document.body.append(beacon);
+            else document.querySelector(".masthead").prepend(beacon);
+          }
+          phoneLayout.addEventListener("change", placeFocusBeacon);
+          placeFocusBeacon();
+          const hero = $("now-card");
+          const backdrop = document.querySelector(".orbital-backdrop");
+          const finePointer = matchMedia("(hover: hover) and (pointer: fine)");
+          const motionPreference = matchMedia(
+            "(prefers-reduced-motion: reduce)",
+          );
+          const keyboardHint = $("jump-open").querySelector("kbd");
+          keyboardHint.textContent = /Mac|iPhone|iPad/.test(navigator.platform)
+            ? "⌘ K"
+            : "Ctrl K";
+          // Pointer events schedule at most one update; there is no idle render loop.
+          let frame = 0;
+          let pointerX = 0;
+          let pointerY = 0;
+          function resetLight() {
+            cancelAnimationFrame(frame);
+            frame = 0;
+            backdrop.style.removeProperty("--light-x");
+            backdrop.style.removeProperty("--light-y");
+            hero.style.removeProperty("--art-x");
+            hero.style.removeProperty("--art-y");
+          }
+          document.addEventListener(
+            "pointermove",
+            (event) => {
+              if (
+                calm() ||
+                !finePointer.matches ||
+                document.hidden ||
+                document.querySelector("dialog[open]")
+              )
+                return;
+              pointerX = event.clientX;
+              pointerY = event.clientY;
+              if (frame) return;
+              frame = requestAnimationFrame(() => {
+                frame = 0;
+                if (calm() || document.hidden) return;
+                const x = (pointerX / innerWidth - 0.5) * 12;
+                const y = (pointerY / innerHeight - 0.5) * 10;
+                backdrop.style.setProperty("--light-x", `${x}px`);
+                backdrop.style.setProperty("--light-y", `${y}px`);
+                if (!hero.hidden) {
+                  hero.style.setProperty("--art-x", `${x * 0.65}px`);
+                  hero.style.setProperty("--art-y", `${y * 0.65}px`);
+                }
+              });
+            },
+            { passive: true },
+          );
+          document.documentElement.addEventListener("pointerleave", resetLight);
+          document.addEventListener("visibilitychange", resetLight);
+          window.addEventListener("blur", resetLight);
+          motionPreference.addEventListener("change", resetLight);
+          for (const query of [
+            "(prefers-reduced-motion: reduce)",
+            "(prefers-reduced-transparency: reduce)",
+            "(prefers-contrast: more)",
+          ]) {
+            matchMedia(query).addEventListener(
+              "change",
+              updateSystemAppearanceNote,
+            );
+          }
+          finePointer.addEventListener("change", resetLight);
+          // Saved and live-preview appearance changes also reset any outstanding parallax.
+          new MutationObserver(resetLight).observe(document.body, {
+            attributes: true,
+            attributeFilter: ["class", "data-material"],
+          });
+          new ResizeObserver(updateNavigationLens).observe(
+            document.querySelector(".side-nav"),
+          );
+          animateScene(document.querySelector(".desk-layout"));
+        }
+
         function bindMobileMenu() {
           $("mobile-more").onclick = () => showAuxiliary("mobile-menu");
           $("mobile-menu-close").onclick = () => $("mobile-menu").close();
@@ -12353,6 +13664,7 @@ var StudyCore;
           openWeek(state.week);
           if (!$("grid").children.length) render();
         } else render();
+        bindObservatoryMotion();
       })();
     </script>
   </body>
