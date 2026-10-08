@@ -90,3 +90,20 @@ October 6 handoff: the user requested completion of the current work and a short
 Checked items mean implemented in code, not release-tested. TypeScript compilation succeeded and HTML was formatted. No automated tests, native builds, calendar round trips, offline installation tests or SQL migrations were run. The in-app browser became available and was used for visual inspection with fictional preview data; the earlier Firefox limitation was not bypassed.
 
 Read `docs/STUDY-FEATURES.md`, `docs/WEB-APP.md` and `design/RESEARCH-OCT05.md` before continuing. The root Application.html is the UI source of truth; `npm run build:core` embeds TypeScript and refreshes native/preview copies. The preview server runs locally on port 8002 while its process remains open.
+
+## October 7 observatory overhaul
+
+- [x] Rebuild sidebar and top bar with a floating glass shell and clear action hierarchy.
+- [x] Add original shaded orbital background artwork, bounded parallax and finite transitions.
+- [x] Simplify headings, assignment summaries, typography and secondary controls.
+- [x] Add a contextual focus-session return indicator without changing timer persistence.
+- [x] Improve tablet/phone layouts and retain solid, calm and higher-contrast variants.
+- [x] Explain active device accessibility preferences in appearance settings.
+- [x] Regenerate native/fictional preview copies and offline shell fingerprint.
+- [x] Perform local visual review with fictional data; fix overflow and indicator positioning.
+- [ ] Review on real iPhone/Safari and Firefox, including keyboard, screen reader and performance.
+- [ ] Consolidate historical CSS layers after visual direction approval.
+
+See `design/RESEARCH-OCT07.md` for source decisions, inaccessible references and review limits. Today's work is local and uncommitted; no push or deployment was performed.
+
+October 8 closeout: remaining preference copy and focus-beacon keyboard handoff completed. UI pass finished locally; changes remain uncommitted for user review.
