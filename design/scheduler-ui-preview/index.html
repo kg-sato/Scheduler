@@ -8278,135 +8278,405 @@
         }
       }
     </style>
+    <style id="dimensional-lighting">
+      /* Directional lighting gives the controls a consistent raised surface. */
+      .orbital-backdrop {
+        background:
+          radial-gradient(ellipse at 88% 15%, #72589c6b, transparent 48%),
+          radial-gradient(ellipse at 6% 88%, #367b7461, transparent 48%),
+          linear-gradient(130deg, #111823, #161824 60%, #242038);
+      }
+      .orbital-backdrop::after {
+        background:
+          linear-gradient(90deg, #0a132026, transparent 45%),
+          radial-gradient(ellipse at 55% 80%, #0c152b66, transparent 65%);
+      }
+      .greeting {
+        min-height: 106px;
+        margin: 20px 4px 24px;
+      }
+      .greeting h1 {
+        font-size: clamp(30px, 3.4vw, 44px);
+        font-weight: 550;
+      }
+      .sidebar {
+        border-color: #d9ecf338;
+        box-shadow:
+          inset 1px 1px 0 #f0ffff2e,
+          inset -1px -1px 0 #101625a6,
+          12px 20px 36px #070e1d5c;
+        background: linear-gradient(135deg, #8dabb721, #202b3a9c 65%);
+      }
+      .masthead {
+        border-color: #d9ecf330;
+        background: linear-gradient(
+          115deg,
+          #9ebfc625,
+          #27344791 50%,
+          #7b6a9633
+        );
+        box-shadow:
+          inset 0 1px #efffff40,
+          0 12px 30px #050b194a;
+      }
+      .hero {
+        background:
+          radial-gradient(ellipse at 0% 0%, #80b6ad40, transparent 65%),
+          linear-gradient(130deg, #334750, #242d3b 75%);
+        border: 1px solid #b9e0db3d;
+        box-shadow:
+          inset 1px 1px 0 #ddfff532,
+          inset -1px -1px #0b172b80,
+          0 22px 45px #030b1c70,
+          0 2px 4px #050b1a66;
+      }
+      .hero .orbit-art {
+        filter: drop-shadow(12px 20px 14px #050d1f80);
+      }
+      .hero .orbit-art i {
+        box-shadow:
+          inset 2px 2px 5px #ecf8ff55,
+          inset -5px -8px 12px #07102088;
+      }
+      .focus-card {
+        background:
+          radial-gradient(ellipse at 90% 0%, #c4b2e32b, transparent 60%),
+          linear-gradient(145deg, #3b4351, #232c3a 80%);
+        border-color: #d8deee35;
+        box-shadow:
+          inset 1px 1px #f5ecff2b,
+          inset -1px -1px #060e2199,
+          14px 22px 40px #050b1c6b;
+      }
+      .timer-face {
+        box-shadow:
+          inset 5px 6px 16px #050c1d9c,
+          inset -3px -4px 8px #a9bfcc1a,
+          0 1px 1px #f1f6ff22;
+      }
+      .course-planet,
+      #tasks-full .task-item {
+        border-color: #d3e5f22e;
+        box-shadow:
+          inset 1px 1px #efffff24,
+          inset -1px -1px #071021aa,
+          10px 18px 28px #050c1c66;
+      }
+      .course-planet {
+        background:
+          radial-gradient(ellipse at 14% 0%, #a9d5c81b, transparent 60%),
+          linear-gradient(145deg, #3b4555, #242d3c);
+      }
+      .agenda-block {
+        box-shadow:
+          inset 0 1px #efffff19,
+          0 10px 20px #040c1d55;
+      }
+      .date-button[aria-pressed="true"],
+      .date-button.active {
+        background: linear-gradient(145deg, #43535d, #2a3644);
+        box-shadow:
+          inset 1px 1px #d9fff13b,
+          6px 8px 12px #0b142aa6,
+          -2px -2px 7px #acc7d20d;
+      }
+      .masthead #add,
+      .primary {
+        box-shadow:
+          inset 0 1px #edfff8a8,
+          inset 0 -3px #3f796c40,
+          0 7px 16px #04121955;
+      }
+      .nav-lens {
+        background: linear-gradient(130deg, #c5efe42e, #c0dbea09);
+        box-shadow:
+          inset 1px 1px #efffff42,
+          inset -1px -1px #06152160,
+          0 5px 13px #050f2045;
+      }
+      @media (prefers-reduced-transparency: reduce) {
+        .orbital-backdrop {
+          background:
+            radial-gradient(ellipse at 90% 10%, #3b304e, transparent 60%),
+            #121c2b;
+        }
+        .sidebar,
+        .masthead {
+          background: #263442;
+        }
+      }
+      @media (prefers-contrast: more) {
+        .orbital-backdrop,
+        .solid-glass .orbital-backdrop {
+          display: none;
+        }
+      }
+      @media (max-width: 720px) {
+        .greeting {
+          min-height: 83px;
+          margin: 16px 4px 20px;
+        }
+        .greeting h1 {
+          font-size: 30px;
+        }
+        .hero {
+          box-shadow:
+            inset 1px 1px #ddfff532,
+            0 13px 25px #030b1c66;
+        }
+      }
+      /* Keep small toolbar labels readable when a bright highlight passes behind the glass. */
+      .masthead #quick-capture,
+      .masthead #mobile-more {
+        background: #142332a6;
+        border-color: #d5edf51c;
+      }
+    </style>
+
+    <style id="folded-light-background">
+      /* Full-viewport vector surfaces stay sharp without a WebGL context or downloaded artwork. */
+      .orbital-backdrop,
+      .solid-glass .orbital-backdrop {
+        background: #111c25;
+      }
+      .orbital-backdrop::after {
+        background: radial-gradient(
+          ellipse at 55% 58%,
+          #0b142333,
+          transparent 72%
+        );
+      }
+      .orbital-backdrop > .folded-landscape,
+      .solid-glass .orbital-backdrop > .folded-landscape,
+      body[data-scene] .orbital-backdrop > .folded-landscape {
+        display: block;
+        position: absolute;
+        inset: -12px;
+        width: calc(100% + 24px);
+        height: calc(100% + 24px);
+        max-width: none;
+        opacity: 1;
+        filter: none;
+        transform: translate3d(var(--light-x, 0px), var(--light-y, 0px), 0);
+        transition:
+          transform 950ms var(--motion-ease),
+          opacity 450ms ease;
+      }
+      body[data-scene="focus"] .orbital-backdrop > .folded-landscape {
+        opacity: 0.55;
+      }
+      body[data-material="quiet"] .orbital-backdrop > .folded-landscape {
+        opacity: 0.2;
+        transform: none;
+      }
+      .reduced-motion .orbital-backdrop > .folded-landscape {
+        transform: none;
+        transition: none;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .orbital-backdrop > .folded-landscape {
+          transform: none !important;
+          transition: none !important;
+        }
+      }
+      @media (prefers-contrast: more) {
+        .orbital-backdrop,
+        .solid-glass .orbital-backdrop {
+          display: none;
+        }
+      }
+      @media (max-width: 720px) {
+        /* A wider field of view keeps the folds small on narrow screens. */
+        .orbital-backdrop > .folded-landscape,
+        .solid-glass .orbital-backdrop > .folded-landscape,
+        body[data-scene] .orbital-backdrop > .folded-landscape {
+          width: 115%;
+          left: -7.5%;
+          right: auto;
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="orbital-backdrop" aria-hidden="true">
-      <i class="backdrop-ring backdrop-ring--main"></i>
-      <i class="backdrop-ring backdrop-ring--echo"></i>
-      <i class="backdrop-contour"></i>
+      <!-- Original vector relief: continuous sheets, directional shading and an open reading area. -->
       <svg
-        class="light-sculpture"
-        viewBox="0 0 1000 1000"
+        class="light-sculpture folded-landscape"
+        viewBox="-240 -150 2080 1300"
+        preserveAspectRatio="none"
         fill="none"
         aria-hidden="true"
+        focusable="false"
       >
         <defs>
           <linearGradient
-            id="ribbon-mint"
-            x1="170"
-            y1="180"
-            x2="820"
-            y2="810"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#19353e" />
-            <stop offset=".23" stop-color="#bfe6dc" />
-            <stop offset=".38" stop-color="#607b80" />
-            <stop offset=".58" stop-color="#26363f" />
-            <stop offset=".79" stop-color="#c4b2e3" />
-            <stop offset="1" stop-color="#4a5065" />
-          </linearGradient>
-          <linearGradient
-            id="ribbon-peach"
-            x1="760"
-            y1="250"
-            x2="260"
-            y2="770"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#5a536a" />
-            <stop offset=".25" stop-color="#d4c3ec" />
-            <stop offset=".42" stop-color="#efb49c" />
-            <stop offset=".56" stop-color="#a77973" />
-            <stop offset=".8" stop-color="#293543" />
-            <stop offset="1" stop-color="#799c9c" />
-          </linearGradient>
-          <linearGradient
-            id="ribbon-edge"
+            id="fold-base"
             x1="200"
-            y1="180"
-            x2="710"
-            y2="800"
+            y1="0"
+            x2="1300"
+            y2="1000"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#e8fff4" stop-opacity=".8" />
-            <stop offset=".5" stop-color="#e8fff4" stop-opacity="0" />
-            <stop offset="1" stop-color="#e9d9ff" stop-opacity=".6" />
+            <stop stop-color="#253841" />
+            <stop offset=".36" stop-color="#0e1921" />
+            <stop offset=".72" stop-color="#151924" />
+            <stop offset="1" stop-color="#383249" />
           </linearGradient>
-          <radialGradient id="satellite-light" cx=".28" cy=".2" r=".78">
-            <stop stop-color="#fff0dc" />
-            <stop offset=".35" stop-color="#e5b4a2" />
-            <stop offset=".8" stop-color="#715c6f" />
-            <stop offset="1" stop-color="#293447" />
+          <linearGradient
+            id="fold-mint"
+            x1="470"
+            y1="-140"
+            x2="850"
+            y2="440"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color="#172932" />
+            <stop offset=".34" stop-color="#3b6a6d" />
+            <stop offset=".58" stop-color="#96c9bd" />
+            <stop offset=".70" stop-color="#547d81" />
+            <stop offset=".84" stop-color="#253e49" />
+            <stop offset="1" stop-color="#121c2b" />
+          </linearGradient>
+          <linearGradient
+            id="fold-lilac"
+            x1="1600"
+            y1="60"
+            x2="1080"
+            y2="580"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color="#292337" />
+            <stop offset=".3" stop-color="#5e527c" />
+            <stop offset=".52" stop-color="#b2a0d6" />
+            <stop offset=".62" stop-color="#756c96" />
+            <stop offset=".79" stop-color="#333346" />
+            <stop offset="1" stop-color="#131c27" />
+          </linearGradient>
+          <linearGradient
+            id="fold-peach"
+            x1="70"
+            y1="580"
+            x2="580"
+            y2="1130"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color="#16252d" />
+            <stop offset=".38" stop-color="#334952" />
+            <stop offset=".56" stop-color="#708385" />
+            <stop offset=".71" stop-color="#c7a79e" />
+            <stop offset=".79" stop-color="#806970" />
+            <stop offset="1" stop-color="#272b3b" />
+          </linearGradient>
+          <linearGradient
+            id="fold-edge"
+            x1="180"
+            y1="0"
+            x2="1500"
+            y2="550"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color="#b6f4de" stop-opacity=".08" />
+            <stop offset=".35" stop-color="#d1f4e8" stop-opacity=".75" />
+            <stop offset=".65" stop-color="#cab8ee" stop-opacity=".55" />
+            <stop offset="1" stop-color="#cab8ee" stop-opacity="0" />
+          </linearGradient>
+          <radialGradient id="fold-light">
+            <stop stop-color="#bcebdd" stop-opacity=".19" />
+            <stop offset="1" stop-color="#bcebdd" stop-opacity="0" />
           </radialGradient>
+          <filter
+            id="fold-shadow"
+            x="-30%"
+            y="-40%"
+            width="170%"
+            height="200%"
+            color-interpolation-filters="sRGB"
+          >
+            <feDropShadow
+              dx="-12"
+              dy="30"
+              stdDeviation="24"
+              flood-color="#020811"
+              flood-opacity=".78"
+            />
+          </filter>
+          <filter id="fold-soften" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="26" />
+          </filter>
         </defs>
-        <g transform="rotate(-32 500 500)">
-          <ellipse
-            cx="500"
-            cy="535"
-            rx="265"
-            ry="350"
-            stroke="#080f1c"
-            stroke-opacity=".45"
-            stroke-width="104"
-          />
-          <ellipse
-            cx="500"
-            cy="500"
-            rx="265"
-            ry="350"
-            stroke="url(#ribbon-mint)"
-            stroke-width="96"
-          />
-          <ellipse
-            cx="500"
-            cy="500"
-            rx="309"
-            ry="394"
-            stroke="url(#ribbon-edge)"
-            stroke-width="2"
-          />
-          <ellipse
-            cx="500"
-            cy="500"
-            rx="218"
-            ry="303"
-            stroke="#111f2d"
-            stroke-opacity=".6"
-            stroke-width="3"
-          />
-        </g>
-        <g transform="rotate(42 500 500)">
-          <ellipse
-            cx="500"
-            cy="500"
-            rx="375"
-            ry="160"
-            stroke="url(#ribbon-peach)"
-            stroke-width="56"
-          />
-          <ellipse
-            cx="500"
-            cy="500"
-            rx="401"
-            ry="186"
-            stroke="url(#ribbon-edge)"
-            stroke-width="1.5"
-          />
-        </g>
-        <circle cx="214" cy="701" r="41" fill="url(#satellite-light)" />
-        <circle cx="824" cy="343" r="9" fill="#d7eae3" />
-        <ellipse
-          cx="500"
-          cy="500"
-          rx="455"
-          ry="245"
-          transform="rotate(42 500 500)"
-          stroke="#c9dbed"
-          stroke-opacity=".18"
+        <rect
+          x="-600"
+          y="-500"
+          width="3000"
+          height="2200"
+          fill="url(#fold-base)"
         />
+        <!-- The lilac sheet curls inward from the right; its shadow separates it from the lower plane. -->
+        <path
+          d="M 850 -500 H 2200 V 1500 C 1810 1280 1345 870 1270 650 C 1170 355 1390 265 1290 90 C 1190 -85 1030 -300 850 -500 Z"
+          fill="url(#fold-lilac)"
+          filter="url(#fold-shadow)"
+        />
+        <path
+          d="M 1290 90 C 1390 265 1170 355 1270 650 C 1345 870 1810 1280 2200 1500"
+          stroke="url(#fold-edge)"
+          stroke-width="1.5"
+        />
+        <!-- A wide mint crest bridges the top, with a rounded, folded lower edge. -->
+        <path
+          d="M -600 -500 H 1800 C 1670 -220 1290 90 1080 140 C 840 198 795 90 570 165 C 355 237 330 430 95 400 C -125 385 -400 80 -600 160 Z"
+          fill="url(#fold-mint)"
+          filter="url(#fold-shadow)"
+        />
+        <path
+          d="M -600 160 C -400 80 -125 385 95 400 C 330 430 355 237 570 165 C 795 90 840 198 1080 140 C 1290 90 1670 -220 1800 -500"
+          stroke="url(#fold-edge)"
+          stroke-width="1.4"
+        />
+        <ellipse
+          cx="680"
+          cy="70"
+          rx="410"
+          ry="125"
+          fill="url(#fold-light)"
+          transform="rotate(-12 680 70)"
+        />
+        <!-- A warm lower fold balances the cool crest without crossing the main reading area. -->
+        <path
+          d="M -600 390 C -150 365 135 755 350 790 C 615 835 900 1200 1460 1500 H -600 Z"
+          fill="url(#fold-peach)"
+          filter="url(#fold-shadow)"
+        />
+        <path
+          d="M -600 390 C -150 365 135 755 350 790 C 615 835 900 1200 1460 1500"
+          stroke="url(#fold-edge)"
+          stroke-width="1.2"
+        />
+        <path
+          d="M -600 480 C -150 455 115 827 332 854 C 610 891 880 1270 1400 1560"
+          stroke="#0c1824"
+          stroke-width="28"
+          stroke-opacity=".42"
+          filter="url(#fold-soften)"
+        />
+        <g stroke="url(#fold-edge)" stroke-width="1" opacity=".24">
+          <path
+            d="M -520 70 C -180 20 -100 340 110 335 C 350 350 365 165 555 105 C 780 30 850 135 1070 80 C 1330 15 1560 -265 1680 -430"
+          />
+          <path
+            d="M -520 -5 C -180 -55 -80 275 120 270 C 350 285 395 95 545 45 C 770 -30 865 70 1060 20 C 1290 -40 1450 -290 1560 -460"
+          />
+          <path
+            d="M 1460 -220 C 1660 150 1250 280 1380 645 C 1460 880 1750 1090 2080 1300"
+          />
+          <path
+            d="M 1550 -220 C 1750 150 1340 280 1470 645 C 1550 880 1840 1090 2170 1300"
+          />
+          <path
+            d="M -580 540 C -200 510 130 920 340 940 C 650 970 870 1300 1330 1510"
+          />
+        </g>
       </svg>
-      <div class="orbit-dust"></div>
     </div>
     <div class="demo-banner" id="demo-banner" hidden>
       Interactive design preview · fictional student data · changes stay in this
@@ -13377,6 +13647,7 @@ var StudyCore;
           const active = nav.querySelector('[aria-pressed="true"]');
           if (active) nav.style.setProperty("--nav-y", `${active.offsetTop}px`);
         }
+        // Small, offline WebGL scene. Geometry is decorative; the SVG remains the fallback.
         function bindObservatoryMotion() {
           $("focus-beacon").onclick = () => {
             selectPage("focus");
