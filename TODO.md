@@ -107,3 +107,15 @@ Read `docs/STUDY-FEATURES.md`, `docs/WEB-APP.md` and `design/RESEARCH-OCT05.md` 
 See `design/RESEARCH-OCT07.md` for source decisions, inaccessible references and review limits. Today's work is local and uncommitted; no push or deployment was performed.
 
 October 8 closeout: remaining preference copy and focus-beacon keyboard handoff completed. UI pass finished locally; changes remain uncommitted for user review.
+
+## October 9 dimensional UI pass
+
+- [x] Strengthen card, calendar-selection, sidebar and button elevation without adding UI copy.
+- [x] Explore a WebGL orbital scene; superseded after user feedback by the folded-light direction below.
+- [x] Replace floating background objects with original full-viewport mint, lilac and pearl vector relief.
+- [x] Remove the superseded WebGL renderer and preserve bounded, event-driven pointer parallax.
+- [x] Adapt the composition to phone screens and retain quiet, solid, reduced-motion and higher-contrast appearances.
+- [x] Regenerate app copies and document current implementation in `design/FOLDED-LIGHT.md`.
+- [ ] Review physical iPhone/Safari and Firefox appearance and performance before release.
+
+Changes remain local for review; no commit or push was performed.
