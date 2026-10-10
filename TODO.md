@@ -119,3 +119,43 @@ October 8 closeout: remaining preference copy and focus-beacon keyboard handoff 
 - [ ] Review physical iPhone/Safari and Firefox appearance and performance before release.
 
 Changes remain local for review; no commit or push was performed.
+
+
+## October 10 motion system
+
+- [x] Review provided animation references and independent browser/design guidance; record access limitations.
+- [x] Add coordinated, interruptible page and calendar entrances.
+- [x] Add sliding glass selection lenses to calendar, view switch, focus presets, and phone navigation.
+- [x] Add task completion acknowledgement, exact-position reflow, and new-card/filter motion.
+- [x] Connect the dashboard timer to the Focus room through a desktop spatial transition.
+- [x] Add one-time timer state feedback, hero light sweep, tactile controls, and course detail motion.
+- [x] Enhance auxiliary dialog exits where browser support allows; retain native close/focus semantics.
+- [x] Respect live and saved reduced-motion preferences; cancel transient effects on page changes/backgrounding.
+- [x] Regenerate derived app copies and inspect fictional desktop/phone motion frames.
+- [ ] Review real-device Safari/Firefox responsiveness, screen-reader/keyboard flows, and long-list motion before release.
+
+See `design/MOTION-OCT10.md` for timings, sources, implementation decisions, and review limits. Changes remain local and uncommitted.
+
+
+## Next design pass ? approachable inputs (user reminder, October 10)
+
+- [ ] Redesign Capture as a welcoming quick-entry surface with concise prompts and optional details.
+- [ ] Make New event / study block creation feel conversational, progressively revealing advanced fields.
+- [ ] Refresh Search as a friendly command palette with useful empty states and recent destinations.
+- [ ] Refresh Your Workspace / profile preferences with clear grouped choices and previews.
+- [ ] Preserve labels, keyboard navigation, validation, saved data, and reduced-motion support throughout.
+
+## Liquid instruments and spatial continuity
+
+- [x] Refresh the central event action and timer with translucent instrument styling.
+- [x] Add event-driven scroll depth and scene-specific liquid orientations and palette shifts.
+- [x] Extend spatial panel transitions to the planner, workload forecast and assignment rail expansion.
+
+
+## Account infrastructure
+
+- [x] Replace network-wide hosting with loopback-only account hosting; leave firewall unchanged.
+- [x] Add SQLite account storage, hashed passwords, protected sessions and explicit revision-checked snapshot sync.
+- [x] Add account UI and pre-download local backup.
+- [ ] Choose HTTPS hosting and production authentication/recovery strategy for actual cross-device sync.
+- [ ] Complete server-side event schema validation, automated auth/sync security tests, recovery/deletion flows and deployment review.

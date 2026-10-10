@@ -17,3 +17,10 @@ Thumbs.db
 .env.*
 
 node_modules/
+
+# Account storage and TLS secrets never belong in source control.
+*.sqlite3
+*.sqlite3-*
+*.db
+*.db-*
+*.pem

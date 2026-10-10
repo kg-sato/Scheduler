@@ -3,7 +3,9 @@
   "private": true,
   "version": "0.1.0",
   "scripts": {
-    "build:core": "python scripts/build_core.py"
+    "build:core": "python scripts/build_core.py",
+    "dev:lan": "python scripts/serve_local.py --bind 127.0.0.1",
+    "dev": "python scripts/serve_accounts.py"
   },
   "devDependencies": {
     "typescript": "5.9.3"
